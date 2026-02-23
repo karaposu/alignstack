@@ -6,10 +6,11 @@
 
 ## Welcome
 
-AlignStack transforms AI assited coding into a structured methodology with repeatable patterns for AI collaboration. It bridges the gap between coding by feel and engineering discipline. The core philosophy:
+AlignStack is a stack of six fundamental alignment layers for AI-driven action — applicable to AI-Human and AI-AI collaboration, with a focus on software development.
 
+This book presents AlignStack as a structured methodology with repeatable patterns that bridge the gap between coding by feel and engineering discipline. It starts with one observation:
 
-When you delegate work to AI, misalignment can occur at six layers:
+When you delegate work to AI, any misalignment can only occur at these six layers:
 
 1. **Workspace Alignment** — The environment and context aren't set up correctly
 2. **Task Alignment** — The task is not understood well
@@ -25,12 +26,12 @@ Unlike pure vibe coding, AlignStack offers systematic, repeatable foundations an
 This book doesn't introduce new concepts. Instead, it codifies what many developers already do instinctively, turning scattered practices into a cohesive methodology.
 
 
-### Core Principles
+### The Four Pillars
 
-Alignment requires Comparison.
-Comparison requires Measurement.
-Measurement requires Visibility.
-Visibility requires Explicitness.
+> Alignment requires Comparison.
+> Comparison requires Measurement.
+> Measurement requires Visibility.
+> Visibility requires Explicitness.
 
 These four pillars define what we need at each layer to maintain alignment. Applied across all six layers, they form the foundation of AlignStack
 
