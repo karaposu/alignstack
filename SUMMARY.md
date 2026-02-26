@@ -54,6 +54,7 @@
 
 * [Appendix 1: New Project Prompts](content/APPENDIX1_NEW_PROJECT_PROMPTS.md)
 * [Appendix 2: From Existing Codebase Prompts](content/APPENDIX2_FROM_EXISTING_CODEBASE_PROMPTS.md)
+* [Appendix 9: AlignStack Slash Commands](src/APPENDIX9_ALIGNSTACK_SLASH_COMMANDS.md)
 
 ## Additional Resources
 

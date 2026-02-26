@@ -51,6 +51,7 @@
 - [Appendix 4: Adding New Features](APPENDIX4_ADDING_NEW_FEATURE.md)
 - [Appendix 5: Useful Prompts](APPENDIX5_USEFUL.md)
 - [Appendix 8: Dynamic Prompts](APPENDIX8_Dynamic_Prompts.md)
+- [Appendix 9: AlignStack Slash Commands](APPENDIX9_ALIGNSTACK_SLASH_COMMANDS.md)
 
 ---
 

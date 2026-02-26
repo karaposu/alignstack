@@ -172,7 +172,7 @@ Scan for unused elements:
 
 Create: devdocs/archaeology/cleanup_inventory.md
 
-WARNING: Never delete immediately—code that looks unused might be:
+WARNING: Never delete immediately, code that looks unused might be:
 - Loaded dynamically
 - Referenced in configuration
 - Used by external systems

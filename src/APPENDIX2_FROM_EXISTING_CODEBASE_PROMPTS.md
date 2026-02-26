@@ -66,20 +66,30 @@ Create one file per interaction trace under devdocs/archaeology/traces/ (e.g., t
 Base all analysis strictly on actual code behavior rather than names or assumptions.
 
 
-Each trace should have the following sections
+Each trace file should have the following sections
 
-Entry Point
-Execution Path
-Resource Management
-Error Path
-Performance Characteristics
-Observable Effects
-Why This Design 
 
-What feels incomplete
-What feels vulnerable
-What feels bad design
+Core sections:
+  - Entry Point
+  - Execution Path
+  - Resource Management
+  - Error Path
+  - Performance Characteristics
+  - Observable Effects
+  - Why This Design
 
+  Assessment sections (each must include an ELI5 explanation, an Impact field, and a Robust Fixes / Best Practices field):
+  - What feels incomplete
+  - What feels vulnerable
+  - What feels like bad design
+
+  for each of the three Assessment sections, include: 
+      the issue itself
+      an ELI5 (plain-language explanation)
+      Impact of it to the codebase and overall logic 
+      Robust Fixes / Best Practices (how to address it properly)
+
+subsections. 
 
 
 """
