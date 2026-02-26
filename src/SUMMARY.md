@@ -36,7 +36,7 @@
   - [Exploration Docs](chapter_6_devdocs/05_explorations_docs.md)
   - [Module Docs](chapter_6_devdocs/06_module_docs.md)
   - [Other Docs](chapter_6_devdocs/06_other_docs.md)
-- [Probe Tests Pattern](chapter_7_probe_tests/probe_tests_fixed.md)
+- [Run Probes](chapter_7_run_probes/1.md)
 - [Fuzzy Architecture](chapter_8_fuzzy/fuzzy_architecture.md)
 - [The Anchor Pattern](chapter_9_anchor/the_anchor_pattern.md)
 - [Archaeology Pattern](chapter_10_archaeology_pattern/archaeology_pattern.md)
@@ -45,13 +45,15 @@
 
 # Appendices
 
-- [Appendix 1: New Project Prompts](APPENDIX1_NEW_PROJECT_PROMPTS.md)
-- [Appendix 2: From Existing Codebase Prompts](APPENDIX2_FROM_EXISTING_CODEBASE_PROMPTS.md)
-- [Appendix 3: Refactoring with AlignStack](APPENDIX3_REFACTORING.md)
-- [Appendix 4: Adding New Features](APPENDIX4_ADDING_NEW_FEATURE.md)
-- [Appendix 5: Useful Prompts](APPENDIX5_USEFUL.md)
-- [Appendix 8: Dynamic Prompts](APPENDIX8_Dynamic_Prompts.md)
-- [Appendix 9: AlignStack Slash Commands](APPENDIX9_ALIGNSTACK_SLASH_COMMANDS.md)
+- [Appendix 1: New Project Prompts](APPENDIX1_New_Project_Prompts.md)
+- [Appendix 2: From Existing Codebase Prompts](APPENDIX2_From_Existing_Codebase_Prompts.md)
+- [Appendix 3: Refactoring with AlignStack](APPENDIX3_Refactoring.md)
+- [Appendix 4: Adding New Features](APPENDIX4_Adding_New_Feature.md)
+- [Appendix 5: Useful Prompts](APPENDIX5_Useful.md)
+- [Appendix 6: Sense Making](APPENDIX6_Sense_Making.md)
+- [Appendix 7: Dynamic Prompts](APPENDIX7_Dynamic_Prompts.md)
+- [Appendix 8: AlignStack Slash Commands](APPENDIX8_Alignstack_Slash_Commands.md)
+- [Appendix 9: DevDocs Folder Convention](APPENDIX9_Devdocs_Folder_Convention.md)
 
 ---
 

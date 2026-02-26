@@ -78,7 +78,10 @@
 - Appendix 3: Refactoring with AlignStack
 - Appendix 4: Adding New Features
 - Appendix 5: Useful Prompts
-- Appendix 8: Dynamic Prompts
+- Appendix 6: Sense Making
+- Appendix 7: Dynamic Prompts
+- Appendix 8: AlignStack Slash Commands
+- Appendix 9: DevDocs Folder Convention
 
 ---
 

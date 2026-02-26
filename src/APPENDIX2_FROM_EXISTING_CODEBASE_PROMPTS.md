@@ -13,61 +13,57 @@ This appendix contains ready-to-use prompts for applying Vibe Coding patterns to
 ### Phase 1: Filling the Context and Summarizing
 
 
-"""
-
-This is an ongoing project. It is currently partially working but on heavy development. 
+```
+This is an ongoing project. It is currently partially working but on heavy development.
 I would like you read all the files and tell me about this project in non technical terms
 
 - Make sure you focus on code files and not existing documentation
-- Make sure you read code files fully 
+- Make sure you read code files fully
 
 
 And create devdocs/archaeology/small_summary.md
-
-"""
+```
 
 ### Phase 2: Enhancing Generic Technical Understanding 
 
 
-"""
-Now understand how this codebase designed in terms of 
+```
+Now understand how this codebase designed in terms of
 
 - data flow paths
-- main abstractions 
-- top level desing patterns 
+- main abstractions
+- top level design patterns
 
-But talk about these in high level. As if you are introducing the architecture / project to a new engineer. 
+But talk about these in high level. As if you are introducing the architecture / project to a new engineer.
 
 put this in devdocs/archaeology/intro2codebase.md
-
-"""
+```
 
 ### Phase 2.5: Understanding  Deployment
 
-Understand the current deployment approach in this codebase and infastructure from the existing code/config/docker files and then put this in
+```
+Understand the current deployment approach in this codebase and infrastructure from the existing code/config/docker files and then put this in
 
 devdocs/archaeology/intro2deployment.md
 
-Make sure talk about the codebase is prepare for what kind of deployment, ,which tech stack, which scalability options etc 
+Make sure talk about the codebase is prepared for what kind of deployment, which tech stack, which scalability options etc
 
-Also if it exists talk about the existing dockerfile and what it tells about deployment 
+Also if it exists talk about the existing dockerfile and what it tells about deployment
+```
 
 
 ### Phase 3: Deeper look in CodeBase  
 
 
-"""
-Identify every internal interface and submodule-level interaction defined within the codebase (excluding external packages). For each interface, follow its execution path end-to-end: what calls it, what it triggers, how data or state moves through the layers, and what outcomes it produces. 
+```
+Identify every internal interface and submodule-level interaction defined within the codebase (excluding external packages). For each interface, follow its execution path end-to-end: what calls it, what it triggers, how data or state moves through the layers, and what outcomes it produces.
 
-Document these flows at a high level, explaining what each interaction corresponds to, what it affects, and why it behaves that way.  
-
+Document these flows at a high level, explaining what each interaction corresponds to, what it affects, and why it behaves that way.
 
 Create one file per interaction trace under devdocs/archaeology/traces/ (e.g., trace_1.md, trace_2.md).
 Base all analysis strictly on actual code behavior rather than names or assumptions.
 
-
 Each trace file should have the following sections
-
 
 Core sections:
   - Entry Point
@@ -78,65 +74,53 @@ Core sections:
   - Observable Effects
   - Why This Design
 
-  Assessment sections (each must include an ELI5 explanation, an Impact field, and a Robust Fixes / Best Practices field):
+Assessment sections (each must include an ELI5 explanation, an Impact field, and a Robust Fixes / Best Practices field):
   - What feels incomplete
   - What feels vulnerable
   - What feels like bad design
 
-  for each of the three Assessment sections, include: 
+  for each of the three Assessment sections, include:
       the issue itself
       an ELI5 (plain-language explanation)
-      Impact of it to the codebase and overall logic 
+      Impact of it to the codebase and overall logic
       Robust Fixes / Best Practices (how to address it properly)
 
-subsections. 
-
-
-"""
+subsections.
+```
 
 
 ### Phase 4: Using Fresh Trace analysis to Identify "Things"
 
 
-"""
-
+```
 Now look at all traces and what are the 5 things that would improve the codebase a lot?
 
 Put these in devdocs/archaeology/5_things_or_not.md
 
 And make sure after each of them think for a possible reason this thing is not implemented/fixed at the current code
-(the reason is there might be some undocumented decisions and these 5 thigns might refer to them  )
-
-
-"""
+(the reason is there might be some undocumented decisions and these 5 things might refer to them)
+```
 
 ### Phase 5:  Concept Inventory
 
 
-"""
+```
+Looking at the codebase,
 
-Looking at the codebase, 
+Create
 
-Create 
+1. devdocs/archaeology/concepts/technical_concepts_list.md
+2. devdocs/archaeology/concepts/design_concepts_list.md
+3. devdocs/archaeology/concepts/busines_lvl_concepts_list.md
 
-1. devdocs/archaeology/concepts/technical_concepts_list.md  
-2. devdocs/archaeology/concepts/design_concepts_list.md 
-3. devdocs/archaeology/concepts/busines_lvl_concepts_list.md 
+where each concept has high level explanation (max 3 sentence) as well as current implementation status. And make sure the listing starts from most main ones and branches as needed.
 
+Recognize that the codebase may contain architectural intentions, hidden assumptions, edge-case handling, or future-oriented design considerations that exist only in the code and are not explicitly documented. Surface these implicit concepts clearly among with others explain their possible purpose, rationale, and potential impact on scalability, security, and maintainability.
 
-where each concept has high level explanation (max 3 sentence) as well as current implementation status. And make sure the listing starts from most main ones and branches as needed. 
+and then Identify missing but required/expected concepts and then put them in
 
-Recognize that the codebase may contain architectural intentions, hidden assumptions, edge-case handling, or future-oriented design considerations that exist only in the code and are not explicitly documented. Surface these implicit concepts clearly among with others explain their possible purpose, rationale, and potential impact on scalability, security, and maintainability. 
-
-
-and then Identify missing but required/expected concepts and thenput them in 
-
-devdocs/archaeology/concepts/missing_concepts_list.md 
-
-
-
-
-"""
+devdocs/archaeology/concepts/missing_concepts_list.md
+```
 
 
 
@@ -333,78 +317,80 @@ Never delete immediately - code that looks unused might be:
 
 ### Phase 12: Strategic Refactoring Opportunities
 
-  Identify high-value refactoring opportunities that will significantly improve the codebase:
+```
+Identify high-value refactoring opportunities that will significantly improve the codebase:
 
-  1. Scan for refactoring candidates:
-     - Database operations scattered across codebase → Repository Pattern
-     - Business logic mixed with infrastructure → Service Pattern
-     - Repeated API call patterns → Gateway/Client abstraction
-     - Global state management → Dependency Injection
-     - Hard-coded configurations → Configuration Pattern
-     - Complex conditionals → Strategy Pattern
-     - Direct file system access → Storage abstraction
+1. Scan for refactoring candidates:
+   - Database operations scattered across codebase → Repository Pattern
+   - Business logic mixed with infrastructure → Service Pattern
+   - Repeated API call patterns → Gateway/Client abstraction
+   - Global state management → Dependency Injection
+   - Hard-coded configurations → Configuration Pattern
+   - Complex conditionals → Strategy Pattern
+   - Direct file system access → Storage abstraction
 
-  2. Create devdocs/evolution/refactoring_opportunities.md:
-     For each opportunity document:
-     - Current problematic pattern (with file locations)
-     - Proposed abstraction/pattern
-     - Immediate benefits (testability, maintainability)
-     - Implementation effort estimate
-     - Risk assessment
-     - ROI justification
+2. Create devdocs/evolution/refactoring_opportunities.md:
+   For each opportunity document:
+   - Current problematic pattern (with file locations)
+   - Proposed abstraction/pattern
+   - Immediate benefits (testability, maintainability)
+   - Implementation effort estimate
+   - Risk assessment
+   - ROI justification
 
-  3. Prioritize by value/effort ratio:
-     - Critical: Blocks testing or development
-     - High: Significant maintenance reduction
-     - Medium: Nice to have, clear benefits
-     - Low: Cosmetic, can wait
+3. Prioritize by value/effort ratio:
+   - Critical: Blocks testing or development
+   - High: Significant maintenance reduction
+   - Medium: Nice to have, clear benefits
+   - Low: Cosmetic, can wait
 
-  Focus only on refactoring that:
-  - Enables better testing
-  - Reduces coupling between modules
-  - Makes AI-driven development easier
-  - Solves actual pain points
+Focus only on refactoring that:
+- Enables better testing
+- Reduces coupling between modules
+- Makes AI-driven development easier
+- Solves actual pain points
 
-  Avoid refactoring for its own sake - each change must deliver measurable value.
+Avoid refactoring for its own sake - each change must deliver measurable value.
+```
 
+### Phase 13: Implementation Roadmap
 
-  ### Phase 13: Implementation Roadmap
+```
+Create comprehensive roadmap combining all improvement activities:
 
-  Create comprehensive roadmap combining all improvement activities:
+Create devdocs/evolution/implementation_roadmap.md organizing work into phases:
 
-  Create devdocs/evolution/implementation_roadmap.md organizing work into phases:
+Phase A - Foundation (Week 1-2):
+1. Critical cleanup from cleanup_inventory.md
+2. Essential refactoring that unblocks other work
+3. Fix broken core functionality from smoke test report
+4. Establish CI/CD if missing
 
-  Phase A - Foundation (Week 1-2):
-  1. Critical cleanup from cleanup_inventory.md
-  2. Essential refactoring that unblocks other work
-  3. Fix broken core functionality from smoke test report
-  4. Establish CI/CD if missing
+Phase B - Core Refactoring (Week 3-4):
+1. Implement highest-ROI refactoring from refactoring_opportunities.md
+2. Add abstraction layers (Repository, Service patterns)
+3. Decouple tightly coupled modules
+4. Run smoke tests after each refactor
 
-  Phase B - Core Refactoring (Week 3-4):
-  1. Implement highest-ROI refactoring from refactoring_opportunities.md
-  2. Add abstraction layers (Repository, Service patterns)
-  3. Decouple tightly coupled modules
-  4. Run smoke tests after each refactor
+Phase C - Gap Filling (Week 5-8):
+1. Implement missing concepts from gap_analysis.md
+2. Start with quick wins
+3. Progress to module-by-module improvements
+4. Add new features identified in gaps
 
-  Phase C - Gap Filling (Week 5-8):
-  1. Implement missing concepts from gap_analysis.md
-  2. Start with quick wins
-  3. Progress to module-by-module improvements
-  4. Add new features identified in gaps
+Phase D - Integration & Polish (Week 9-10):
+1. Ensure all modules work together
+2. Performance optimization
+3. Documentation updates
+4. Comprehensive testing
 
-  Phase D - Integration & Polish (Week 9-10):
-  1. Ensure all modules work together
-  2. Performance optimization
-  3. Documentation updates
-  4. Comprehensive testing
+For each item include:
+- Specific files/modules affected
+- Dependencies (what must be done first)
+- Success criteria
+- Time estimate
+- Risk level
 
-  For each item include:
-  - Specific files/modules affected
-  - Dependencies (what must be done first)
-  - Success criteria
-  - Time estimate
-  - Risk level
-
-  This roadmap becomes your execution guide for transforming the codebase systematically.
+This roadmap becomes your execution guide for transforming the codebase systematically.
 ```
 

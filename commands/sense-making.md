@@ -19,7 +19,18 @@ $ARGUMENTS
 
 3. Execute the full Structural Sensemaking process described below, producing all Sense Versions (SV1 through SV6).
 
-4. Save the output as a markdown file:
+4. Before writing any file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
+
+```
+---
+created: YYYY-MM-DD
+branch: <current branch>
+base_commit: <short HEAD commit>
+author: <git user.name>
+---
+```
+
+5. Save the output as a markdown file:
    - **If the input was a file path** — save in the same folder as the input file.
    - **Otherwise** — save under `devdocs/sensemaking/<suitable-name>.md` (create the directory if needed).
 

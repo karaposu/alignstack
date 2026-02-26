@@ -1,4 +1,4 @@
-# APPENDIX 9: ALIGNSTACK SLASH COMMANDS
+# APPENDIX 8: ALIGNSTACK SLASH COMMANDS
 
 ## What Are Slash Commands?
 
@@ -18,9 +18,33 @@ Install all AlignStack slash commands globally with one line:
 curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/commands/install.sh | bash
 ```
 
-This downloads all commands into `~/.claude/commands/` so they're available in every project you open with Claude Code.
+This downloads all slash commands and hooks into `~/.claude/` so they're available in every project you open with Claude Code.
 
 To install for a single project only, copy the `commands/` folder contents into `.claude/commands/` in your project root.
+
+### Activating the devdocs metadata hook
+
+The installer downloads the `devdocs_metadata_appender.sh` hook to `~/.claude/hooks/`. To activate it, add this to your `.claude/settings.json` (project) or `~/.claude/settings.json` (global):
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/devdocs_metadata_appender.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This automatically prepends a metadata header (date, branch, commit, author) to every file written under `devdocs/`. See Appendix 9 for the metadata format.
 
 ---
 
@@ -32,9 +56,11 @@ These four commands form the primary AlignStack workflow. Each produces an artif
 /elaborate → /task-desc → /task-plan → /critic
 ```
 
+`/elaborate` and `/task-desc` serve different purposes: `/elaborate` takes messy input and makes it readable — no structure imposed, just clarity. `/task-desc` takes that clear input and shapes it into a formal feature description with problem statement, success criteria, and scope. One tidies, the other structures for implementation.
+
 ### `/elaborate`
 
-Take messy, scattered input and make it tidy — structured, clear, and easy to read. Accepts raw text, file paths, or both. Saves the output as markdown and flags important ambiguities.
+Take messy, scattered input and make it tidy — structured, clear, and easy to read. Accepts raw text, file paths, images or all. Saves the output as markdown and flags important ambiguities.
 
 The primary goal is clarity, not task analysis. Alignment verification is a side effect.
 
@@ -176,3 +202,11 @@ Requires `/arch-traces` to have been run first.
 | `/arch-intro` | Architecture introduction | Conversation or `devdocs/archaeology/intro2codebase.md` |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
 | `/arch-top-improvements` | 5 highest-impact improvements | `devdocs/archaeology/top_improvements.md` |
+
+## Hooks
+
+| Hook | What it does | Trigger |
+|------|-------------|---------|
+| `devdocs_metadata_appender.sh` | Auto-injects metadata header (date, branch, commit, author) into devdocs files | `PreToolUse` on `Write` |
+
+[View hook script](../hooks/devdocs_metadata_appender.sh)

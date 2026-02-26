@@ -23,7 +23,7 @@ Having AI rephrase the feature back ensures mutual understanding before proceedi
 Once you read back what AI generated regarding the feature you asked, make sure to fix incorrect things.
 
 
-###  Step-2: Generating Description of the Feature
+###  Step-2: Generating Elaborate description of the Feature
 
 ```
 Okay now you understand this feature in general, 
@@ -41,7 +41,7 @@ Create the initial feature documentation structure in devdocs folder:
    2.1. High level plan summary in bullet points
    2.2. Full implementation plan 
 
-  ( Keep it lightweight at this stage - we'll add detail as we validate the feature.)
+
 ```
 
 ###  Step-3: Generating Step By Step Plan

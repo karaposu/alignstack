@@ -1,10 +1,11 @@
+```
 **Task Definition:**
  [Insert task_definition here]
 
 
-Analyze the given task using Structural Sensemaking Framework 
+Analyze the given task using Structural Sensemaking Framework
 
-# Structural Sensemaking Framework 
+# Structural Sensemaking Framework
 
 Idea formation is the process of accumulating cognitive anchors (constraints, key insights, structural points, foundational principles, meaning-nodes) and applying boundary-construction operations—perspective checking, ambiguity collapse, and degrees-of-freedom reduction—until a stable conceptual structure emerges.
 
@@ -145,7 +146,7 @@ Ensure that each entry results in a measurable reduction of ambiguity and interp
 
 
 
-Here is full framework for reference 
+Here is full framework for reference
 
 
 # Structural Sensemaking Framework
@@ -298,3 +299,4 @@ Structural Sensemaking proceeds through five iterative phases:
 * Articulation of understanding
 
 The process is iterative and recursive rather than strictly linear.
+```

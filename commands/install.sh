@@ -1,13 +1,19 @@
 #!/bin/bash
-# Install AlignStack slash commands for Claude Code
+# Install AlignStack slash commands and hooks for Claude Code
 # Usage: curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/commands/install.sh | bash
 
 set -e
 
-BASE_URL="https://raw.githubusercontent.com/karaposu/alignstack/main/commands"
-TARGET_DIR="$HOME/.claude/commands"
+REPO_URL="https://raw.githubusercontent.com/karaposu/alignstack/main"
+COMMANDS_DIR="$HOME/.claude/commands"
+HOOKS_DIR="$HOME/.claude/hooks"
 
-mkdir -p "$TARGET_DIR"
+mkdir -p "$COMMANDS_DIR"
+mkdir -p "$HOOKS_DIR"
+
+# --- Slash Commands ---
+
+echo "Installing slash commands..."
 
 commands=(
   elaborate.md
@@ -24,9 +30,32 @@ commands=(
 
 for cmd in "${commands[@]}"; do
   echo "  downloading $cmd"
-  curl -sL "$BASE_URL/$cmd" -o "$TARGET_DIR/$cmd"
+  curl -sL "$REPO_URL/commands/$cmd" -o "$COMMANDS_DIR/$cmd"
 done
 
+# --- Hooks ---
+
 echo ""
-echo "Done. Installed ${#commands[@]} slash commands to $TARGET_DIR"
-echo "Available in Claude Code: /elaborate, /task-desc, /task-plan, /critic, /critic-d, /sense-making, /arch-small-summary, /arch-intro, /arch-traces, /arch-top-improvements"
+echo "Installing hooks..."
+
+hooks=(
+  devdocs_metadata_appender.sh
+)
+
+for hook in "${hooks[@]}"; do
+  echo "  downloading $hook"
+  curl -sL "$REPO_URL/hooks/$hook" -o "$HOOKS_DIR/$hook"
+  chmod +x "$HOOKS_DIR/$hook"
+done
+
+# --- Summary ---
+
+echo ""
+echo "Done. Installed ${#commands[@]} slash commands to $COMMANDS_DIR"
+echo "Done. Installed ${#hooks[@]} hooks to $HOOKS_DIR"
+echo ""
+echo "Slash commands: /elaborate, /task-desc, /task-plan, /critic, /critic-d, /sense-making, /arch-small-summary, /arch-intro, /arch-traces, /arch-top-improvements"
+echo ""
+echo "To activate the devdocs metadata hook, add this to .claude/settings.json:"
+echo ""
+echo '  {"hooks":{"PreToolUse":[{"matcher":"Write","hooks":[{"type":"command","command":"~/.claude/hooks/devdocs_metadata_appender.sh"}]}]}}'

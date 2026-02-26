@@ -28,7 +28,7 @@ Before generating anything, determine which feature description this plan is bas
    - Where the new code will live
    - What existing code will be touched
 3. Think deeply before writing. Use extended thinking to reason through the implementation.
-4. Create a `step_by_step_plan.md` in the same directory as the `desc.md`.
+4. Create a `step_by_step_plan.md` in the same directory as the `desc.md` (no plan mode, i just need the .md).
 
 ## Output Format
 
@@ -47,6 +47,21 @@ For each step:
 
 ### Files to Modify/Create
 List every file that will be touched, with a one-line description of the change.
+
+## Metadata
+
+Before writing the file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
+
+```
+---
+created: YYYY-MM-DD
+branch: <current branch>
+base_commit: <short HEAD commit>
+author: <git user.name>
+---
+```
+
+---
 
 ## Guidelines
 

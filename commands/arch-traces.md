@@ -34,6 +34,19 @@ Each trace file must contain:
 - **What feels vulnerable**
 - **What feels like bad design**
 
+### Metadata
+
+Insert a metadata header at the very top of each trace file by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
+
+```
+---
+created: YYYY-MM-DD
+branch: <current branch>
+base_commit: <short HEAD commit>
+author: <git user.name>
+---
+```
+
 ### Output
 
 Write trace files to `devdocs/archaeology/traces/` (create the directory if needed). If the folder already exists, overwrite all trace files completely — rewrite fresh, don't patch.

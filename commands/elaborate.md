@@ -1,6 +1,8 @@
 # /elaborate — Rephrase for Alignment Verification
 
-Take the input below and rephrase it back to me — clearer, more structured, more understandable. Use your understanding of the codebase to interpret what I mean and fill in obvious gaps.
+Take the input below and rephrase it,  clearer, more structured, more understandable. Use your understanding of the already developed context (can be about codebase workspace, or past conversation regarding this topic etc) to interpret what the input material means and fill in obvious gaps to make it more explicit. 
+
+If you dont have any developed relevant context output that the elaboration will be done without relevant context in pure way in terminal as a warning. 
 
 ## Input
 
@@ -8,26 +10,40 @@ $ARGUMENTS
 
 ## Instructions
 
-1. Parse the input. It can be:
-   - **Raw text only** — notes, a ticket, a data dump, or a loose description.
-   - **A file path only** — read the file and use its contents as the input.
-   - **A file path + additional text** — read the file first, then treat the remaining text as extra context or instructions on top of the file contents. Both parts matter.
+1. Consume the input fully and correctly. It can be markdown, file path with code or text files, image paths, MCP links. if file path is given 
 
-   If the input starts with something that looks like a file path (e.g. `devdocs/...`, `src/...`, or any path with `/`), attempt to read it as a file. Everything after the path is additional context.
+   - if file path is given read the files fully. .
+   - if file image or image paths are given consume the images
+   - additional text or commands should be respected as well. 
 
-2. Use codebase context to understand what the user is referring to (existing modules, patterns, terminology).
-3. Rephrase the input in clear, precise language. Make it structured and easy to follow — organize scattered thoughts, group related ideas, clarify vague phrasing. Keep the user's intent intact, don't reshape it into a format they didn't ask for.
+2. If relevant, use codebase context to understand what the content is referring to (existing modules, patterns, terminology).
+3. Rephrase the input in clear, precise language. Make it structured and easy to follow — organize scattered thoughts, group related ideas, clarify vague phrasing. Keep the content's intent intact, don't reshape it into a format they didn't ask for.
 4. After the rephrased version, add:
-   - **Ambiguities**: Anything that is unclear, has multiple interpretations, or needs a decision — list these explicitly.
+   - **Ambiguities Section**: Anything that is unclear for you, has multiple interpretations, or needs a decision to make sense of the rest of the material — list these explicitly in form of questions 
 
 ### Output
 
-5. Save the output as markdown file(s). Split into multiple files if the input covers distinct topics or is large enough to warrant it.
-   - **If the input was file path(s)** — save the elaborated output in the same folder as the input files.
-   - **Otherwise** — save under `devdocs/clarifications/<suitable-name>/` (create the directory if needed, use a short descriptive name based on the content).
-6. Print the output in the conversation as well.
-7. End with: *"Does this capture what you meant? Correct anything that's off before we proceed."*
+output this in devdocs as elaboration.md where the input source material is located in devdocs already. If input was not in devdocs then you can use mkdir command to create a subfolder with relevant name and create it there
+
+if the input covers distinct topics or is large enough to warrant it split into multiple files. But this is only needed if material is really huge and long. if this is the case under devdocs and relevant folder you can create elaboration folder and under it you can create multiple markdown files (use a short descriptive name based on the content).. But again, this is rare case. 
+
+## Metadata
+
+Before writing any file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
+
+```
+---
+created: YYYY-MM-DD
+branch: <current branch>
+base_commit: <short HEAD commit>
+author: <git user.name>
+---
+```
+
+---
 
 ## Purpose
 
 The primary goal is to take messy, scattered input and make it tidy — structured, clear, and easy to read. As a side effect, this also serves as an alignment check: if the rephrased version doesn't match intent, it gets caught here rather than three steps later. Only flag ambiguities that actually matter for moving forward — don't nitpick.
+
+
