@@ -2,9 +2,11 @@
 
 Read all code files in the project and produce a non-technical summary of what this project is and does — based purely on what the code shows, not what documentation claims.
 
-## Input
+## Additional Input/Instructions
 
 $ARGUMENTS
+
+---
 
 ## Instructions
 
@@ -23,16 +25,7 @@ $ARGUMENTS
 
 ### Output
 
-**If `--save` is passed as an argument:**
-- Write the summary to `devdocs/archaeology/small_summary.md` (create the directory if needed).
-- If that file already exists, overwrite it completely — do not append or patch, rewrite the whole thing fresh.
+By default, save the summary to `devdocs/archaeology/small_summary.md` (create the directory if needed) and print it in the conversation.
+If that file already exists, overwrite it completely — do not append or patch, rewrite the whole thing fresh.
 
-**Otherwise:**
-- Print the summary directly in the conversation only.
-
-### Examples
-
-```
-/arch-small-summary                → prints summary in conversation
-/arch-small-summary --save         → prints + saves to devdocs/archaeology/small_summary.md
-```
+**If `-n` is passed:** print in conversation only, don't write a file.

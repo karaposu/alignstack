@@ -2,24 +2,21 @@
 
 Analyze the given input using the Structural Sensemaking Framework. This transforms vague, ambiguous, or complex input into stable, clear understanding through systematic anchor extraction, perspective checking, ambiguity collapse, and constraint reduction.
 
-## Input
+## Additional Input/Instructions
 
 $ARGUMENTS
 
+---
+
 ## Instructions
 
-1. Parse the input. It can be:
-   - **Raw text only** — a task description, idea, problem statement, or any unstructured input.
-   - **A file path only** — read the file and use its contents as the input.
-   - **A file path + additional text** — read the file first, then treat the remaining text as extra context on top of the file contents. Both parts matter.
-
-   If the input starts with something that looks like a file path (e.g. `devdocs/...`, `src/...`, or any path with `/`), attempt to read it as a file. Everything after the path is additional context.
+1. Read the input and consume it. It can be raw text, It can be folder path with md files, code files or image path. Consume all input. 
 
 2. Use codebase context where relevant to ground the analysis in concrete reality.
 
 3. Execute the full Structural Sensemaking process described below, producing all Sense Versions (SV1 through SV6).
 
-4. Save the output as a markdown file:
+4. Save the output as a markdown file (unless differently stated in additional instructions!):
    - **If the input was a file path** — save in the same folder as the input file.
    - **Otherwise** — save under `devdocs/sensemaking/<suitable-name>.md` (create the directory if needed).
 
@@ -83,6 +80,56 @@ A conceptual structure is the stabilized result of anchor interaction and bounda
 * Actionable implications
 
 ---
+
+
+## Process Model
+
+Structural Sensemaking proceeds through five iterative phases:
+
+### Phase 1 — Signal Detection
+
+* Recognition of a vague but meaningful pattern
+* Pre-verbal intuition of relevance
+
+### Phase 2 — Anchor Extraction
+
+* Identification of initial anchors
+* Documentation of constraints, insights, and principles
+
+### Phase 3 — Perspective Expansion
+
+* Deliberate exploration of alternative viewpoints
+* Generation of additional anchors
+
+### Phase 4 — Boundary Formation
+
+* Collapsing ambiguities
+* Resolving conflicts
+* Reducing degrees of freedom
+
+### Phase 5 — Conceptual Stabilization
+
+* Integration of surviving anchors
+* Formation of a coherent model
+* Articulation of understanding
+
+The process is iterative and recursive rather than strictly linear.
+
+---
+
+## Standard Analysis Protocol
+
+When applying Structural Sensemaking to a task:
+
+1. Define the problem or situation
+2. Extract cognitive anchors
+3. Perform perspective checking
+4. Collapse ambiguities
+5. Reduce degrees of freedom
+6. Synthesize a stable conceptual model
+
+
+---- NOW SOLID INSTRUCTIONS START----
 
 ## Execute the Following Process
 
@@ -196,4 +243,4 @@ Synthesize results into:
 
 Present the final, high-level conceptual model. This should represent mature, low-ambiguity understanding.
 
-Explain how it differs from SV1.
+Explain how it differs from SV1. 

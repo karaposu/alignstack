@@ -2,7 +2,8 @@
 
 Generate a detailed implementation plan for the feature described in the input. This plan becomes the single source of truth for execution.
 
-## Input
+## Additional Input/Instructions
+
 
 $ARGUMENTS
 

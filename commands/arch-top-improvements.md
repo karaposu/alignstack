@@ -2,9 +2,11 @@
 
 Based on all existing traces, identify the 5 highest-impact improvements for this codebase — the changes that would make the biggest difference to quality, stability, or maintainability.
 
-## Input
+## Additional Input/Instructions
 
 $ARGUMENTS
+
+---
 
 ## Instructions
 

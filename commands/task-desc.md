@@ -2,9 +2,12 @@
 
 Generate a structured feature description document based on the input below. This creates the foundational documentation that all subsequent planning builds on.
 
-## Input
+## Additional Input/Instructions
+
 
 $ARGUMENTS
+
+---
 
 ## Instructions
 

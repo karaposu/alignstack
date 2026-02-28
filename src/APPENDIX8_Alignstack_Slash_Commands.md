@@ -146,8 +146,8 @@ These commands are for understanding existing codebases. They read code (not doc
 
 Read all code files and produce a non-technical summary of the project — what it does, what state it's in, who would use it. Based purely on code behavior, not what docs claim.
 
-**Input**: Optional `--save` flag
-**Output**: Prints in conversation. With `--save`, also writes to `devdocs/archaeology/small_summary.md`
+**Input**: Optional `-n` flag (no save)
+**Output**: Saves to `devdocs/archaeology/small_summary.md` + prints in conversation
 
 [View full command](../commands/arch-small-summary.md)
 
@@ -157,8 +157,8 @@ Read all code files and produce a non-technical summary of the project — what 
 
 Produce a high-level architecture introduction covering data flow paths, main abstractions, and top-level design patterns. Written as if onboarding a new engineer on their first day.
 
-**Input**: Optional `--save` flag
-**Output**: Prints in conversation. With `--save`, also writes to `devdocs/archaeology/intro2codebase.md`
+**Input**: Optional `-n` flag (no save)
+**Output**: Saves to `devdocs/archaeology/intro2codebase.md` + prints in conversation
 
 [View full command](../commands/arch-intro.md)
 
@@ -198,8 +198,8 @@ Requires `/arch-traces` to have been run first.
 | `/critic` | Risk/error/conflict analysis (generic) | `critic.md` |
 | `/critic-d` | Risk analysis (dynamic, two-phase) | `dynamic_critic_prompt.md` + `critic.md` |
 | `/sense-making` | Structural sensemaking analysis | Markdown file(s) |
-| `/arch-small-summary` | Non-technical project summary | Conversation or `devdocs/archaeology/small_summary.md` |
-| `/arch-intro` | Architecture introduction | Conversation or `devdocs/archaeology/intro2codebase.md` |
+| `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
+| `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
 | `/arch-top-improvements` | 5 highest-impact improvements | `devdocs/archaeology/top_improvements.md` |
 

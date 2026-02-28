@@ -2,7 +2,7 @@
 
 Read the codebase and produce an architecture introduction as if you're onboarding a new engineer. Focus on how things are designed, not what features exist.
 
-## Input
+## Additional Input/Instructions
 
 $ARGUMENTS
 
@@ -21,16 +21,7 @@ $ARGUMENTS
 
 ### Output
 
-**If `--save` is passed as an argument:**
-- Write the introduction to `devdocs/archaeology/intro2codebase.md` (create the directory if needed).
-- If that file already exists, overwrite it completely — rewrite fresh, don't patch.
+By default, save the introduction to `devdocs/archaeology/intro2codebase.md` (create the directory if needed) and print it in the conversation.
+If that file already exists, overwrite it completely — rewrite fresh, don't patch.
 
-**Otherwise:**
-- Print the introduction directly in the conversation only.
-
-### Examples
-
-```
-/arch-intro                → prints intro in conversation
-/arch-intro --save         → prints + saves to devdocs/archaeology/intro2codebase.md
-```
+**If `-n` is passed:** print in conversation only, don't write a file.

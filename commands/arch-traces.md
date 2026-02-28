@@ -1,6 +1,12 @@
 # /arch-traces — End-to-End Interaction Traces
 
-To run traces the context should already have enough level of the understanding of the codebase. If codebase is structure is unknown output "to run traces run arch-summary and arch-intro first"
+## Additional Input/Instructions
+
+$ARGUMENTS
+
+---
+
+To run traces the context should already have enough level of the understanding of the codebase. If codebase structure is unknown output "to run traces run arch-summary and arch-intro first"
 
 Identify every internal interface and submodule-level interaction defined within the codebase (excluding external packages). For each interface, follow its execution path end-to-end: what calls it, what it triggers, how data or state moves through the layers, and what outcomes it produces.
 
