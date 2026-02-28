@@ -1,3 +1,5 @@
+# Here is dynamic critic prompt generator
+
 ```
 Okay your task for now is to improve a prompt
 

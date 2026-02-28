@@ -43,21 +43,6 @@ What this feature will NOT do. Be explicit about what's out of scope to prevent 
 ### Priority Level
 Rate as: Critical / High / Medium / Low. Justify briefly.
 
-## Metadata
-
-Before writing the file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
----
-
 ## Guidelines
 
 - Keep the document lightweight — this is discovery, not a spec.

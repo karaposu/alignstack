@@ -27,21 +27,6 @@ output this in devdocs as elaboration.md where the input source material is loca
 
 if the input covers distinct topics or is large enough to warrant it split into multiple files. But this is only needed if material is really huge and long. if this is the case under devdocs and relevant folder you can create elaboration folder and under it you can create multiple markdown files (use a short descriptive name based on the content).. But again, this is rare case. 
 
-## Metadata
-
-Before writing any file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
----
-
 ## Purpose
 
 The primary goal is to take messy, scattered input and make it tidy — structured, clear, and easy to read. As a side effect, this also serves as an alignment check: if the rephrased version doesn't match intent, it gets caught here rather than three steps later. Only flag ambiguities that actually matter for moving forward — don't nitpick.

@@ -21,19 +21,6 @@ $ARGUMENTS
 
 4. Be honest about the state of things — if something looks half-built, say so. If something looks abandoned, note it.
 
-### Metadata
-
-When saving to a file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
 ### Output
 
 **If `--save` is passed as an argument:**

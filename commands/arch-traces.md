@@ -1,51 +1,36 @@
 # /arch-traces — End-to-End Interaction Traces
 
-Trace every internal interface and submodule-level interaction in the codebase. Follow each execution path end-to-end and document what it does, how data moves, and what's wrong with it.
+To run traces the context should already have enough level of the understanding of the codebase. If codebase is structure is unknown output "to run traces run arch-summary and arch-intro first"
 
-## Input
+Identify every internal interface and submodule-level interaction defined within the codebase (excluding external packages). For each interface, follow its execution path end-to-end: what calls it, what it triggers, how data or state moves through the layers, and what outcomes it produces.
 
-$ARGUMENTS
+Document these flows at a high level, explaining what each interaction corresponds to, what it affects, and why it behaves that way.
 
-## Instructions
+Create one file per interaction trace under devdocs/archaeology/traces/ (e.g., trace_1.md, trace_2.md).
+Base all analysis strictly on actual code behavior rather than names or assumptions.
 
-1. Read all code files in the codebase fully. Exclude external packages — focus only on internal interfaces and submodule-level interactions.
+Each trace file should have the following sections
 
-2. For each internal interface, follow its execution path end-to-end: what triggers it, what it calls, how data or state moves through the layers, and what the outcome is.
+Core sections:
+  - Entry Point
+  - Execution Path
+  - Resource Management
+  - Error Path
+  - Performance Characteristics
+  - Observable Effects
+  - Why This Design
 
-3. Document each flow at a high level — what it corresponds to, what it affects, and why it behaves that way. Base all analysis strictly on actual code behavior, not names or assumptions.
+Assessment sections (each must include an ELI5 explanation, an Impact field, and a Robust Fixes / Best Practices field):
+  - What feels incomplete
+  - What feels vulnerable
+  - What feels like bad design
 
-4. Create one file per interaction trace (e.g. `trace_1.md`, `trace_2.md`, etc.).
+  for each of the three Assessment sections, include these subsections:
+      the issue itself
+      an ELI5 (plain-language explanation)
+      Impact of it to the codebase and overall logic
+      Robust Fixes / Best Practices (how to address it properly)
 
-### Trace File Format
-
-Each trace file must contain:
-
-**Core sections:**
-- **Entry Point** — What triggers this interaction
-- **Execution Path** — Step-by-step flow through the layers
-- **Resource Management** — What resources are acquired, held, released
-- **Error Path** — What happens when things fail
-- **Performance Characteristics** — Latency, throughput, bottleneck potential
-- **Observable Effects** — What changes in the system as a result
-- **Why This Design** — Rationale for why it's built this way
-
-**Assessment sections** — for each of the three below, include: the issue itself, an ELI5 (plain-language explanation), Impact on the codebase and overall logic, and Robust Fixes / Best Practices (how to address it properly):
-- **What feels incomplete**
-- **What feels vulnerable**
-- **What feels like bad design**
-
-### Metadata
-
-Insert a metadata header at the very top of each trace file by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
 
 ### Output
 

@@ -63,21 +63,6 @@ For each identified risk item, document:
 | **Affected areas** | Which existing features, modules, or endpoints are affected |
 | **Mitigation** (Medium/High only) | Three levels: quick fix, robust fix, long-term fix |
 
-## Metadata
-
-Before writing any file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
----
-
 ## Guidelines
 
 - Be specific. "This might cause performance issues" is useless. "Adding a full table scan in `getUsers()` on a table with 100k+ rows will degrade response time from ~50ms to ~2s" is useful.

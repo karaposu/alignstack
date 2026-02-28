@@ -48,21 +48,6 @@ For each step:
 ### Files to Modify/Create
 List every file that will be touched, with a one-line description of the change.
 
-## Metadata
-
-Before writing the file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
----
-
 ## Guidelines
 
 - Be specific. "Update the API" is useless. "Add `POST /api/features` endpoint in `src/routes/features.ts`" is useful.

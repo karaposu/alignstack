@@ -19,19 +19,6 @@ $ARGUMENTS
 
 4. Rank them by impact, highest first.
 
-### Metadata
-
-Before writing the file, insert a metadata header at the very top by running `git branch --show-current`, `git rev-parse --short HEAD`, and `git config user.name` to populate:
-
-```
----
-created: YYYY-MM-DD
-branch: <current branch>
-base_commit: <short HEAD commit>
-author: <git user.name>
----
-```
-
 ### Output
 
 Write to `devdocs/archaeology/top_improvements.md` (create the directory if needed). If the file already exists, overwrite it completely — rewrite fresh, don't patch.

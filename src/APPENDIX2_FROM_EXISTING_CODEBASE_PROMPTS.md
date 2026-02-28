@@ -79,26 +79,28 @@ Assessment sections (each must include an ELI5 explanation, an Impact field, and
   - What feels vulnerable
   - What feels like bad design
 
-  for each of the three Assessment sections, include:
+  for each of the three Assessment sections, include these subsections:
       the issue itself
       an ELI5 (plain-language explanation)
       Impact of it to the codebase and overall logic
       Robust Fixes / Best Practices (how to address it properly)
 
-subsections.
-```
-
-
-### Phase 4: Using Fresh Trace analysis to Identify "Things"
-
 
 ```
-Now look at all traces and what are the 5 things that would improve the codebase a lot?
 
-Put these in devdocs/archaeology/5_things_or_not.md
+
+### Phase 4: Using Fresh Trace analysis to Identify Top Improvements
+
+
+```
+Now look at all traces that was outputed in a holistic way with the focus on Assestment sections. 
+
+And then identify what are the top 5 concepts (refactor, fix, enhancement, abstraction, dataclass, design pattern etc) that would improve the codebase a lot?
+
+Put these in devdocs/archaeology/top_improvement_candidates.md
 
 And make sure after each of them think for a possible reason this thing is not implemented/fixed at the current code
-(the reason is there might be some undocumented decisions and these 5 things might refer to them)
+(the reason is there might be some undocumented decisions and these things things might refer to them)
 ```
 
 ### Phase 5:  Concept Inventory
