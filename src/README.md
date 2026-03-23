@@ -36,7 +36,7 @@ This book doesn't introduce new concepts. Instead, it codifies what many develop
 
 > Visibility requires Explicitness.
 
-These four pillars define what we need at each layer to maintain alignment. Applied across all six alignment layers, they form the foundation of AlignStack
+These four pillars define what we need at each layer to maintain alignment. Applied across all six alignment layers, and combined with iteration, they form the foundation of AlignStack
 
 
 The rest of this book explains how to implement them in your workflows.

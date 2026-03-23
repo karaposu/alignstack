@@ -8,8 +8,9 @@ $ARGUMENTS
 
 ## Instructions
 
-### Step 0: Resolve Which Plan to Critique
+### Step 0: Resolve Which Plan to Critique (if it is not stated clearly and explicitly)
 
+unless it is not clearly stated do this :
 Use your understanding of the already developed context or given Additional Input/Instructions (can be about codebase workspace, or past conversation regarding this topic etc) to interpret what is the relevant step by step plan path, 
 
 If multiple plans are referred in past recent messages (check last 4,5 messages)  — present them as a numbered list and ask the user to confirm which one to critique. Do NOT proceed until the user confirms.
@@ -18,6 +19,8 @@ If multiple plans are referred in past recent messages (check last 4,5 messages)
 
 
 **Only after the user confirms**, continue to Phase 1.
+
+But if plan is stated claerly you can skip this step. 
 
 ---
 
@@ -80,6 +83,7 @@ For each risk found, document:
 
 Desc, Risk Desc, Severity (| Low / Medium / High |), Impact, ELI5 desc, Affected areas,  Mitigation** (Medium/High only) and Category (| Breaking change / Import error / Circular import / Package discovery / Stale cache / Missing file / Phase ordering |)
 
+Dont use tabular format,  it should be sections with subsections and detailed enough. 
  """
 
   - Save the generated prompt** as `dynamic_critic_prompt.md` in the same directory as the `step_by_step_plan.md`.

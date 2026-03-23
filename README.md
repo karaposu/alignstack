@@ -3,4 +3,4 @@
 
 Markdown Book: 
 
-https://karaposu.github.io/vibe-driven-development/
+https://karaposu.github.io/alignstack/
