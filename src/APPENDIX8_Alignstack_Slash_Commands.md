@@ -214,6 +214,24 @@ Requires `/dead-code-index` to have been run first.
 
 ---
 
+## Navigation
+
+### `/roadmap`
+
+Generate a navigation map from starting state to end state. Creates a roadmap workspace (folder) with persistent context: `starting_state.md`, `end_state.md`, and `map.md`. Starting state is user-controlled — never auto-reads the codebase unless asked. Supports node expansion for progressive refinement. Each node has a five-level status (unknown → concept → designed → planned → done) and a checkbox for progress tracking.
+
+Three-phase workflow:
+1. Phase 0: Establish context (starting state + end state → save to folder)
+2. Phase 1: Generate map (nodes + ASCII diagram + summary)
+3. Phase 2: Expand/update on revisit
+
+**Input**: Starting state, end state, or existing roadmap folder + node reference
+**Output**: `devdocs/roadmaps/<name>/` folder with `starting_state.md`, `end_state.md`, `map.md`
+
+[View full command](../commands/roadmap.md)
+
+---
+
 ## Quick Reference
 
 | Command | What it does | Output |
@@ -230,6 +248,7 @@ Requires `/dead-code-index` to have been run first.
 | `/arch-top-improvements` | 5 highest-impact improvements | `devdocs/archaeology/top_improvements.md` |
 | `/dead-code-index` | Inventory unused code candidates | `devdocs/archaeology/dead_code_index.md` |
 | `/dead-code-concepts` | Group dead code into dead concepts | `devdocs/archaeology/dead_concepts_index.md` |
+| `/roadmap` | Navigation map from start to end state | `devdocs/roadmaps/<name>/` folder |
 
 ## Hooks
 
