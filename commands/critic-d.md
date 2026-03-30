@@ -54,8 +54,8 @@ Document:
 - Performance implications (latency, memory, storage)
 
 Rate each risk (severity) as: Low/Medium/High
-For each Medium/High risk, suggest three levels of mitigation: a quick fix, a robust fix, and a long-term fix.
-Each Item should have impact field (possible effects of this Risk Item ), ELI5 field (non technical explanaition),
+For each Medium/High risk, suggest three levels of mitigation : a quick fix, a robust fix, and a long-term fix. and for robust fix add a subfield called  "why this is robust:" and for long term fix  add a subfield called  "why this is long term effective:"
+Each Item should have impact field (possible effects of this Risk Item ), ELI10 field (non technical explanaition),| NoobEng field(explaining like explaining to a noob for engineer who doesnt understand the underlying dynamics)
 
 Analyze how this feature will interact with the existing codebase:
 
@@ -81,7 +81,7 @@ Based on context you have of the codebase, task itself and step by step plan; ge
 
 For each risk found, document:
 
-Desc, Risk Desc, Severity (| Low / Medium / High |), Impact, ELI5 desc, Affected areas,  Mitigation** (Medium/High only) and Category (| Breaking change / Import error / Circular import / Package discovery / Stale cache / Missing file / Phase ordering |)
+Desc, Risk Desc, Severity (| Low / Medium / High |), Impact, ELI10 desc, NoobEng desc (explaining like explaining to a noob for engineer who doesnt understand the underlying dynamics),    Affected areas,  Mitigation** (Medium/High only) and Category (| Breaking change / Import error / Circular import / Package discovery / Stale cache / Missing file / Phase ordering |)
 
 Dont use tabular format,  it should be sections with subsections and detailed enough. 
  """
@@ -113,7 +113,8 @@ For each identified risk item, document:
 | **Category** | Breaking change / Performance / Security / API contract / Schema / Compatibility...|
 | **Severity** | Low / Medium / High |
 | **Impact** | Possible effects if this risk materializes |
-| **ELI5** | Non-technical explanation anyone can understand |
+| **ELI10** | Non-technical explanation anyone can understand |
+| **NoobEng** | explaining like explaining to a noob for engineer who doesnt understand the underlying dynamics |
 | **Affected areas** | Which existing features, modules, or endpoints are affected |
 | **Mitigation** (Medium/High only) | Three levels: quick fix, robust fix, long-term fix |
 

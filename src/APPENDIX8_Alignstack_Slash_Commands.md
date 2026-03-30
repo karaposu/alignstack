@@ -232,6 +232,19 @@ Three-phase workflow:
 
 ---
 
+## Reporting
+
+### `/overview-report`
+
+Generate a structured report of what happened in the project over a given time period. Combines git history, devdocs artifacts (plans, fixes, traces), and code changes into a readable summary. Each work item gets Why/How/Impact sections. Includes a Direction section connecting individual changes into a trajectory, and a By the Numbers table with concrete metrics.
+
+**Input**: Time period — `24h`, `1d`, `7d`, `30d` (default: `7d`)
+**Output**: `devdocs/reports/overview_<period>_<date>.md`
+
+[View full command](../commands/overview-report.md)
+
+---
+
 ## Quick Reference
 
 | Command | What it does | Output |
@@ -249,6 +262,7 @@ Three-phase workflow:
 | `/dead-code-index` | Inventory unused code candidates | `devdocs/archaeology/dead_code_index.md` |
 | `/dead-code-concepts` | Group dead code into dead concepts | `devdocs/archaeology/dead_concepts_index.md` |
 | `/roadmap` | Navigation map from start to end state | `devdocs/roadmaps/<name>/` folder |
+| `/overview-report` | Period overview report (why/how/impact) | `devdocs/reports/overview_<period>_<date>.md` |
 
 ## Hooks
 

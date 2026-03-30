@@ -13,7 +13,7 @@ This book presents AlignStack as a structured methodology with repeatable patter
 When you delegate work to AI, any misalignment can only occur at these six layers:
 
 1. **Workspace Alignment** — The environment and context aren't set up correctly
-2. **Task Alignment** — The task is not understood well
+2. **Task Alignment** — The task is not understood well in terms of intent, depth and scope. 
 3. **Action-Space Alignment** — AI doesn't know what action space should be used
 4. **Action-Set Alignment** — AI doesn't understand what set of actions is preferable and feasible
 5. **Coherence Alignment** — AI doesn't understand how the actions taken disturb existing alignments
