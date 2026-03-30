@@ -1,3 +1,6 @@
+name: sense-making
+description: structural Sensemaking is the process of constructing stable meaning by organizing cognitive anchors into constrained conceptual structures through perspective integration, ambiguity collapse, and degrees-of-freedom reduction
+
 # /sense-making — Structural Sensemaking Analysis
 
 Analyze the given input using the Structural Sensemaking Framework. This transforms vague, ambiguous, or complex input into stable, clear understanding through systematic anchor extraction, perspective checking, ambiguity collapse, and constraint reduction.
