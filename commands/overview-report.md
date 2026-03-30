@@ -31,6 +31,10 @@ Collect information from these sources for the given period:
 - Run `git diff --stat HEAD~N` or date-based diff to understand scope of code changes
 - Identify files added, modified, deleted
 
+---VERY IMPORTANT---
+
+actually inspecting what changed in each modified file, No just reported on things you already have context.. your context is not full.     RUN and an actual investigation of the diff. The right process is to git diff HEAD -- <file> for every file in the stat output and document what each change ...                                                                                     
+
 **Devdocs artifacts** — scan `devdocs/` for files created or modified within the period:
 - `devdocs/enhancements/` — any step_by_step_plan.md, desc.md, critic.md files
 - `devdocs/archaeology/` — traces, summaries, dead code indexes
@@ -104,3 +108,6 @@ Print the full report in the conversation as well.
 4. **Direction must be substantive.** Don't just restate what was done. Identify the trajectory — what themes emerge, what's the project moving toward.
 
 5. **Numbers must be real.** Only include metrics you can actually measure from git and devdocs. If you can't count it, don't include it.
+
+
+DONT ASSUME, CHECK AND VALIDATE always. 
