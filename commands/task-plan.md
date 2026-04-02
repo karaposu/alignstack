@@ -1,57 +1,86 @@
-# /task-plan — Generate Step-by-Step Implementation Plan
+# /task-plan — (Two-Phase)
 
-Generate a detailed implementation plan for the feature described in the input. This plan becomes the single source of truth for execution.
+Generate a step a step implementation plan for given task desc 
 
 ## Additional Input/Instructions
-
 
 $ARGUMENTS
 
 ## Instructions
 
-### Step 0: Resolve Which Feature to Plan
+### Phase 0: Resolve Which task desc to base the implemenation plan (if it is not stated clearly and explicitly)
 
-Before generating anything, determine which feature description this plan is based on:
+unless it is not clearly stated do this :
+Use your understanding of the already developed context or given Additional Input/Instructions (can be about codebase workspace, or past conversation regarding this topic etc) to interpret what is the relevant desc markdown file,
+ 
+If multiple descs/tasks are referred in past recent messages (check last 4,5 messages)  — present them as a numbered list and ask the user to confirm which one to create the implement the plan . Do NOT proceed until the user confirms.
 
-1. **If the input is a file path** — use that directly.
-2. **If the input is ambiguous or empty** — look at the project's existing `devdocs/` folder structure and scan for `desc.md` files. List every feature found with its name and path.
-3. **If multiple features exist** — present them as a numbered list and ask the user to confirm which one to plan for. Do NOT proceed until the user confirms.
-4. **If only one feature exists** — show the user which feature you found and ask for a quick confirmation before proceeding.
+**If only one task/desc exists** — show the user which plan you found and ask for a quick confirmation before proceeding.
 
-**Only after the user confirms**, continue to Step 1.
 
-### Step 1: Read and Analyze
 
-1. Read the confirmed `desc.md` file (or input) fully.
-2. Thoroughly read all relevant code files in the codebase to understand:
-   - Existing patterns and conventions
-   - Module interfaces and dependencies
-   - Where the new code will live
-   - What existing code will be touched
-3. Think deeply before writing. Use extended thinking to reason through the implementation.
-4. Create a `step_by_step_plan.md` in the same directory as the `desc.md` (no plan mode, i just need the .md).
 
-## Output Format
 
-The `step_by_step_plan.md` must contain:
 
+
+Phase 1:
+Understand the given task desc in detail. Understand what it tries to achieve by not just code but also using project context, or any bug/fix context as well. 
+
+First think and understand all the steps that need to be done. Once it is clear and in harmony. 
+
+Start creating step_by_step_impl_plan.md in same folder in such way:
+
+
+## Top-Level Structure
+Start the plan with these sections before any steps:
+
+### What is the task
+One paragraph explaining WHAT we're trying to achieve and WHY.
+Not the steps — the intent.
+
+### How this implementation moves toward desired state
+Explain how the series of changes transforms the current state
+into the desired state. The bridge between the problem (desc.md)
+and the solution (steps).
 ### High-Level Summary
-Bullet-point overview of the implementation approach (5-10 bullets max). Someone should be able to read just this section and understand the plan.
 
-### Full Implementation Plan
-For each step:
-- **Step N: [Title]**
-  - What to do (specific files, functions, changes)
-  - Why (rationale for this approach)
-  - Dependencies (what must exist before this step)
-  - Acceptance criteria (how to verify this step is done)
+A table with one row per step — step number, short description,
+and expected output. The reader should understand the full shape
+of the plan in 30 seconds.
+| Step | Description | Expected Output |
+|------|-------------|-----------------|
+| 1    | ...         | ...             |
+---
 
-### Files to Modify/Create
-List every file that will be touched, with a one-line description of the change.
+## Per-Step Structure
 
-## Guidelines
+Each step has:
 
-- Be specific. "Update the API" is useless. "Add `POST /api/features` endpoint in `src/routes/features.ts`" is useful.
-- Follow existing codebase conventions — don't introduce new patterns unless necessary.
-- Order steps so each builds on the previous. No circular dependencies.
-- Keep the plan implementable in a single session where possible. If it's too large, note where to split.
+### Proposed changes
+
+Freestyle explanation of what this step does. Can be long or
+short depending on complexity. Include file paths and code
+snippets where helpful.
+
+### Output
+
+What concretely exists after this step that didn't before.
+A new file, a changed column, a wired connection. Specific
+and verifiable.
+
+### Safe in nature
+True or False. True means this step cannot break existing
+functionality. False means it touches existing behavior and
+requires care.
+
+### Peripheral concepts
+What other concepts in the codebase this change touches.
+Listed inline, not one per line.
+Example: async_sessionmaker, Storage facade, tool closures, session lifecycle
+
+
+### Hardness Lvl
+1 to 5. Sets expectations for complexity and review attention.
+
+
+Create step_by_step_impl_plan.md in relevant devdocs folder (same folder as our desc files, probably under devdocs/scoped but it can be in other folders too )

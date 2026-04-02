@@ -245,6 +245,19 @@ Generate a structured report of what happened in the project over a given time p
 
 ---
 
+## Maintenance
+
+### `/devdocs-archivist`
+
+Scan all devdocs, compare each folder and file against the codebase and current context, and determine what should be archived. Staleness is inferred, not declared — the AI checks "does the code reflect what this doc describes?" Archives as a unit (entire folders move together). Cross-reference integrity is preserved — done docs stay if active docs reference them. Each run creates an isolated timestamped folder under `devdocs/archive/`.
+
+**Input**: Optional `-doc` flag (produce report only, don't move files)
+**Output**: Without `-doc`: archive plan + confirmation prompt + file moves. With `-doc`: `devdocs/archive_report_<date>.md`
+
+[View full command](../commands/devdocs-archivist.md)
+
+---
+
 ## Quick Reference
 
 | Command | What it does | Output |
@@ -263,6 +276,7 @@ Generate a structured report of what happened in the project over a given time p
 | `/dead-code-concepts` | Group dead code into dead concepts | `devdocs/archaeology/dead_concepts_index.md` |
 | `/roadmap` | Navigation map from start to end state | `devdocs/roadmaps/<name>/` folder |
 | `/overview-report` | Period overview report (why/how/impact) | `devdocs/reports/overview_<period>_<date>.md` |
+| `/devdocs-archivist` | Scan devdocs, detect staleness, archive done work | Archive plan + moves (or `-doc` report) |
 
 ## Hooks
 

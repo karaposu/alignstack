@@ -32,6 +32,7 @@ DevDocs isn't about perfect documentation. It's about maintaining a shared menta
 
 ## Example DevDocs Structure
 
+Below is generic view of one devdocs folder strucutre convention which is established overtime.
 A complete DevDocs folder provides layered context from high-level vision to specific implementation details:
 
 ```
@@ -41,17 +42,20 @@ project-root/
     │   ├── project_description.md      # What we're building
     │   ├── philosophy.md               # Core principles and values
     │   ├── known_requirements.md       # Known requirements
-    │   
     │
+    │── scoped/
+          future/
+          1/desc.md
+          2/desc.md
+    │── ideas/
+    ├
     ├── concepts/
     │   ├── concepts_to_implement.md    # Extracted technical concepts
     │   ├── simplified_concepts.md      # Prototype-ready versions
     │   ├── concept_clarifications/     # Detailed concept specs
     │   └── simplified_clarifications/  # Simplified specs
     │
-    └── enhancements/             # Future improvements
-    │── explorations/             # freestyle exploration and analysis documents
-    │
+    │-clarifications/
     ├── modules/
     │   └── [module_name]/
     │           ├── what_is_this_for.md
@@ -63,7 +67,7 @@ project-root/
     │           ├── edge_cases_covered.md
     │           └── example_usage.md
                 └── summary.md
-    │
+    │- roadmaps — for roadmap related activity and notes.. 
    
 ```
 

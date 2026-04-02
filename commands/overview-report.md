@@ -36,10 +36,10 @@ Collect information from these sources for the given period:
 actually inspecting what changed in each modified file, No just reported on things you already have context.. your context is not full.     RUN and an actual investigation of the diff. The right process is to git diff HEAD -- <file> for every file in the stat output and document what each change ...                                                                                     
 
 **Devdocs artifacts** — scan `devdocs/` for files created or modified within the period:
-- `devdocs/enhancements/` — any step_by_step_plan.md, desc.md, critic.md files
+- `devdocs/scoped/` — any step_by_step_plan.md, desc.md, critic.md files
 - `devdocs/archaeology/` — traces, summaries, dead code indexes
 - `devdocs/roadmaps/` — any roadmap activity
-- `devdocs/fixes/` — any fix documentation
+- `devdocs/ideas/` — any fix documentation
 - Any other devdocs subfolders that have recent activity
 
 **Conversation context** — if relevant context from recent conversation is available, incorporate it.

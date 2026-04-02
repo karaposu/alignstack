@@ -52,15 +52,25 @@ Document:
 - Security considerations
 - Required refactoring before implementation
 - Performance implications (latency, memory, storage)
+- Question architectural choices for future development,deployment, propose better alternatives to the plan's approach if they match the project's and feature's fundementals. 
+- if any near future requirements are in your context regarding codebase, use them to show better alternative approaches too. But explicitylu state that they are better in the future context only. 
+- Don't just patch the plan — question whether the plan's assumptions are correct.
+
 
 Rate each risk (severity) as: Low/Medium/High
-For each Medium/High risk, suggest three levels of mitigation : a quick fix, a robust fix, and a long-term fix. and for robust fix add a subfield called  "why this is robust:" and for long term fix  add a subfield called  "why this is long term effective:"
+For each Medium/High risk, suggest three levels of mitigation : 
+    - a quick fix,
+    - a robust fix 
+    - a long-term fix. 
+   for robust fix add a subfield called  "why this is robust:" and for long term fix  add a subfield called  "why this is long term effective:"
+
 Each Item should have impact field (possible effects of this Risk Item ), ELI10 field (non technical explanaition),| NoobEng field(explaining like explaining to a noob for engineer who doesnt understand the underlying dynamics)
 
 Analyze how this feature will interact with the existing codebase:
 
 1. Read all relevant module interfaces and implementations
 2. Create critic.md in relevant devdocs folder (same folder as our step by step plan file )
+
 
 ----
 

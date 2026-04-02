@@ -34,44 +34,9 @@ The seven mechanisms split naturally into these two roles:
 
 ---
 
-## Intuition and Direction
-
-Innovation starts with a trigger — a gap noticed, a question asked, a feeling that something matters. But where does that trigger come from? What makes someone notice the gap, ask the question, or feel the importance?
-
-The answer is **intuition** — pattern recognition from accumulated experience that produces signals before conscious reasoning can articulate them.
-
-Intuition has three components:
-
-**1. Context** — what concepts are cognitively proximate. Determined by what you're working on, thinking about, and exposed to. A developer working on AI methodologies has "methodology," "AI," and "developer experience" in proximity — not because they chose to, but because daily work loaded those concepts.
-
-**2. Valuation** — what feels important. A pre-logical sense of worth. You FEEL that something matters before you can prove it. This feeling is what makes you persist when others push back, and what distinguishes seeds worth pursuing from seeds that are merely interesting.
-
-**3. Motivation** — the drive to pursue it. The desire to make the implicit explicit, to logically expose what is intuitively sensed. Without motivation, a feeling of importance stays a feeling and never becomes a seed.
-
-### Intuition and Mechanisms Are Complementary
-
-Intuition provides **direction** — which seeds to pursue, which outputs feel important. Mechanisms provide **coverage** — systematic exploration of the innovation space. Testing catches the blind spots of both — intuition's biases (confirmation bias, emotional attachment) and mechanism's aimlessness (treating all outputs as equally interesting).
-
-| | Intuition | Mechanisms |
-|---|---|---|
-| **Provides** | Direction — where to look | Coverage — how to look systematically |
-| **Strength** | Specific, experiential, felt | Systematic, exhaustive, rigorous |
-| **Weakness** | Biased, narrow, hard to articulate | Aimless without direction |
-| **Compensated by** | Mechanisms + Testing | Intuition + Testing |
-
-Neither alone is sufficient. Intuition without mechanisms produces undefended gut feelings. Mechanisms without intuition produce aimless novelty. Together they produce directed, systematically explored, tested innovation.
-
-### Practical Implication
-
-Before applying mechanisms, **establish direction** — not just "here's a seed" but "here's a seed, and this is why it matters." The valuation signal shapes which mechanism outputs are worth pursuing and which are technically novel but practically irrelevant.
-
-When working with AI: the human provides intuition (direction, valuation, motivation). The AI provides systematic mechanism application (coverage). Context can be supported through deliberate loading (workspace knowledge, recent work, domain themes). Valuation can be elicited ("what feels important? what would you regret not pursuing?"). Motivation must come from the human.
-
----
-
 ## The Seed
 
-Innovation starts with a seed — something that triggers the process. Seeds are produced by intuition — by the interaction of context, valuation, and motivation. They come from structural sources:
+Innovation starts with a seed — something that triggers the process. Seeds are not random. They come from structural sources:
 
 | Seed Type | What it feels like | Example |
 |-----------|-------------------|---------|
@@ -117,15 +82,11 @@ Mechanisms are the tools for generating novel output from a seed. Each mechanism
 
 **How to apply:**
 - Identify the core concepts in and around the seed
-- Find second concepts to connect with. Sources:
-  - **What's already nearby** — concepts in the current context (conversation, project, problem space) that haven't been connected to the seed yet. Most combinations come from things already in proximity through intuition or daily work.
-  - **What other mechanisms produced** — outputs from Lens Shifting, Absence Recognition, etc. become combination candidates. Mechanisms feed each other.
-  - **What shares the same structure** — the seed has properties and patterns. What else has those same properties in a different domain?
-  - **What the user/audience is already thinking about** — the innovator's own concerns, projects, and interests are a rich source of second concepts.
+- Identify concepts from unrelated contexts
 - Ask: "What happens if I connect A and B?"
 - Explore what emerges at the intersection
 
-**Example:** In a discussion about AI's future, three concepts were in proximity through the speaker's daily work and concerns: methodology (they were building methodologies), convergence (introduced via Lens Shifting), and business value (a personal concern). Connecting all three produced: proprietary AI frameworks as a market category. None of the three alone produces this — it emerges from their combination. The concepts were available for combination because intuition had already placed them in proximity.
+**Example:** Methodology + model convergence + business strategy = proprietary AI frameworks as a market category. None of the three concepts alone produces this — it emerges from their combination.
 
 **What it misses:** Condition-dependent truths, absent things, trend implications. Combination is generative but undirected — it finds surprising connections but doesn't explain why they matter.
 
@@ -371,9 +332,8 @@ Only the most comfortable or familiar novel outputs survive testing. Truly disru
 
 | Component | What it is | How many |
 |-----------|-----------|----------|
-| **Intuition** | Upstream source of seeds — context, valuation, motivation | 3 components |
 | **Seed** | The trigger — what starts the innovation process | 1 per process |
-| **Mechanisms** | Tools for generating novelty from the seed | 7 (4 Generators + 3 Framers) |
+| **Mechanisms** | Tools for generating novelty from the seed | 7 identified |
 | **Process** | Seed → Generate (mechanisms) → Test → Iterate | 3 phases, cyclic |
 | **Coverage** | Strategy for exploring the innovation space | Min 1G + 1F, full 7 |
 | **Tests** | How to evaluate novel outputs | 5 criteria |

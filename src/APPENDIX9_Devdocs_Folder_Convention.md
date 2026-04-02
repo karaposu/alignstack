@@ -10,10 +10,9 @@ This document defines the standard folder structure and naming conventions for `
 devdocs/
 ├── foundations/          # What this project is and how it thinks
 ├── archaeology/          # Understanding an existing codebase
-├── enhancements/         # All planned and finished work
+├── scoped/         # All planned and finished work
 ├── modules/              # Per-module documentation
-├── evolution/            # Improvement planning and roadmaps
-├── 
+├── roadmaps
 ```
 
 ---
@@ -21,10 +20,10 @@ devdocs/
 
 ## Created as Needed
 
-├── concepts/             # Domain and technical concepts, can be regarding a feature or for whole project
-├── explorations/         # Freestyle analysis and research
-├── clarifications/       # Elaborated/tidied input (from /elaborate)
-└── sensemaking/          # Structural sensemaking outputs
+── concepts/             # Domain and technical concepts, can be regarding a feature or for whole project
+── ideas/         # Freestyle analysis and research
+── clarifications/       # Elaborated/tidied input (from /elaborate)
+── sensemaking/          # Structural sensemaking outputs
 
 
 
@@ -82,12 +81,12 @@ Module names are lowercase with underscores: `auth_service`, `payment_gateway`, 
 
 ---
 
-## enhancements/
+## scoped/
 
 All work items — features, bug fixes, improvements, refactor,  anything that changes the codebase. Each enhancement gets its own folder.
 
 ```
-devdocs/enhancements/
+devdocs/scoped/
 ├── [identifier]/
 │   ├── raw.md                        # or raw/ folder if multiple files
 │   ├── elaboration.md                # /elaborate output — tidied version of raw
@@ -134,8 +133,8 @@ Not every enhancement needs all files. A small bug fix might only have `raw/` an
 Status is tracked by folder location:
 
 ```
-devdocs/enhancements/[name]/           # active (planned or in-progress)
-devdocs/enhancements/finished/[name]/  # done — move here when complete
+devdocs/scoped/[name]/           # active (planned or in-progress)
+devdocs/scoped/finished/[name]/  # done — move here when complete
 ```
 
 Move the entire folder to `finished/` when the enhancement is complete. This keeps the top level clean.
