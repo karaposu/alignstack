@@ -125,6 +125,69 @@ Two-phase process:
 
 ---
 
+## Foundation Commands
+
+These commands set up a new project's devdocs from scratch. They form a pipeline — each builds on the output of the previous one.
+
+```
+/devdocs-foundation → /devdocs-foundation-concepts → /devdocs-foundation-simplified-concepts → /devdocs-foundation-identify-modules → /devdocs-foundation-architecture
+```
+
+### `/devdocs-foundation`
+
+Establish the foundational devdocs for a project. Reads all available project context (data dumps, READMEs, conversation history) and creates three foundation documents: project description, philosophy, and known requirements. Works with whatever exists — marks gaps as "unknown" rather than blocking on questions.
+
+**Input**: None
+**Output**: `devdocs/foundations/project_description.md`, `devdocs/foundations/philosophy.md`, `devdocs/foundations/known_requirements.md`
+
+[View full command](../commands/devdocs-foundation.md)
+
+---
+
+### `/devdocs-foundation-concepts`
+
+Extract the essential technical concepts from the foundation documents. For each concept, creates a detailed clarification document answering eight structured questions (what it is, how it helps, how it limits, inputs, process, outputs, good outcome, bad outcome).
+
+**Input**: None (reads foundation docs)
+**Output**: `devdocs/concepts/concepts.md` + `devdocs/concepts/concept_clarifications/01_*.md` through `NN_*.md`
+
+[View full command](../commands/devdocs-foundation-concepts.md)
+
+---
+
+### `/devdocs-foundation-simplified-concepts`
+
+Simplify the full concepts for prototype scope. Reduces features but preserves architecture — the simplified version can expand to the full version without rewrites. Each simplification documents what was cut and why the architecture survives.
+
+**Input**: None (reads concepts docs)
+**Output**: `devdocs/concepts/simplified_concepts.md` + `devdocs/concepts/simplified_concept_clarifications/01_*.md` through `NN_*.md`
+
+[View full command](../commands/devdocs-foundation-simplified-concepts.md)
+
+---
+
+### `/devdocs-foundation-identify-modules`
+
+Identify logical module boundaries from the simplified concepts. Only modularizes at major conceptual boundaries — avoids over-engineering. Documents what was NOT modularized and why.
+
+**Input**: None (reads simplified concepts)
+**Output**: `devdocs/foundations/module_proposal.md`
+
+[View full command](../commands/devdocs-foundation-identify-modules.md)
+
+---
+
+### `/devdocs-foundation-architecture`
+
+Propose the project architecture based on simplified concepts and module proposal. Critically evaluates the module proposal (accepts, merges, or rejects modules). Every design pattern must earn its place by solving a named problem. Documents expansion paths and key trade-offs.
+
+**Input**: None (reads simplified concepts + module proposal)
+**Output**: `devdocs/foundations/architecture.md`
+
+[View full command](../commands/devdocs-foundation-architecture.md)
+
+---
+
 ## Analysis & Sensemaking
 
 ### `/sense-making`
@@ -135,6 +198,19 @@ Run the Structural Sensemaking Framework against any input. Transforms vague or 
 **Output**: Full sensemaking analysis saved as markdown
 
 [View full command](../commands/sense-making.md)
+
+---
+
+## Innovation
+
+### `/innovate`
+
+Apply the Structural Innovation Framework to any input. Systematically generates novel ideas using seven mechanisms (4 Generators + 3 Framers) — Lens Shifting, Combination, Inversion, Constraint Manipulation, Absence Recognition, Domain Transfer, and Extrapolation. For each mechanism, produces three variations: one generic, one focused, one controversial. Tests outputs for novelty, scrutiny survival, fertility, and actionability.
+
+**Input**: Raw text, file path, or file path + additional text
+**Output**: Full innovation analysis saved as markdown
+
+[View full command](../commands/innovate.md)
 
 ---
 
@@ -245,6 +321,30 @@ Generate a structured report of what happened in the project over a given time p
 
 ---
 
+## Alignment
+
+### `/align`
+
+Load all relevant context for a specific task and assess alignment across all six layers. Reads archaeology, task docs, plan, critic, affected modules, and success criteria — then reports gaps and recommends what to do next. After running, the AI has full context loaded and is ready to discuss or implement.
+
+**Input**: Task path, task name, or description
+**Output**: Alignment report printed in conversation (not saved to file)
+
+[View full command](../commands/align.md)
+
+---
+
+### `/align-modes`
+
+For a given task, assess what is needed across all seven intent modes (Exploration, Alignment, Innovation, Diagnostic, Maintenance, Recovery, Reflection) and all six alignment layers. Produces a complete strategic picture — not just what to build, but what to explore, what might need innovation, what could break, what to maintain, and what to reflect on. Includes a synthesis with critical items, risk areas, mode sequence recommendation, and recovery plan.
+
+**Input**: Task path, task name, or description
+**Output**: Full multi-modal assessment printed in conversation
+
+[View full command](../commands/align-modes.md)
+
+---
+
 ## Maintenance
 
 ### `/devdocs-archivist`
@@ -262,12 +362,18 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 
 | Command | What it does | Output |
 |---------|-------------|--------|
+| `/devdocs-foundation` | Create foundation docs (description, philosophy, requirements) | `devdocs/foundations/` (3 files) |
+| `/devdocs-foundation-concepts` | Extract and clarify core concepts | `devdocs/concepts/` + clarifications |
+| `/devdocs-foundation-simplified-concepts` | Simplify concepts for prototype | `devdocs/concepts/simplified_*` |
+| `/devdocs-foundation-identify-modules` | Identify module boundaries | `devdocs/foundations/module_proposal.md` |
+| `/devdocs-foundation-architecture` | Propose project architecture | `devdocs/foundations/architecture.md` |
 | `/elaborate` | Tidy up messy input | Markdown file(s) + conversation |
 | `/task-desc` | Structured feature description | `desc.md` |
 | `/task-plan` | Step-by-step implementation plan | `step_by_step_plan.md` |
 | `/critic` | Risk/error/conflict analysis (generic) | `critic.md` |
 | `/critic-d` | Risk analysis (dynamic, two-phase) | `dynamic_critic_prompt.md` + `critic.md` |
 | `/sense-making` | Structural sensemaking analysis | Markdown file(s) |
+| `/innovate` | Structural innovation (7 mechanisms × 3 variations) | Markdown file(s) |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
@@ -276,6 +382,8 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/dead-code-concepts` | Group dead code into dead concepts | `devdocs/archaeology/dead_concepts_index.md` |
 | `/roadmap` | Navigation map from start to end state | `devdocs/roadmaps/<name>/` folder |
 | `/overview-report` | Period overview report (why/how/impact) | `devdocs/reports/overview_<period>_<date>.md` |
+| `/align` | Load task context across all 6 layers, report gaps | Alignment report in conversation |
+| `/align-modes` | Assess task across 7 modes × 6 layers | Multi-modal assessment in conversation |
 | `/devdocs-archivist` | Scan devdocs, detect staleness, archive done work | Archive plan + moves (or `-doc` report) |
 
 ## Hooks

@@ -16,12 +16,18 @@ mkdir -p "$HOOKS_DIR"
 echo "Installing slash commands..."
 
 commands=(
+  devdocs-foundation.md
+  devdocs-foundation-concepts.md
+  devdocs-foundation-simplified-concepts.md
+  devdocs-foundation-identify-modules.md
+  devdocs-foundation-architecture.md
   elaborate.md
   task-desc.md
   task-plan.md
   critic.md
   critic-d.md
   sense-making.md
+  innovate.md
   arch-small-summary.md
   arch-intro.md
   arch-traces.md
@@ -30,6 +36,8 @@ commands=(
   dead-code-concepts.md
   roadmap.md
   overview-report.md
+  align.md
+  align-modes.md
   devdocs-archivist.md
 )
 
@@ -59,7 +67,7 @@ echo ""
 echo "Done. Installed ${#commands[@]} slash commands to $COMMANDS_DIR"
 echo "Done. Installed ${#hooks[@]} hooks to $HOOKS_DIR"
 echo ""
-echo "Slash commands: /elaborate, /task-desc, /task-plan, /critic, /critic-d, /sense-making, /arch-small-summary, /arch-intro, /arch-traces, /arch-top-improvements, /dead-code-index, /dead-code-concepts, /roadmap, /overview-report, /devdocs-archivist"
+echo "Slash commands: /devdocs-foundation, /devdocs-foundation-concepts, /devdocs-foundation-simplified-concepts, /devdocs-foundation-identify-modules, /devdocs-foundation-architecture, /elaborate, /task-desc, /task-plan, /critic, /critic-d, /sense-making, /innovate, /arch-small-summary, /arch-intro, /arch-traces, /arch-top-improvements, /dead-code-index, /dead-code-concepts, /roadmap, /overview-report, /align, /align-modes, /devdocs-archivist"
 echo ""
 echo "To activate the devdocs metadata hook, add this to .claude/settings.json:"
 echo ""
