@@ -31,6 +31,7 @@ commands=(
   arch-small-summary.md
   arch-intro.md
   arch-traces.md
+  arch-traces-2.md
   arch-top-improvements.md
   dead-code-index.md
   dead-code-concepts.md
@@ -72,3 +73,10 @@ echo ""
 echo "To activate the devdocs metadata hook, add this to .claude/settings.json:"
 echo ""
 echo '  {"hooks":{"PreToolUse":[{"matcher":"Write","hooks":[{"type":"command","command":"~/.claude/hooks/devdocs_metadata_appender.sh"}]}]}}'
+echo ""
+echo "Using Cursor? You can simply run:"
+echo ""
+echo "  mkdir -p ~/.cursor/commands && cp ~/.claude/commands/*.md ~/.cursor/commands/"
+echo ""
+echo "Or for project-specific:"
+echo "  mkdir -p .cursor/commands && cp ~/.claude/commands/*.md .cursor/commands/"

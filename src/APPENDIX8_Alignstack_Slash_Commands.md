@@ -251,6 +251,19 @@ Trace every internal interface and submodule-level interaction end-to-end. Creat
 
 ---
 
+### `/arch-traces-2`
+
+Enhanced version of `/arch-traces` with structured trace categories. Organizes traces into six categories: lifecycle traces, data transformation traces, integration boundary traces, decision and routing traces, error and recovery traces, and cross-cutting mechanism traces. Each trace includes core sections (entry point, execution path, resource management, error path, performance, observable effects, design rationale) and assessment sections with ELI15 explanations, impact analysis, robust fixes, architectural fixes, and speculative defence for unusual design choices.
+
+Writes a grouped enumeration of all traces before writing individual trace files. Requires codebase understanding — suggests running `/arch-small-summary` and `/arch-intro` first if context is missing.
+
+**Input**: None
+**Output**: One file per trace in `devdocs/archaeology/traces/`
+
+[View full command](../commands/arch-traces-2.md)
+
+---
+
 ### `/arch-top-improvements`
 
 Based on existing traces, identify the 5 highest-impact improvements for the codebase. For each, explains why it matters, what it affects, and a plausible reason it hasn't been done yet (respecting that there may be undocumented decisions behind the current state).
@@ -377,6 +390,7 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
+| `/arch-traces-2` | Categorized traces (6 categories, enhanced assessments) | `devdocs/archaeology/traces/` |
 | `/arch-top-improvements` | 5 highest-impact improvements | `devdocs/archaeology/top_improvements.md` |
 | `/dead-code-index` | Inventory unused code candidates | `devdocs/archaeology/dead_code_index.md` |
 | `/dead-code-concepts` | Group dead code into dead concepts | `devdocs/archaeology/dead_concepts_index.md` |
