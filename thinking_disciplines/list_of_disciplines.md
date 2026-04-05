@@ -36,9 +36,9 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-## To Build
+## Planned
 
-### 3. Structural Critique
+### 3. Critique
 
 **Transform:** Plan or idea → Identified risks, errors, and conflicts
 
@@ -55,7 +55,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 4. Structural Decomposition
+### 4. Decomposition
 
 **Transform:** Complex whole → Manageable independent parts
 
@@ -73,7 +73,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 5. Structural Diagnosis
+### 5. Diagnosis
 
 **Transform:** Failure → Root cause localization
 
@@ -92,7 +92,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 6. Structural Exploration
+### 6. Exploration
 
 **Transform:** Unknown territory → Mapped understanding
 
@@ -103,7 +103,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 - Depth probes (where should we go deeper?)
 - Boundary detection (where does this territory end?)
 - Knowledge gap identification (what do we NOT know after scanning?)
-- Confidence mapping (what are we sure about, what's uncertain, what's unknown?)
+- Confidence mapping (what are we sure about, what is partially known , what's uncertain, what's unknown?)
 - What are the failure modes? (exploring too deep before scanning breadth, mistaking surface understanding for deep understanding, stopping exploration when it feels "enough" rather than when gaps are closed)
 
 **Existing commands:** `/arch-small-summary`, `/arch-intro`, `/arch-traces`, `/arch-traces-2`
@@ -111,7 +111,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 7. Structural Reflection
+### 7. Reflection
 
 **Transform:** Completed work → Extracted patterns and insights
 
@@ -129,7 +129,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 8. Structural Recovery
+### 8. Recovery
 
 **Transform:** Broken state → Restored function
 
@@ -148,7 +148,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 9. Structural Evaluation
+### 9. Evaluation
 
 **Transform:** Output → Intent comparison
 
@@ -166,16 +166,47 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
+### 10. Meta-Plan
+
+**Transform:** Problem + context → Correct sequence of disciplines to apply
+
+**What it is:** The discipline for combining other disciplines. Given a problem and its current context (including what has already been done, what was tried before, what failed), Meta-Plan determines which disciplines to apply, in what order, and how their outputs feed into each other. It is the orchestrator that makes the other nine disciplines work together as a system rather than a disconnected toolbox.
+
+Without Meta-Plan, the user has to decide: "should I sensemaking this first, or decompose it, or innovate?" That decision itself requires structured thinking. Meta-Plan IS that structured thinking.
+
+**Components to define:**
+- Problem classification (what kind of problem is this? ambiguous? complex? broken? novel? stale?)
+- Context reading (what has already been done? what disciplines have been applied? what did they produce? what failed?)
+- Discipline selection (which disciplines does this problem need, and which does it NOT need?)
+- Sequencing (what order? what feeds into what? where are the dependencies between discipline outputs?)
+- Past context integration (what was learned in previous sessions, previous attempts, previous failures that should inform the current plan?)
+- Adaptive re-planning (when a discipline produces unexpected output, how does the plan adjust?)
+- What are the failure modes? (applying disciplines in the wrong order, skipping a needed discipline because it feels redundant, ignoring past context and re-discovering the same dead ends, over-planning instead of starting, rigid sequencing that doesn't adapt to what each discipline reveals)
+
+**Existing commands:** `/align-modes` (partial, assesses all modes but doesn't sequence disciplines)
+**Priority:** High — this is what makes the disciplines composable instead of isolated
+
+---
+
 ## Discipline Relationships
 
 ```
+                        ┌─────────────┐
+                        │  Meta-Plan  │
+                        │ (sequences  │
+                        │  all others)│
+                        └──────┬──────┘
+                               │
+            ┌──────────────────┼──────────────────┐
+            ▼                  ▼                  ▼
 Exploration → Sensemaking → Innovation
                                ↓
                           Decomposition → Critique → (implement) → Evaluation
                                                                        ↓
                                                          Diagnosis → Recovery
 
-Reflection spans all — it operates on the output of any framework
+Reflection spans all — it operates on the output of any discipline
+Meta-Plan spans all — it decides which disciplines to use and in what order
 ```
 
-Each discipline is standalone and domain-agnostic. Together they cover the cognitive operations that development requires. The AlignStack Agent uses them as the methodology behind its seven modes.
+Each discipline is standalone and domain-agnostic. Together they cover the cognitive operations that development requires. Meta-Plan is what turns them from a list into a system — it reads the problem, reads the context, and produces the right sequence of disciplines for this specific situation. The AlignStack Agent uses them as the methodology behind its seven modes.
