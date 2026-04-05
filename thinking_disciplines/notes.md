@@ -15,3 +15,15 @@ i think one way to show the power of this thinking disciplines is to actually us
 
 
  If they can be combined in a meta manner, one emergent feature is  disciplines being SELF-EXTENDING. They recognize their own depth limitation, use their own mechanisms to address it, and generate the missing depth. The depth isn't pre-loaded, it's produced by the disciplines themselves.
+
+
+
+ also, i think critique is mixture of explore, sensemaking , innovation , so maybe not all disciplines are fundemantal? or, they are all can be defined in individial way, and also mixture of others. they all have this feature?
+
+ also we can combined , innovation, and sensemaking , and use the result again to explore. this can go forever, we have depth and runner of these (maybe meta planner?) should be aware of this and dynamically adjust based on another thinking discipline whihc is not discovered yet. 
+
+
+
+ in our work, we must priotitize perfecting this disciplines apparoch with the disciplines. and it will be the first proof that this works. 
+
+ and one of the first things we shoud solve is context tracking. beacuse our thinking disciplines approach try to cover thinking space, and without proper and perminant way to list things, explore them and do this in retrackable branches without informaitno loss. Our holistic runs wont produce desired resutls. 

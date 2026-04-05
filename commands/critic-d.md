@@ -99,9 +99,10 @@ Dont use tabular format,  it should be sections with subsections and detailed en
 
   - Save the generated prompt** as `dynamic_critic_prompt.md` in the same directory as the `step_by_step_plan.md`.
  - Print the generated prompt** in the conversation so the user can read it.
- - Ask the user: *"Here's the dynamic critic prompt I generated. Should I run it now?"*
+ - Tell  the user: *" dynamic critic prompt is generated and saved. Now I am running it"*
 
-**Do NOT proceed to Phase 2 until the user confirms.**
+ and switch to phase 2 below:
+
 
 
 
@@ -124,7 +125,7 @@ For each identified risk item, document:
 | **Category** | Breaking change / Performance / Security / API contract / Schema / Compatibility...|
 | **Severity** | Low / Medium / High |
 | **Impact** | Possible effects if this risk materializes |
-| **ELI10** | Non-technical explanation anyone can understand |
+| **ELI18** | Non-technical explanation anyone can understand |
 | **NoobEng** | explaining like explaining to a noob for engineer who doesnt understand the underlying dynamics |
 | **Affected areas** | Which existing features, modules, or endpoints are affected |
 | **Mitigation** (Medium/High only) | Three levels: quick fix, robust fix, long-term fix |
