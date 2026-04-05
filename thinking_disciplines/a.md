@@ -1,0 +1,2 @@
+i think thinking disciplines are about finding a coverage equation for the definition, like sensemaking , innovation it fitts this understanding. 
+but not only. it also about how this coverage should be used , what should be be done it too. 

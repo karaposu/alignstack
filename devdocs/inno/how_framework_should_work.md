@@ -1,6 +1,6 @@
-# How the Innovation Framework Should Work
+# How the Innovation Thinking Discipline Should Work
 
-Analysis of how to structure the innovation framework as a standalone, reusable process — decoupled from alignment.
+Analysis of how to structure Structural Innovation as a standalone, reusable thinking discipline — decoupled from alignment.
 
 ---
 

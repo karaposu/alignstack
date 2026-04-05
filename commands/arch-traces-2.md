@@ -64,8 +64,9 @@ Assessment sections (each must include an ELI15 explanation, an Impact field, an
       - An ELI15 (plain-language or very soft technical explanation)
       - Impact of it to the codebase and overall logic
       - Robust Fixes / Best Practices (how to address it properly)
-      - Architectural Fix if it exists. 
+      - Architectural Fix if it exists (also mention that if this solution is overkill or not for this codebase in the end of the architectural fix. )
       - Speculative defence (if this is a weird error/design use the codebase context to speculate then why not it wasnt solved such way, what was the reason?)
+      - is this 
 
 
 ### Output

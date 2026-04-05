@@ -56,6 +56,7 @@ Document:
 - if any near future requirements are in your context regarding codebase, use them to show better alternative approaches too. But explicitylu state that they are better in the future context only. 
 - Don't just patch the plan — question whether the plan's assumptions are correct.
 
+Also check if plan is detailed enough, if any step's implementation is too high level compared to complexity of the relevant code section and concepts, mention that as a Medium risk. 
 
 Rate each risk (severity) as: Low/Medium/High
 For each Medium/High risk, suggest three levels of mitigation : 

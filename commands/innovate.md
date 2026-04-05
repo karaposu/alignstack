@@ -1,6 +1,6 @@
 
 name: innovate
-description:  producing novel ideas through systematic mechanism application. Innovation is not inspiration — it's a structured process with identifiable tools, a repeatable process, predictable failure modes, and a coverage strategy that ensures the innovation space is explored rather than sampled by accident.
+description:  A thinking discipline for producing novel ideas through systematic mechanism application.
 
 
 # /innovate 
@@ -26,9 +26,9 @@ $ARGUMENTS
 
 
 
-# The Structural Innovation Framework
+# Structural Innovation — A Thinking Discipline
 
-A framework for producing novel ideas through systematic mechanism application. Innovation is not inspiration — it's a structured process with identifiable tools, a repeatable process, predictable failure modes, and a coverage strategy that ensures the innovation space is explored rather than sampled by accident.
+A thinking discipline for producing novel ideas through systematic mechanism application. Innovation is not inspiration — it's a practiced methodology with identifiable tools, a repeatable process, predictable failure modes, and a coverage strategy that ensures the innovation space is explored rather than sampled by accident.
 
 ---
 
@@ -171,7 +171,16 @@ Mechanisms are the tools for generating novel output from a seed. Each mechanism
 - Ask: "If this opposite were true, what would follow?"
 - Explore the implications without immediately judging feasibility
 
-**Example:** Assumption: "Stronger models are always better." Inversion: "What if weaker models are sometimes better?" This leads to exploring when constraints, specialization, or efficiency matter more than raw capability.
+**Depth check:** After each inversion, ask "Can I invert AGAIN?" The first inversion often produces an incremental improvement. The second often reveals a structural change. Keep inverting until you reach a statement about the SYSTEM, not about a COMPONENT.
+
+- If the inversion produces a statement about a component ("the middleware does X"), invert again
+- Keep inverting until you reach a statement about the system ("the communication protocol is X")
+- Component-level inversions find workarounds. System-level inversions find architectural solutions.
+
+**Example:**
+- Level 1: "Middleware discovers context" → "Middleware is told context" (component-level — a workaround)
+- Level 2: "Something must tell the middleware" → "Nothing needs to tell it — the communication protocol carries context inherently" (system-level — an architectural solution)
+- Level 3: "The protocol must be designed for this" → "The protocol was always supposed to be structured — the text-based protocol is the real bug" (root-cause-level)
 
 **What it misses:** Nuanced middle ground, absent things, connections to other domains. Inversion is binary — it flips, but the interesting territory is often between the poles.
 
@@ -205,8 +214,11 @@ Mechanisms are the tools for generating novel output from a seed. Each mechanism
 - Ask: "What's missing? What should be here but isn't?"
 - Ask: "Who needs something that doesn't exist yet?"
 - Ask: "What would the complete picture look like, and what's absent from it?"
+- Ask: "What would exist if this were designed from scratch today? What data, interface, or contract SHOULD exist between these components but was never created — because the system evolved incrementally?"
 
-**Example:** "No one is building methodology products even though methodology will become the differentiator" — the absence of a market category is itself an innovation opportunity.
+The first three questions find **gaps in the current design** (a missing field, a missing validation, a missing handler). The last question finds **things the current design never considered** — structural absences that only become visible when you step outside the incremental mindset. The first finds patches. The last finds redesigns. Both are valid.
+
+**Example:** "No one is building methodology products even though methodology will become the differentiator" — the absence of a market category is itself an innovation opportunity. At the redesign level: "If AI tooling were designed from scratch today, methodology would be a first-class product category, not an afterthought bolted onto model APIs."
 
 **What it misses:** Condition-dependent truths, connections, inversions. Absence recognition finds gaps but doesn't fill them — it needs other mechanisms to generate the thing that fills the gap.
 

@@ -54,37 +54,32 @@ Each of the six agents operates at one layer, in one intent mode, at one autonom
 
 ## The Problem
 
-Every AI coding tool today is essentially a single agent operating at one layer (Action-Set) in one mode (a degraded Alignment). "Given this context, generate this code." They have some workspace awareness (codebase indexing) but almost no task depth checking, no coherence monitoring, and no outcome verification. And critically — no mode awareness at all.
+Current AI coding tools are not lacking in capability. They can explore codebases, generate plans, write code, and sometimes check for issues. The raw ability is there. What's missing is **a philosophy of what development actually is** — a structural understanding of the dimensions, modes, and transitions that make development work.
 
-This works when:
-- Tasks are small and self-contained
-- A human reviews every output
-- Mistakes are cheap to fix
+Without this philosophy, tools operate ad-hoc. They explore when they happen to, plan when prompted, check coherence sometimes, and never reflect. They have workspace awareness (codebase indexing) but no methodology for when to use it. They can generate code but have no model for when generation is the wrong posture — when exploration, innovation, diagnosis, or reflection is what the situation actually demands.
 
-This fails when:
-- Tasks are complex and span multiple modules
-- The AI works autonomously for extended periods
-- Mistakes compound silently
-- The situation requires a different posture than "generate code"
+The problem is not missing capabilities. It's **missing structure and methodology.** The same tools, guided by a structural understanding of development, would behave fundamentally differently.
 
-The failure modes are predictable because they map to unmonitored layers AND missing modes:
+This is the thesis AlignStack is built on: as AI capabilities converge, the differentiator shifts from raw ability to the methodology that guides it. Current tools have the ability. They lack the framework.
 
-**Layer failures:**
-- AI breaks existing features → no coherence monitoring (layer 5)
-- AI builds the wrong thing → no task depth understanding (layer 2)
-- AI picks a bad approach → no action-space evaluation (layer 3)
-- AI generates code in a stale context → no workspace monitoring (layer 1)
-- AI finishes but the result doesn't match intent → no outcome verification (layer 6)
+**What this looks like in practice:**
 
-**Mode failures:**
-- AI builds on a codebase it doesn't understand → should be in Exploration, locked in Alignment
-- AI force-fits a known pattern when the problem needs a novel approach → should be in Innovation, locked in Alignment
-- AI keeps building after something broke → should be in Diagnostic, locked in Alignment
-- AI never stops to reflect on what was accomplished → no Reflection mode at all
-- AI lets documentation rot → no Maintenance mode at all
+Layer-level failures (the tool has the capability but doesn't apply it systematically):
+- AI breaks existing features → coherence checking exists but isn't continuous (layer 5)
+- AI builds the wrong thing → task understanding is shallow, no depth/scope model (layer 2)
+- AI picks a bad approach → approach evaluation is ad-hoc, not structured (layer 3)
+- AI generates code in a stale context → workspace awareness exists but isn't monitored (layer 1)
+- AI finishes but the result doesn't match intent → no systematic outcome verification (layer 6)
+
+Mode-level failures (the tool has no concept of modes at all):
+- AI builds on a codebase it doesn't understand → should be in Exploration, defaults to Alignment
+- AI force-fits a known pattern when the problem needs a novel approach → should be in Innovation, stuck in Alignment
+- AI keeps building after something broke → should be in Diagnostic, stuck in Alignment
+- AI never stops to reflect on what was accomplished → no Reflection mode
+- AI lets documentation rot → no Maintenance mode
 - AI diagnoses problems but can't fix them → no Recovery mode
 
-The pattern: current tools are **mode-blind**. They operate in one mode regardless of what the situation demands. This is as limiting as being layer-blind.
+The pattern: current tools are **mode-blind and methodology-free**. They have capabilities across multiple layers but no structured philosophy for when and how to apply them. They operate in one posture regardless of what the situation demands. AlignStack Agent provides the missing structure.
 
 ---
 
