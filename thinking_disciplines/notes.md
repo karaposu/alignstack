@@ -27,3 +27,26 @@ i think one way to show the power of this thinking disciplines is to actually us
  in our work, we must priotitize perfecting this disciplines apparoch with the disciplines. and it will be the first proof that this works. 
 
  and one of the first things we shoud solve is context tracking. beacuse our thinking disciplines approach try to cover thinking space, and without proper and perminant way to list things, explore them and do this in retrackable branches without informaitno loss. Our holistic runs wont produce desired resutls. 
+
+ but very first thing is to finsih defining disciplines, so we can use them all for self improvement. 
+
+
+
+ what is feasible?
+    will it limit us now for current other scoped items?
+    will it limit us for future direction of what we are trying to achieve?
+    how this can be rephrased without limiting us? maybe with port and adapters or interface approac, 
+    is it elagant? 
+    is it 
+
+
+
+
+and if you reread all traces, and look the codebase from a bit far away to see how things are arhitectures.
+what would be your 3 suggestions which would make everything so easier for us, both for future deployment and development
+think about this from the "what causes the most cascading friction" perspective — not individual fixes, but the three structural changes that would make dozens of other things fall into place.
+
+
+
+sensemaking  + innnovation + critiq + feasible loop = sicf
+to iterate and unlock the solution space in roguie way. bruteforce way. 
