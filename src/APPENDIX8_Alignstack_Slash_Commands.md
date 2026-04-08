@@ -214,6 +214,50 @@ Apply the Structural Innovation Framework to any input. Systematically generates
 
 ---
 
+### `/td-critique`
+
+Apply the Structural Critique thinking discipline. Constructs evaluation dimensions from the understood problem, builds a multi-dimensional fitness landscape, conducts adversarial testing on each candidate (prosecution + defense + collision), and produces verdicts: SURVIVE, REFINE, or KILL — each with constructive output. The contraction force that turns divergent thinking into convergent results.
+
+**Input**: Candidates to evaluate + problem context (sensemaking output or equivalent)
+**Output**: Fitness landscape with positioned candidates, coverage map, and verdicts saved as markdown
+
+[View full command](../commands/td_critique.md)
+
+---
+
+### `/decompose`
+
+Apply the Structural Decomposition thinking discipline. Perceives the internal coupling topology of a complex whole — where things are tightly connected (keep together) vs loosely connected (natural boundary) — and partitions into independently coherent pieces with explicit interfaces and dependency ordering. The scale operator that makes any problem tractable.
+
+**Input**: Complex problem, task, or system to decompose
+**Output**: Coupling map, question tree with pieces, interfaces, and dependency ordering saved as markdown
+
+[View full command](../commands/decompose.md)
+
+---
+
+### `/explore`
+
+Apply the Structural Exploration thinking discipline. Maps unknown territory through iterative scan-signal-probe cycles at managed resolution levels. Two modes: artifact exploration (codebases, literature — find what exists) and possibility exploration (solution spaces, design options — enumerate what could exist). Tracks the frontier between known and unknown with confidence assessment.
+
+**Input**: Territory to explore (codebase path, problem space, domain)
+**Output**: Structural map with confidence levels, frontier, and gaps saved as markdown
+
+[View full command](../commands/explore.md)
+
+---
+
+### `/inquiry`
+
+The Meta-Search orchestrator. For NEW inquiries: classifies the problem, selects and sequences the right thinking disciplines into a pipeline, creates an inquiry folder. For RESUME: checks progress and tells you what to run next. After each pipeline iteration: runs the meta-search checkpoint (steering, reconsideration, convergence detection). Does NOT run disciplines itself — tells you which discipline command to type next.
+
+**Input**: New question/problem, or existing inquiry folder to resume
+**Output**: Pipeline configuration + inquiry folder, or steering directive
+
+[View full command](../commands/inquiry.md)
+
+---
+
 ## Archaeology Commands
 
 These commands are for understanding existing codebases. They read code (not documentation) and produce honest assessments of what the project actually is and how it's built.
@@ -387,6 +431,10 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/critic-d` | Risk analysis (dynamic, two-phase) | `dynamic_critic_prompt.md` + `critic.md` |
 | `/sense-making` | Structural sensemaking analysis | Markdown file(s) |
 | `/innovate` | Structural innovation (7 mechanisms × 3 variations) | Markdown file(s) |
+| `/td-critique` | Structural critique (fitness landscape + adversarial verdicts) | Markdown file(s) |
+| `/decompose` | Structural decomposition (coupling map + question tree) | Markdown file(s) |
+| `/explore` | Structural exploration (scan-signal-probe + confidence map) | Markdown file(s) |
+| `/inquiry` | Meta-search orchestrator (CONFIGURE + STEER pipelines) | Inquiry folder + steering directives |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |

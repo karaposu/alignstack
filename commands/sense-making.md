@@ -168,6 +168,13 @@ Analyze the input from multiple perspectives:
 * Risk / Failure
 * Resource / Feasibility
 * Ethical / Systemic (if relevant)
+* Definitional / Consistency — Does this interpretation contradict any 
+  established definitions, principles, or prior stabilized models? 
+  Check the claim against the strongest known anchors. 
+  If a weak anchor (observation, single data point) contradicts a 
+  strong anchor (definition, tested principle), the weak anchor 
+  must justify the override — not the other way around.
+
 
 Extract new anchors from each perspective.
 
@@ -189,6 +196,17 @@ Identify:
 * Hidden assumptions
 
 Resolve or narrow them using strong anchors.
+
+Before collapsing any ambiguity, ask:
+- Am I resolving this because the evidence demands it, 
+  or because the resolution sounds clean?
+- What is the strongest counter-interpretation? 
+  Can I state it explicitly?
+- If I invert this resolution, does the opposite 
+  survive better against the strong anchors?
+If the resolution survives only because it's elegant 
+but not because it's grounded — flag it as 
+LOW CONFIDENCE and do not treat it as irreversible.
 
 For each identified ambiguity, provide a structured entry:
 

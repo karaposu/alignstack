@@ -36,44 +36,48 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
+### 3. Structural Critique
+
+**Transform:** Candidates + evaluation context → Fitness landscape with positioned ideas, coverage map, and convergence signal
+
+**What it is:** A framework for evaluating ideas, plans, and outputs by constructing multi-dimensional fitness landscapes, positioning candidates through adversarial testing, and tracking coverage until convergence. The contraction force in the SIC loop — sensemaking expands understanding, innovation expands the idea space, critique contracts by selecting survivors. Not nitpicking or checklist evaluation — landscape construction with adversarial prosecution/defense and persistent memory across iterations.
+
+**Components:** Two operations (extraction + evaluation), six default evaluation dimensions (correctness, coherence, feasibility, completeness, robustness, elegance — modified per problem), fitness landscape, adversarial structure (prosecution + defense + collision), three verdict types (SURVIVE / REFINE / KILL with constructive output), accumulator (persistent memory across SIC loop iterations), two-level coverage (per-candidate + per-solution-space), convergence detection, seven failure modes.
+
+**Command:** `/critic`, `/critic-d` (to be updated to match the discipline)
+**Files:** `thinking_disciplines/critique.md`
+
+---
+
+### 4. Structural Meta-Search
+
+**Transform:** Problem + context → Loop configuration (CONFIGURE) + Steering directives + reconsideration signals
+
+**What it is:** The complete orchestrator — designs loops before execution (CONFIGURE: classify problem, select disciplines, sequence pipeline) and steers them during execution (six moves across three awareness layers). Absorbs what was previously planned as Meta-Plan. Second-order awareness that operates on the cognitive process itself, not on content. S, I, C, D operate on content; meta-search operates on the process.
+
+**Components:** Two-phase operation (pre-execution CONFIGURE + during-execution steering), three-layer awareness model (present: position + heading; trend: velocity + acceleration + goal distance; memory: kill conditions + survival conditions + near-misses + dependency chains), seven moves (CONFIGURE + BROADEN, NARROW, SHIFT + DIAGNOSE, TERMINATE + RECONSIDER with RESURRECT/INVALIDATE/REVERT sub-actions), configurable autonomy levels (depth_1/N/auto/full), auto-continue confidence rules, circuit breaker, self-adjusting relevance threshold, confidence decay on past verdicts, seven failure modes.
+
+**Command:** (operates via `/explore` — CONFIGURE designs the loop, steering runs between iterations)
+**Files:** `thinking_disciplines/meta_search.md`
+
+---
+
+### 5. Structural Decomposition
+
+**Transform:** Complex-but-understood whole → Independently coherent pieces with explicit interfaces and dependency ordering (question tree)
+
+**What it is:** The cognitive operation of perceiving internal coupling topology in complexity — seeing where things are tightly connected (keep together) vs loosely connected (natural boundary) — and partitioning at natural boundaries. Not dividing (the action) but perceiving structure (the seeing that makes the cutting obvious). The scale operator for the SIC loop — enables problems of any size by partitioning into SIC-loop-sized pieces. Prerequisite: sensemaking (must understand before decomposing).
+
+**Components:** Coupling perception (core operation — propagation topology between elements), coupling map (high-cohesion clusters + low-coupling valleys), 7-step sequential process (perceive → detect → validate → express → map → order → evaluate), question tree output mapped to folder protocol, dual-direction validation (top-down + bottom-up sanity check with binary confidence), self-evaluation (3 minimum / 7 full dimensions), progressive versions (opt-in, triggered when boundaries discovered wrong during execution), 4 stopping criteria for recursive decomposition, 7 failure modes.
+
+**Command:** `/decompose` (to be built)
+**Files:** `thinking_disciplines/decomposition.md`
+
+---
+
 ## Planned
 
-### 3. Critique
-
-**Transform:** Plan or idea → Identified risks, errors, and conflicts
-
-**What it is:** A framework for systematically evaluating plans, designs, and ideas to find what could go wrong. Not nitpicking — finding the risks that actually matter. The `/critic` and `/critic-d` commands already do this but have no formal framework defining what good critique IS, what its failure modes are, or how to ensure coverage.
-
-**Components to define:**
-- What are the dimensions of critique? (correctness, coherence, feasibility, completeness, security, performance — are there others?)
-- What's the coverage strategy? (how do you know you've checked enough dimensions?)
-- What's the severity model? (how to distinguish noise from real risks)
-- What are the failure modes of bad critique? (rubber-stamping, nitpicking, missing systemic risks, severity inflation, checking the plan instead of the assumptions behind the plan)
-
-**Existing commands:** `/critic`, `/critic-d`
-**Priority:** High — used constantly, currently ad-hoc
-
----
-
-### 4. Decomposition
-
-**Transform:** Complex whole → Manageable independent parts
-
-**What it is:** A framework for breaking complex tasks, systems, or problems into pieces that can be worked on independently. The #1 bottleneck for long autonomous tasks — bad decomposition means pieces that can't be implemented independently, hidden dependencies that surface mid-build, and compounding errors across subtasks.
-
-**Components to define:**
-- How to detect natural boundaries (where does one piece end and another begin?)
-- How to verify independence (can piece A be built without piece B existing?)
-- How to map dependencies (what ordering constraints exist?)
-- How to size pieces (when is a piece too big? too small?)
-- What are the failure modes? (premature decomposition before understanding, splitting at the wrong boundaries, hidden coupling between "independent" pieces, uniform sizing that ignores natural complexity variation)
-
-**Existing commands:** `/decompose` (planned, not yet built)
-**Priority:** High — the bottleneck for every complex task
-
----
-
-### 5. Diagnosis
+### 6. Diagnosis
 
 **Transform:** Failure → Root cause localization
 
@@ -92,7 +96,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 6. Exploration
+### 7. Exploration
 
 **Transform:** Unknown territory → Mapped understanding
 
@@ -111,7 +115,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 7. Reflection
+### 8. Reflection
 
 **Transform:** Completed work → Extracted patterns and insights
 
@@ -129,7 +133,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 8. Recovery
+### 9. Recovery
 
 **Transform:** Broken state → Restored function
 
@@ -148,7 +152,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 9. Evaluation
+### 10. Evaluation
 
 **Transform:** Output → Intent comparison
 
@@ -166,47 +170,71 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 10. Meta-Plan
+### ~~Meta-Plan~~ — Absorbed into Meta-Search
 
-**Transform:** Problem + context → Correct sequence of disciplines to apply
-
-**What it is:** The discipline for combining other disciplines. Given a problem and its current context (including what has already been done, what was tried before, what failed), Meta-Plan determines which disciplines to apply, in what order, and how their outputs feed into each other. It is the orchestrator that makes the other nine disciplines work together as a system rather than a disconnected toolbox.
-
-Without Meta-Plan, the user has to decide: "should I sensemaking this first, or decompose it, or innovate?" That decision itself requires structured thinking. Meta-Plan IS that structured thinking.
-
-**Components to define:**
-- Problem classification (what kind of problem is this? ambiguous? complex? broken? novel? stale?)
-- Context reading (what has already been done? what disciplines have been applied? what did they produce? what failed?)
-- Discipline selection (which disciplines does this problem need, and which does it NOT need?)
-- Sequencing (what order? what feeds into what? where are the dependencies between discipline outputs?)
-- Past context integration (what was learned in previous sessions, previous attempts, previous failures that should inform the current plan?)
-- Adaptive re-planning (when a discipline produces unexpected output, how does the plan adjust?)
-- What are the failure modes? (applying disciplines in the wrong order, skipping a needed discipline because it feels redundant, ignoring past context and re-discovering the same dead ends, over-planning instead of starting, rigid sequencing that doesn't adapt to what each discipline reveals)
-
-**Existing commands:** `/align-modes` (partial, assesses all modes but doesn't sequence disciplines)
-**Priority:** High — this is what makes the disciplines composable instead of isolated
+*Previously planned as discipline #11. Fully absorbed into Structural Meta-Search (discipline #4) via the CONFIGURE move. All Meta-Plan components are covered: problem classification + discipline selection + sequencing (CONFIGURE), context reading + past context integration (memory layer), adaptive re-planning (steering moves). No separate discipline needed.*
 
 ---
 
 ## Discipline Relationships
 
-```
-                        ┌─────────────┐
-                        │  Meta-Plan  │
-                        │ (sequences  │
-                        │  all others)│
-                        └──────┬──────┘
-                               │
-            ┌──────────────────┼──────────────────┐
-            ▼                  ▼                  ▼
-Exploration → Sensemaking → Innovation
-                               ↓
-                          Decomposition → Critique → (implement) → Evaluation
-                                                                       ↓
-                                                         Diagnosis → Recovery
+### The Complete Built System (5 Disciplines)
 
-Reflection spans all — it operates on the output of any discipline
-Meta-Plan spans all — it decides which disciplines to use and in what order
+Meta-search is the complete orchestrator — it designs the loop (CONFIGURE) and steers it (6 moves). No separate Meta-Plan needed.
+
+```
+                    ┌──────────────────────────────────────────┐
+                    │            META-SEARCH                   │
+                    │                                          │
+                    │  CONFIGURE: classify problem, select     │
+                    │    disciplines, sequence pipeline         │
+                    │                                          │
+                    │  STEER: BROADEN / NARROW / SHIFT /       │
+                    │    DIAGNOSE / TERMINATE / RECONSIDER     │
+                    └──────┬──────────────┬──────────┬─────────┘
+                           │              │          │
+                    ┌──────▼──────────────▼──────────▼─────────┐
+                    │   [discipline pipeline from CONFIGURE]    │
+                    │   Adapts to the problem. Examples:        │
+                    │   • S → I → C (ambiguous, needs ideas)   │
+                    │   • S → Decompose → [S→I→C per branch]   │
+                    │   • S only (just need clarity)            │
+                    │   • I → C (clear, need options evaluated) │
+                    └──────┬───────────────────────────┬───────┘
+                           │                           │
+                           └────── loop ───────────────┘
 ```
 
-Each discipline is standalone and domain-agnostic. Together they cover the cognitive operations that development requires. Meta-Plan is what turns them from a list into a system — it reads the problem, reads the context, and produces the right sequence of disciplines for this specific situation. The AlignStack Agent uses them as the methodology behind its seven modes.
+Meta-search CONFIGURE selects the right disciplines for the problem. The six steering moves keep the loop directed. Decomposition scales the loop to problems of any size. The folder system persists everything across sessions.
+
+### Full Discipline Flow (Built + Planned)
+
+```
+                    ┌──────────────────────────────┐
+                    │  META-SEARCH (orchestrator)   │
+                    │  CONFIGURE → STEER → STEER   │
+                    └──────────────┬───────────────┘
+                                  │
+            ┌─────────────────────┼─────────────────────┐
+            ▼                     ▼                     ▼
+     Sensemaking            Innovation              Critique
+     (expand)               (expand)              (contract)
+            │                     │                     │
+            └──── Decomposition ──┴─── (scale) ────────┘
+                                  │
+                    ┌─────────────┼─────────────┐
+                    ▼             ▼             ▼
+              Exploration    Diagnosis      Reflection
+              (planned)      (planned)      (planned)
+                                  │
+                            ┌─────┴─────┐
+                            ▼           ▼
+                        Recovery    Evaluation
+                        (planned)   (planned)
+```
+
+5 built: Sensemaking, Innovation, Critique, Meta-Search, Decomposition
+5 planned: Diagnosis, Exploration, Reflection, Recovery, Evaluation
+Meta-Plan: absorbed into Meta-Search (CONFIGURE)
+
+Each discipline is standalone and domain-agnostic. Meta-search turns them from a list into a system — CONFIGURE reads the problem and produces the right discipline sequence. The AlignStack Agent uses them as the methodology behind its seven modes.

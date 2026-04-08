@@ -137,6 +137,8 @@ Analyze the input from multiple perspectives:
 * Risk / Failure
 * Resource / Feasibility
 * Ethical / Systemic (if relevant)
+* Definitional / Consistency — Does this interpretation contradict any established definitions, principles, or prior stabilized models Check the claim against the strongest known anchors. If a weak anchor (observation, single data point) contradicts a strong anchor (definition, tested principle), the weak anchor must justify the override — not the other way around.
+
 
 Extract new anchors from each perspective.
 
@@ -163,6 +165,14 @@ For each identified ambiguity, provide a structured entry:
 
 #### Ambiguity:
 [Describe the vague term, conflict, assumption, or unclear goal]
+
+**Strongest counter-interpretation:**
+[State the best case for a DIFFERENT resolution. What is the strongest
+argument against your chosen resolution? If you cannot articulate a
+counter-interpretation, you have not tested this resolution — do not proceed.]
+
+**Confidence:** HIGH (evidence demands this over the counter-interpretation) |
+LOW (elegant but the counter-interpretation has merit — do not treat as irreversible)
 
 **Resolution:**
 [Chosen interpretation or decision]
