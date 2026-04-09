@@ -201,7 +201,9 @@ Run the Structural Sensemaking Framework against any input. Transforms vague or 
 
 ---
 
-## Innovation
+## Thinking Discipline Commands
+
+These commands implement the AlignStack Thinking Disciplines. Each discipline is a domain-agnostic methodology for a specific cognitive operation. They can be used independently or chained via `/inquiry`.
 
 ### `/innovate`
 
@@ -247,12 +249,23 @@ Apply the Structural Exploration thinking discipline. Maps unknown territory thr
 
 ---
 
+### `/wayfinding`
+
+Apply the Structural Wayfinding thinking discipline. The second-order search awareness that steers cognitive search processes. Reads where the search stands across three layers (present: position + heading, trend: velocity + acceleration + goal distance, memory: past verdicts + kill conditions + near-misses), then produces a steering move: BROADEN, NARROW, SHIFT, DIAGNOSE, TERMINATE, or RECONSIDER. Pure search intelligence — does not manage state or pipelines.
+
+**Input**: Current state of an iterative process (inquiry folder, discipline outputs, accumulator)
+**Output**: Steering directive saved as markdown
+
+[View full command](../commands/wayfinding.md)
+
+---
+
 ### `/inquiry`
 
-The Meta-Search orchestrator. For NEW inquiries: classifies the problem, selects and sequences the right thinking disciplines into a pipeline, creates an inquiry folder. For RESUME: checks progress and tells you what to run next. After each pipeline iteration: runs the meta-search checkpoint (steering, reconsideration, convergence detection). Does NOT run disciplines itself — tells you which discipline command to type next.
+The loop runner for chaining thinking disciplines. Not a thinking discipline itself — operational plumbing. For NEW inquiries: classifies the problem (CONFIGURE), selects and sequences disciplines into a pipeline, creates an inquiry folder. For RESUME: checks progress and tells you what to run next. After each pipeline iteration: calls wayfinding for a steering checkpoint. Does NOT run disciplines itself — tells you which discipline command to type next.
 
 **Input**: New question/problem, or existing inquiry folder to resume
-**Output**: Pipeline configuration + inquiry folder, or steering directive
+**Output**: Pipeline configuration + inquiry folder, or next command to run
 
 [View full command](../commands/inquiry.md)
 
@@ -434,7 +447,8 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/td-critique` | Structural critique (fitness landscape + adversarial verdicts) | Markdown file(s) |
 | `/decompose` | Structural decomposition (coupling map + question tree) | Markdown file(s) |
 | `/explore` | Structural exploration (scan-signal-probe + confidence map) | Markdown file(s) |
-| `/inquiry` | Meta-search orchestrator (CONFIGURE + STEER pipelines) | Inquiry folder + steering directives |
+| `/wayfinding` | Search steering (3-layer awareness + 6 moves) | Steering directive as markdown |
+| `/inquiry` | Loop runner (CONFIGURE + track + resume) | Inquiry folder + next command |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
