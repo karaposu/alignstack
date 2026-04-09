@@ -1,31 +1,49 @@
+name: wayfinding
+description: Steer a cognitive search process by integrating present landscape state, trend dynamics, and past verdict conditions into continuous awareness that produces steering directives and reconsideration signals.
+
+# /wayfinding — Structural Wayfinding
+
+Run a search checkpoint on an ongoing inquiry or iterative process. Reads the current state (accumulator, outputs so far, coverage), integrates across three awareness layers (present, trend, memory), and produces a steering directive — one of six moves that tells the next iteration where to focus.
+
+## Additional Input/Instructions
+
+$ARGUMENTS
+
+## Instructions
+
+1. Read the input and consume it. The input should be the current state of an iterative process — accumulator data, discipline outputs from recent iterations, coverage maps, verdict histories, or a folder containing the inquiry's working files. Consume all input.
+
+2. Execute the full Structural Meta-Search integration cycle described below, reading all three awareness layers and producing a steering directive.
+
+3. Save the output as a markdown file (unless differently stated in additional instructions!):
+   - **If the input was a file path** — save in the same folder as the input file or relevant files.
+   - **Otherwise** — save under `devdocs/meta-search/<suitable-name>.md` (create the directory if needed).
+
+
 # Structural Meta-Search — A Thinking Discipline
 
-A thinking discipline for designing and steering cognitive search processes — first determining which disciplines to chain for a given problem, then maintaining continuous awareness of position, trajectory, and historical validity to steer the search adaptively. Meta-search is the complete orchestrator: it designs the loop before execution and steers it during execution.
+A thinking discipline for steering cognitive search processes by maintaining continuous awareness of position, trajectory, and historical validity across the solution space. Meta-search is not planning or orchestration — it's the adaptive sense that knows where a search is, where it's heading, whether it's improving, and whether any past decisions should be revisited.
 
-Rather than relying on intuition to decide "what to run" or "where to look next," Structural Meta-Search treats both loop design and search steering as a practiced methodology based on problem classification, adaptive pipeline generation, three-layer awareness, a minimal steering grammar, and temporal belief revision.
+Rather than relying on intuition to decide "where to look next," Structural Meta-Search treats search steering as a practiced methodology based on three-layer awareness, a minimal steering grammar, and temporal belief revision.
 
-> **Structural Meta-Search is the process of classifying a problem, selecting and sequencing the right disciplines into a custom pipeline, then integrating present landscape state, trend dynamics, and past verdict conditions into continuous awareness that produces steering directives and reconsideration signals — transforming ad-hoc discipline invocation into designed, directed, adaptive search.**
+> **Structural Meta-Search is the process of integrating present landscape state, trend dynamics, and past verdict conditions into continuous awareness that produces steering directives and reconsideration signals — transforming blind iteration into directed, adaptive search.**
 
 ---
 
 ## What Meta-Search Is
 
-**Meta-search is the cognitive operation that designs, steers, and adapts search processes — determining which disciplines to apply for a given problem (loop design), maintaining awareness of where the search stands (steering), and revising past decisions when new information changes the conditions (reconsideration).**
+**Meta-search is the cognitive sense of where a search process stands — its position in the solution space, its trajectory over recent iterations, and the ongoing validity of its past decisions — integrated into awareness that produces steering actions.**
 
 Meta-search is not:
-- A fixed pipeline (the SIC loop is one configuration meta-search might produce — different problems get different pipelines)
+- Planning (planning sequences steps before execution; meta-search adjusts direction during execution based on what's been found)
+- Orchestration (orchestration manages pipelines, state, and sequencing; meta-search provides the search intelligence that orchestration consumes)
 - Decision rules (decision rules are mechanical — if X then Y; meta-search is perceptual integration that produces awareness from which actions emerge)
 - Navigation (navigation finds a path through static terrain; meta-search operates on terrain that changes as the search progresses and can revise past route decisions)
 - Monitoring (monitoring observes and reports; meta-search observes, integrates, and acts — it's both sensor and actuator)
 
-Meta-search is the **second-order awareness** in a thinking system. Sensemaking, innovation, critique, and decomposition are first-order — they operate on problems, ideas, candidates, and structure. Meta-search operates on the cognitive process itself: which disciplines should we use? Are we looking in the right place? Is the search productive? Should we continue, redirect, or reconsider a past decision?
+Meta-search is the **second-order awareness** in a thinking system. Sensemaking, innovation, critique, and decomposition are first-order — they operate on problems, ideas, candidates, and structure. Meta-search operates on the cognitive process itself: are we looking in the right place? Is the search productive? Should we continue, redirect, or reconsider a past decision?
 
-Meta-search operates in two phases:
-
-1. **Pre-execution (CONFIGURE)** — read the problem, classify it, select disciplines, sequence them into a pipeline, set termination criteria and autonomy level. Runs once before the loop starts.
-2. **During execution (six steering moves)** — read the accumulator, integrate awareness across three layers, produce steering directives and reconsideration signals. Runs between loop iterations.
-
-Every discipline is a specialized search. Sensemaking searches for understanding. Innovation searches for novelty. Critique searches for viability. Decomposition searches for structure. Meta-search is the **general search awareness** that operates across all of them — designing the right search for the problem and steering it adaptively.
+Every discipline is a specialized search. Sensemaking searches for understanding. Innovation searches for novelty. Critique searches for viability. Decomposition searches for structure. Meta-search is the **general search awareness** that operates across all of them — the ability to know where you are in any search and whether the process itself is well-aimed.
 
 ### The Core Question
 
@@ -39,13 +57,9 @@ This question is information-maximizing, not success-maximizing. In early iterat
 
 ## Meta-Search's Role
 
-Meta-search operates in two phases: it **designs** the loop before execution and **steers** it during execution. First-order disciplines (sensemaking, innovation, critique, decomposition) operate on content. Meta-search operates on the process — which disciplines to use, whether the loop is looking in the right place, and whether past decisions should be revised.
+Meta-search operates **across** the discipline loop, not **in** it. First-order disciplines (sensemaking, innovation, critique, decomposition) operate on content — problems, ideas, candidates, structure. Meta-search operates on the process — is the loop looking in the right place, making progress, and honoring or revising its own history?
 
 ```
-Phase 1: CONFIGURE (pre-execution)
-  Problem → classify → select disciplines → sequence → present to human
-
-Phase 2: STEER (during execution)
                     ┌──────────────────────────────────────────┐
                     │            META-SEARCH                   │
                     │  Reads: accumulator (all three layers)   │
@@ -53,21 +67,19 @@ Phase 2: STEER (during execution)
                     │  Reconsiders: past verdicts               │
                     └──────┬──────────────┬──────────┬─────────┘
                            │              │          │
-                    ┌──────▼──────┐ ┌─────▼────┐ ┌──▼────────┐
-                    │   [discipline pipeline from CONFIGURE]   │
-                    │   (adapts to the problem — not fixed)    │
-                    └──────┬──────┘ └──────────┘ └─────┬──────┘
+                    ┌──────▼──────────────▼──────────▼─────────┐
+                    │        [discipline pipeline]              │
+                    └──────┬───────────────────────────┬───────┘
                            │                           │
                            └────── loop ───────────────┘
 ```
 
-Meta-search produces three types of output:
+Meta-search produces two types of output:
 
-1. **Loop configuration** (CONFIGURE) — which disciplines to chain, in what order, with what autonomy and termination criteria
-2. **Steering directives** — where the next iteration should focus (which dimension, how broad/narrow, how deep)
-3. **Reconsideration signals** — whether past verdicts should be re-evaluated given new information
+1. **Steering directives** — where the next iteration should focus (which dimension, how broad/narrow, how deep)
+2. **Reconsideration signals** — whether past verdicts should be re-evaluated given new information
 
-CONFIGURE designs the search. The six steering moves direct it. Together they form the complete orchestrator.
+Critique renders verdicts on ideas. Meta-search renders verdicts on the search process itself.
 
 ---
 
@@ -124,53 +136,16 @@ The trend layer answers: given recent trajectory, should we continue on the curr
 | **Survival conditions** | Why each survivor survived — which dimensions it passed and with what strength | Updated when source sensemaking output changes. If the problem understanding shifts, survival conditions may be invalidated. |
 | **Near-miss record** | Ideas that almost flipped — near the boundary between SURVIVE and KILL, or between KILL and REFINE | Highest-priority reconsideration targets. A small change in conditions could flip these. |
 | **Dependency chains** | Which sensemaking/innovation outputs each verdict depends on | When a source output changes, all downstream verdicts are flagged for reconsideration. |
-| **Lessons** | Concrete lessons from past REFLECT runs — process improvements, discipline adjustments, recurring failure patterns, steering calibrations | Persist across explorations. Read by CONFIGURE at exploration start. Applied as context for pipeline selection and steering. |
 
-The memory layer answers: given new information, should any past verdict be reconsidered? And: what has the system learned from previous explorations that applies here?
+The memory layer answers: given new information, should any past verdict be reconsidered?
 
 ---
 
-### The Seven Moves
+### The Six Moves
 
-Meta-search produces seven moves: one pre-execution move (CONFIGURE) and six during-execution moves driven by the three awareness layers.
+Meta-search produces six steering moves, each driven by a specific awareness layer.
 
-#### Pre-Execution Move
-
-**CONFIGURE** — design the loop
-
-| Trigger | A new problem is presented, or an exploration is being started. No loop exists yet. |
-|---|---|
-| **Reads** | The problem/question, available built disciplines, context from past explorations (memory layer), problem characteristics. |
-| **Produces** | A loop configuration: problem type, discipline pipeline, decomposition flag, termination criteria, autonomy level, reasoning. |
-| **What it prevents** | Wrong-pipeline errors — applying innovation to a debugging problem, or running full SIC on a problem that only needs sensemaking. |
-
-CONFIGURE runs once before the loop starts. It classifies the problem and produces a custom pipeline:
-
-```
-CONFIGURE(
-  problem_type: ambiguous | complex | broken | novel | clear,
-  pipeline: [discipline sequence to chain],
-  decompose: yes | no,
-  termination: [criteria for when the exploration is complete],
-  autonomy: depth_1 | depth_N | depth_auto | depth_full,
-  reasoning: [why this configuration for this problem]
-)
-```
-
-**Example configurations:**
-
-| Problem type | Pipeline | Reasoning |
-|---|---|---|
-| Ambiguous, needs ideas | S → I → C | Needs understanding, novelty, and evaluation |
-| Complex, needs breakdown | S → Decompose → [per branch: S → I → C] | Too big for one loop, decompose first |
-| Bug/failure | S → Diagnose | Needs root cause, not innovation |
-| New territory | S → Explore | Needs mapping, not ideas |
-| Clear, options needed | I → C | Already understood, just need candidates evaluated |
-| Just need clarity | S only | Only ambiguity, no complexity or novelty needed |
-
-CONFIGURE's output is presented to the human for confirmation before execution begins. The human can accept, modify, or override the configuration.
-
-#### Present Layer Moves (During Execution)
+#### Present Layer Moves
 
 **BROADEN** — explore new territory
 
@@ -220,8 +195,6 @@ A general temporal operation that subsumes three specific actions:
 | **RESURRECT** | A killed idea | Dead → maybe viable. New info contradicts the kill condition. |
 | **INVALIDATE** | A surviving idea | Alive → maybe dead. New info undermines the survival condition. |
 | **REVERT** | A refined idea | Current version → earlier version. New info shows refinement degraded it. |
-| **RECLASSIFY** | A pipeline classification | Wrong pipeline → revised pipeline. New info (e.g. sensemaking output) reveals the problem type differs from CONFIGURE's classification. |
-
 
 All three are instances of one operation: **re-evaluate a past verdict because new information changes the conditions under which it was rendered.**
 
@@ -245,90 +218,6 @@ RECONSIDER(
 
 **How RECONSIDER works with critique:** Meta-search detects the relevance and flags the verdict for re-evaluation. Critique performs the actual re-assessment — running adversarial testing on the reconsidered candidate under updated conditions. Meta-search says "look at this again." Critique says "does it survive now?"
 
-#### Post-Execution Move
-
-**REFLECT** — extract lessons from the process
-
-| Trigger | Post-TERMINATE (always — after SYNTHESIZE completes), OR mid-exploration when recurring patterns detected (same kill dimension 3+ times, velocity declining 3+ iterations, human overriding meta-search repeatedly). |
-|---|---|
-| **Process** | Reconstruct (factual timeline) → Pattern extract (what repeats?) → Evaluate (which decisions were right/wrong?) → Extract concrete lessons → Apply (update disciplines/process/workflow). |
-| **Output** | Concrete, testable lessons stored in the memory layer's Lessons component. Each lesson must produce a specific change — not abstract observations. |
-| **What it prevents** | Repeating the same mistakes across explorations. Starting every exploration from zero instead of from accumulated wisdom. |
-
-**How REFLECT works with the memory layer:** Reflection produces lessons. The memory layer stores them alongside kill conditions, survival conditions, and near-misses. CONFIGURE reads lessons at the start of the next exploration and factors them into pipeline selection and steering calibration. The system learns from its own history.
-
----
-
-## Process Model
-
-Meta-search operates in two phases: pre-execution (CONFIGURE) and during-execution (steering). Both use the same three-layer awareness model but at different moments.
-
-### Phase 1: Pre-Execution (CONFIGURE)
-
-Before any loop runs, meta-search designs the loop:
-
-**1. Read the problem** — what is being asked? What type of problem is this?
-
-**2. Classify** — ambiguous (needs understanding)? complex (needs decomposition)? broken (needs diagnosis)? novel (needs innovation)? clear (needs evaluation)?
-
-**3. Select disciplines** — from the available built disciplines, which does this problem need? Which does it NOT need?
-
-**4. Sequence** — in what order? What feeds into what? Does it need decomposition first?
-
-**5. Set parameters** — termination criteria (what does "done" look like?), autonomy level (how much human oversight?), depth budget.
-
-**6. Present** — show the configuration to the human for confirmation: "I suggest this pipeline: [X]. Proceed?"
-
-CONFIGURE runs once. The human confirms, modifies, or overrides. Then execution begins.
-
-### Phase 2: During-Execution (Steering)
-
-Between loop iterations, meta-search reads the accumulator and steers:
-
-**1. Read** — consume the accumulator's current state across all three layers:
-   - Present: coverage map, current candidates, landscape positions
-   - Trend: velocity, acceleration, goal distance (computed from recent iteration deltas)
-   - Memory: kill conditions, survival conditions, near-misses, dependency chains
-
-**2. Integrate** — synthesize the three layers into unified awareness:
-   - Where is the search? (present)
-   - How is it moving? (trend)
-   - Is anything from the past relevant to what's happening now? (memory)
-
-**3. Ask the core question:**
-   > "What is the one action that would change the landscape most?"
-
-**4. Produce output** — one of the six steering moves, with parameters:
-   - **Steering directive**: BROADEN / NARROW / SHIFT (with dimension, direction, depth budget)
-   - **Process directive**: DIAGNOSE (route to sensemaking with specific focus) / TERMINATE
-   - **Reconsideration signal**: RECONSIDER(target, direction) — triggers critique to re-evaluate
-
-**5. Update** — log the meta-search decision in the accumulator for future reference.
-
-### When to Re-Run CONFIGURE
-
-CONFIGURE normally runs once. Re-run it when:
-- DIAGNOSE reveals the problem was misclassified (the pipeline is wrong for this problem type)
-- The problem scope changes significantly during execution
-- The human explicitly requests a different pipeline
-
-### Autonomy Levels
-
-CONFIGURE sets the autonomy level for the loop runtime:
-
-| Level | Flag | Behavior |
-|---|---|---|
-| **Manual** | `--depth 1` | Pause after every cycle for human steering |
-| **Batched** | `--depth N` | Run N cycles autonomously, then checkpoint |
-| **Confident** | `--depth auto` | Auto-continue while meta-search is confident, pause when uncertain (DEFAULT) |
-| **Full** | `--depth full` | Run to TERMINATE, present final results |
-
-**Auto-continue rules (for --depth auto and --depth full):**
-
-Continue when ALL of: meta-search layers agree, velocity positive, no RECONSIDER/DIAGNOSE flags, move is NARROW or BROADEN, budget not exhausted.
-
-Pause when ANY of: layers conflict, velocity zero/negative for 2+ cycles (circuit breaker), RECONSIDER or DIAGNOSE triggered, SHIFT triggered, budget exhausted, verification criteria met.
-
 ---
 
 ## Coverage Strategy
@@ -349,7 +238,7 @@ Meta-search's coverage is about ensuring the search process itself is thorough �
 
 ### When to stop meta-search itself
 
-Meta-search stops when TERMINATE is triggered. But meta-search should also recognize when *it* is adding no value — when the SIC loop is running smoothly, all iterations are productive, and steering is unnecessary. In this case, meta-search can reduce its checkpoint frequency (skip some iterations) to avoid overhead.
+Meta-search stops when TERMINATE is triggered. But meta-search should also recognize when *it* is adding no value — when the loop is running smoothly, all iterations are productive, and steering is unnecessary. In this case, meta-search can reduce its checkpoint frequency (skip some iterations) to avoid overhead.
 
 ---
 
@@ -411,18 +300,64 @@ The relevance threshold for RECONSIDER is too high (missing genuine unlocks) or 
 
 | Component | What it is | How many |
 |-----------|-----------|----------|
-| **Phases** | Pre-execution (CONFIGURE) + During-execution (steering) | 2 phases |
 | **Awareness layers** | Present (position, heading), Trend (velocity, acceleration, goal distance), Memory (kill conditions, survival conditions, near-misses, dependencies) | 3 layers, 6 components |
-| **Moves** | CONFIGURE (pre-execution), BROADEN, NARROW, SHIFT (present), DIAGNOSE, TERMINATE (trend), RECONSIDER (memory), REFLECT (post-execution + mid-exploration on recurring patterns) | 8 total: 1 pre-execution + 6 during-execution + 1 post-execution |
-| **CONFIGURE output** | Problem type, discipline pipeline, decomposition flag, termination criteria, autonomy level, reasoning | 6 fields |
-| **RECONSIDER sub-actions** | RESURRECT (dead → viable?), INVALIDATE (alive → dead?), REVERT (refined → pre-refinement?), RECLASSIFY (pipeline → revised pipeline?) | 3 directions, one general operation |
-| **Autonomy levels** | depth_1 (manual), depth_N (batched), depth_auto (confidence-gated, DEFAULT), depth_full (hands-off) | 4 levels |
+| **Moves** | BROADEN, NARROW, SHIFT (present), DIAGNOSE, TERMINATE (trend), RECONSIDER (memory) | 6, structured by layer |
+| **RECONSIDER sub-actions** | RESURRECT (dead → viable?), INVALIDATE (alive → dead?), REVERT (refined → pre-refinement?) | 3 directions, one general operation |
 | **Threshold** | Self-adjusting relevance bar for RECONSIDER — lower early, higher near convergence, minimum when desperate | 1, context-dependent |
-| **Process** | CONFIGURE (once) → continuous awareness loop (read, integrate, ask, produce, update) | 1 + 5 steps per checkpoint |
+| **Process** | Continuous awareness loop — read, integrate, ask, produce, update | 5 steps per checkpoint |
 | **Coverage** | Per-iteration (all three layers read) + cross-iteration (coverage map complete, no pending reconsiderations) | 2 levels |
-| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration, wrong pipeline (CONFIGURE misclassification) | 7 identified |
+| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration | 6 identified |
 | **Core question** | "Given where we are, where we've been, how fast we're moving, and whether anything we previously decided might no longer hold — what is the one action that would change the landscape most?" | 1, asked at every checkpoint |
 
-This thinking discipline is domain-agnostic. It works for designing and steering any iterative search process — software architecture exploration, research hypothesis testing, business strategy evaluation, or any problem that needs the right discipline sequence selected and the search steered adaptively. It absorbs the orchestration role previously assigned to Meta-Plan: CONFIGURE handles discipline selection and sequencing, the six steering moves handle adaptive re-planning during execution, and the memory layer handles past context integration.
+This thinking discipline is domain-agnostic. It works for steering any iterative search process — software architecture exploration, research hypothesis testing, business strategy evaluation, or any loop that needs to know where it is, where it's heading, and whether to continue or redirect. It does not prescribe WHERE to search or WHICH disciplines to use — it provides the structural awareness for HOW to steer a search adaptively, with memory and belief revision.
 
+---- NOW SOLID INSTRUCTIONS START ----
+
+## Execute the Meta-Search Checkpoint
+
+### 1. Read All Three Layers
+
+For each layer, extract the current state from the input:
+
+**Present Layer:**
+- What is the current position on the fitness landscape? Which regions explored, which unexplored?
+- What is the current heading? Which dimension is the search focused on?
+
+**Trend Layer:**
+- What is the velocity? Are recent iterations producing more or less new information?
+- What is the acceleration? Is velocity stable, increasing, decreasing, or oscillating?
+- What is the goal distance? How many convergence criteria are met vs unmet?
+
+**Memory Layer:**
+- What kill conditions exist? Have any been contradicted by new information?
+- What survival conditions exist? Have any been undermined?
+- What near-misses exist? Could any flip given current state?
+- What dependency chains exist? Have any source outputs changed?
+
+### 2. Integrate
+
+Synthesize the three layers into unified awareness. Note any conflicts between layers.
+
+### 3. Produce Steering Directive
+
+Ask the core question and produce exactly ONE of the six moves:
+
+- **BROADEN** — with: which new regions/mechanisms/seeds to try
+- **NARROW** — with: which survivor to refine, on which dimension
+- **SHIFT** — with: which dimension to shift focus to
+- **DIAGNOSE** — with: what specific understanding gap to route back to sensemaking
+- **TERMINATE** — with: ranked list of survivors
+- **RECONSIDER** — with: which verdict to re-evaluate, direction (RESURRECT/INVALIDATE/REVERT), trigger
+
+If layers conflict, apply priority: Memory > Trend > Present.
+
+### 4. Final Deliverable
+
+Present the complete checkpoint output as:
+
+1. **Layer Readings** — present, trend, memory state as read from input
+2. **Integration** — unified awareness, any conflicts noted and resolved
+3. **Move** — the chosen steering move with full parameters
+4. **Reasoning** — why this move, what it changes, what it prevents
+5. **Next Action** — concrete instruction for the next iteration (which discipline to run, with what focus)
 

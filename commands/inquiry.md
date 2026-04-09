@@ -1,9 +1,9 @@
 name: inquiry
-description: CONFIGURE new inquiries, track state, run meta-search checkpoints. Disciplines are invoked separately via their own slash commands.
+description: CONFIGURE new inquiries, track state, run wayfinding checkpoints. Disciplines are invoked separately via their own slash commands.
 
 # /inquiry — Inquiry Manager
 
-Manages inquiry state and steering. For NEW inquiries: classifies the problem and designs the pipeline. For RESUME: checks progress and tells you what to run next. When a pipeline iteration is complete: runs the meta-search checkpoint.
+Manages inquiry state and steering. For NEW inquiries: classifies the problem and designs the pipeline. For RESUME: checks progress and tells you what to run next. When a pipeline iteration is complete: runs the wayfinding checkpoint.
 
 **This command does NOT run disciplines.** It tells you which discipline command to type next. The disciplines run at full depth via their own commands (`/sense-making`, `/innovate`, `/critic`, `/decompose`).
 
@@ -203,15 +203,15 @@ Run CONFIGURE:
   → "Move: NARROW on tokenization. Next: /sense-making ..."
 ```
 
-Pattern: **discipline → inquiry → discipline → inquiry → ... → meta-search → discipline → ...**
+Pattern: **discipline → inquiry → discipline → inquiry → ... → wayfinding → discipline → ...**
 
-Each discipline runs at full depth via its own proven command. `/inquiry` just manages state and runs meta-search.
+Each discipline runs at full depth via its own proven command. `/inquiry` just manages state and runs wayfinding.
 
 ---
 
 ## SYNTHESIZE — After TERMINATE
 
-When meta-search produces TERMINATE, the inquiry's thinking is done. But the inquiry's ARTIFACTS are scattered across discipline outputs, iteration folders, and conversation history. SYNTHESIZE compiles them into a coherent deliverable.
+When wayfinding produces TERMINATE, the inquiry's thinking is done. But the inquiry's ARTIFACTS are scattered across discipline outputs, iteration folders, and conversation history. SYNTHESIZE compiles them into a coherent deliverable.
 
 **What SYNTHESIZE does:**
 
@@ -266,10 +266,7 @@ The user can run SYNTHESIZE immediately or defer it. The inquiry tree persists e
 3. **`_state.md` is the source of truth.** Pipeline progress, next command, history, kill record.
 4. **Discipline commands save to the inquiry folder.** Point them at `_branch.md` or the relevant output file — they save alongside it.
 5. **Dead branches persist.** Kill conditions as falsifiable predicates in `_state.md`.
-6. **Meta-search runs when the pipeline iteration is complete.** Not between disciplines — only after all pipeline steps are done.
+6. **Wayfinding runs when the pipeline iteration is complete.** Not between disciplines — only after all pipeline steps are done.
 7. **Circuit breaker.** Zero/negative velocity for 2+ iterations → force-pause with diagnosis.
 8. **SYNTHESIZE after TERMINATE.** Don't end with scattered artifacts. Compile the inquiry's decisions into a coherent deliverable for the actual project. The inquiry tree is the thinking history. The deliverable is the product.
-
-
-
 

@@ -49,16 +49,16 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 4. Structural Meta-Search
+### 4. Structural Wayfinding
 
-**Transform:** Problem + context → Loop configuration (CONFIGURE) + Steering directives + reconsideration signals
+**Transform:** Search state (accumulator, outputs, coverage) → Steering directive + reconsideration signals
 
-**What it is:** The complete orchestrator — designs loops before execution (CONFIGURE: classify problem, select disciplines, sequence pipeline) and steers them during execution (six moves across three awareness layers). Absorbs what was previously planned as Meta-Plan. Second-order awareness that operates on the cognitive process itself, not on content. S, I, C, D operate on content; meta-search operates on the process.
+**What it is:** The search steering discipline — second-order awareness that operates on the cognitive process itself, not on content. S, I, C, D operate on content; wayfinding operates on the process. Reads where the search stands, how it's moving, and whether past decisions should be revisited, then produces a steering move. Pure search intelligence — does not manage pipelines, state, or orchestration (that's `/inquiry`'s job).
 
-**Components:** Two-phase operation (pre-execution CONFIGURE + during-execution steering), three-layer awareness model (present: position + heading; trend: velocity + acceleration + goal distance; memory: kill conditions + survival conditions + near-misses + dependency chains), seven moves (CONFIGURE + BROADEN, NARROW, SHIFT + DIAGNOSE, TERMINATE + RECONSIDER with RESURRECT/INVALIDATE/REVERT sub-actions), configurable autonomy levels (depth_1/N/auto/full), auto-continue confidence rules, circuit breaker, self-adjusting relevance threshold, confidence decay on past verdicts, seven failure modes.
+**Components:** Three-layer awareness model (present: position + heading; trend: velocity + acceleration + goal distance; memory: kill conditions + survival conditions + near-misses + dependency chains), six steering moves (BROADEN, NARROW, SHIFT + DIAGNOSE, TERMINATE + RECONSIDER with RESURRECT/INVALIDATE/REVERT sub-actions), self-adjusting relevance threshold, confidence decay on past verdicts, six failure modes.
 
-**Command:** (operates via `/explore` — CONFIGURE designs the loop, steering runs between iterations)
-**Files:** `thinking_disciplines/meta_search.md`
+**Command:** `/wayfinding`
+**Files:** `thinking_disciplines/wayfinding.md`
 
 ---
 
@@ -170,49 +170,44 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### ~~Meta-Plan~~ — Absorbed into Meta-Search
+### ~~Meta-Plan~~ — Absorbed into Inquiry
 
-*Previously planned as discipline #11. Fully absorbed into Structural Meta-Search (discipline #4) via the CONFIGURE move. All Meta-Plan components are covered: problem classification + discipline selection + sequencing (CONFIGURE), context reading + past context integration (memory layer), adaptive re-planning (steering moves). No separate discipline needed.*
+*Previously planned as discipline #11. Orchestration components (problem classification, discipline selection, pipeline sequencing) now live in `/inquiry` — the loop manager command. Search steering components (adaptive re-planning, reconsideration) live in Wayfinding (discipline #4). No separate discipline needed.*
 
 ---
 
 ## Discipline Relationships
 
-### The Complete Built System (5 Disciplines)
+### The Complete Built System (5 Disciplines + Inquiry)
 
-Meta-search is the complete orchestrator — it designs the loop (CONFIGURE) and steers it (6 moves). No separate Meta-Plan needed.
+`/inquiry` is the loop manager — it classifies problems, designs pipelines (CONFIGURE), manages state, and tells you which command to run next. Wayfinding is the search steering discipline — it runs between iterations and tells the loop where to go next. Together they replace what was previously a single overloaded "meta-search."
 
 ```
                     ┌──────────────────────────────────────────┐
-                    │            META-SEARCH                   │
-                    │                                          │
-                    │  CONFIGURE: classify problem, select     │
-                    │    disciplines, sequence pipeline         │
-                    │                                          │
-                    │  STEER: BROADEN / NARROW / SHIFT /       │
-                    │    DIAGNOSE / TERMINATE / RECONSIDER     │
+                    │            INQUIRY (loop manager)         │
+                    │  CONFIGURE: classify, select, sequence    │
+                    │  Manages state, tracks progress           │
+                    │  Calls /wayfinding between iterations     │
                     └──────┬──────────────┬──────────┬─────────┘
                            │              │          │
-                    ┌──────▼──────────────▼──────────▼─────────┐
-                    │   [discipline pipeline from CONFIGURE]    │
-                    │   Adapts to the problem. Examples:        │
-                    │   • S → I → C (ambiguous, needs ideas)   │
-                    │   • S → Decompose → [S→I→C per branch]   │
-                    │   • S only (just need clarity)            │
-                    │   • I → C (clear, need options evaluated) │
-                    └──────┬───────────────────────────┬───────┘
-                           │                           │
-                           └────── loop ───────────────┘
+                    ┌──────▼──────┐       │   ┌──────▼─────────┐
+                    │ WAYFINDING  │       │   │  [discipline   │
+                    │ (steering)  │◄──────┘   │   pipeline]    │
+                    │ 6 moves     │           │                │
+                    └─────────────┘           └──────┬─────────┘
+                                                     │
+                                              ┌──────┘
+                                              └────── loop ───┘
 ```
 
-Meta-search CONFIGURE selects the right disciplines for the problem. The six steering moves keep the loop directed. Decomposition scales the loop to problems of any size. The folder system persists everything across sessions.
+Inquiry CONFIGUREs the right disciplines for the problem. Wayfinding's six moves keep the loop directed. Decomposition scales the loop to problems of any size. The folder system persists everything across sessions.
 
 ### Full Discipline Flow (Built + Planned)
 
 ```
                     ┌──────────────────────────────┐
-                    │  META-SEARCH (orchestrator)   │
-                    │  CONFIGURE → STEER → STEER   │
+                    │     INQUIRY (loop manager)    │
+                    │  CONFIGURE → run → steer      │
                     └──────────────┬───────────────┘
                                   │
             ┌─────────────────────┼─────────────────────┐
@@ -221,20 +216,23 @@ Meta-search CONFIGURE selects the right disciplines for the problem. The six ste
      (expand)               (expand)              (contract)
             │                     │                     │
             └──── Decomposition ──┴─── (scale) ────────┘
+                        │                   │
+                   Wayfinding          Exploration
+                   (steer)             (map)
                                   │
                     ┌─────────────┼─────────────┐
                     ▼             ▼             ▼
-              Exploration    Diagnosis      Reflection
+              Diagnosis      Reflection     Recovery
               (planned)      (planned)      (planned)
                                   │
-                            ┌─────┴─────┐
-                            ▼           ▼
-                        Recovery    Evaluation
-                        (planned)   (planned)
+                                  ▼
+                             Evaluation
+                             (planned)
 ```
 
-5 built: Sensemaking, Innovation, Critique, Meta-Search, Decomposition
-5 planned: Diagnosis, Exploration, Reflection, Recovery, Evaluation
-Meta-Plan: absorbed into Meta-Search (CONFIGURE)
+6 built: Sensemaking, Innovation, Critique, Wayfinding, Decomposition, Exploration
+4 planned: Diagnosis, Reflection, Recovery, Evaluation
+Meta-Plan: absorbed into Inquiry (CONFIGURE) + Wayfinding (steering)
 
-Each discipline is standalone and domain-agnostic. Meta-search turns them from a list into a system — CONFIGURE reads the problem and produces the right discipline sequence. The AlignStack Agent uses them as the methodology behind its seven modes.
+Each discipline is standalone and domain-agnostic. `/inquiry` turns them from a list into a system — CONFIGURE reads the problem and produces the right discipline sequence, wayfinding steers between iterations. The AlignStack Agent uses them as the methodology behind its seven modes.
+
