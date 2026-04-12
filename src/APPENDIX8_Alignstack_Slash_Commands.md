@@ -249,6 +249,17 @@ Apply the Structural Exploration thinking discipline. Maps unknown territory thr
 
 ---
 
+### `/comprehend`
+
+Apply the Structural Comprehension thinking discipline. Builds internal working models of observable-but-opaque artifacts through progressive model construction, perturbation testing, and adversarial self-verification. Produces five Comprehension Versions (CV1–CV5) across a depth hierarchy (Descriptive → Structural → Causal → Predictive → Generative). Two primary aspects: mechanistic ("how does it work?") and intent ("why was it built this way?"). Each CV includes frontier questions — unanswered questions that mark the boundary of current understanding and serve as direction signals for further investigation.
+
+**Input**: Artifact to comprehend (file path, folder path, raw description) + optional aspect (mechanistic/intent) and depth target
+**Output**: Comprehension versions with tested predictions, confidence map, and frontier questions saved as markdown
+
+[View full command](../commands/comprehend.md)
+
+---
+
 ### `/wayfinding`
 
 Apply the Structural Wayfinding thinking discipline. The second-order search awareness that steers cognitive search processes. Reads where the search stands across three layers (present: position + heading, trend: velocity + acceleration + goal distance, memory: past verdicts + kill conditions + near-misses), then produces a steering move: BROADEN, NARROW, SHIFT, DIAGNOSE, TERMINATE, or RECONSIDER. Pure search intelligence — does not manage state or pipelines.
@@ -447,6 +458,7 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/td-critique` | Structural critique (fitness landscape + adversarial verdicts) | Markdown file(s) |
 | `/decompose` | Structural decomposition (coupling map + question tree) | Markdown file(s) |
 | `/explore` | Structural exploration (scan-signal-probe + confidence map) | Markdown file(s) |
+| `/comprehend` | Structural comprehension (model construction + prediction testing + frontier questions) | Markdown file(s) |
 | `/wayfinding` | Search steering (3-layer awareness + 6 moves) | Steering directive as markdown |
 | `/inquiry` | Loop runner (CONFIGURE + track + resume) | Inquiry folder + next command |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
