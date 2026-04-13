@@ -103,10 +103,50 @@ Run CONFIGURE:
 
 2. Read `_branch.md` for context.
 
-3. Check which pipeline steps are complete by scanning for files:
-   - `sensemaking.md` exists? → sensemaking done
-   - `innovation.md` exists? → innovation done
-   - `critique.md` exists? → critique done
+3. Check which pipeline steps are complete AND their quality:
+
+   For each expected discipline output file (sensemaking.md, innovation.md, critique.md, comprehension.md, etc.):
+
+   **a. Does the file exist?** If no → this step is not done yet. Skip to step 4.
+
+   **b. If yes → read the file and find the telemetry section.** Each discipline uses a specific header:
+   - Sensemaking: `## Saturation Indicators (Telemetry)`
+   - Innovation: `## Mechanism Coverage (Telemetry)`
+   - Critique: `### Convergence Telemetry`
+   - Comprehend: `### Final Summary` (telemetry is embedded in the summary fields)
+   - Exploration: convergence criteria at the end of the output
+   - Decomposition: self-evaluation section at the end of the output
+
+   **c. Read the telemetry measurements and check against thresholds:**
+
+   | Discipline | Key thresholds |
+   |---|---|
+   | Sensemaking | Perspectives with new anchors ≥ 3. Ambiguity resolution ratio ≥ 70%. SV delta shows structural change from SV1. |
+   | Innovation | Generators applied ≥ 1. Framers applied ≥ 1. At least one survivor tested for novelty and scrutiny survival. |
+   | Critique | All critical-weight dimensions evaluated. Adversarial strength not "weak." At least one candidate has a verdict. |
+   | Comprehend | Depth test passed at target level. Prediction accuracy meets target threshold. |
+   | Exploration | Frontier stable. Discovery rate declining. Gaps bounded. |
+   | Decomposition | Independence, completeness, and reassembly checks pass. |
+
+   **d. Route based on telemetry:**
+
+   - **PROCEED** — all thresholds met → this step is done with sufficient quality. Mark complete and move to step 4.
+   - **FLAG** — some measurements below threshold → present the specific shortfall to the user with guidance:
+     ```
+     Inquiry: [name]
+     Status: [discipline] complete but telemetry flagged
+
+     Telemetry concern: [specific measurement] is below threshold.
+     [e.g., "Anchor diversity is low — 2 types from 1 perspective. 
+      Consider re-running /sense-making with additional perspectives."]
+
+     Options:
+     1. Re-run /[discipline] with the guidance above
+     2. Accept and proceed to next step (override)
+     ```
+     **Wait for user decision.**
+   - **RE-RUN** — critical metric missing or clearly failed → recommend re-running with targeted feedback.
+   - **No telemetry section found** → treat as PROCEED. (Backward-compatible with older outputs or standalone discipline runs that don't include telemetry.)
 
 4. Determine next action:
 

@@ -395,6 +395,16 @@ A model that works for all tested cases but is based on a coincidence or superfi
 
 **How to prevent:** Differential analysis reveals whether a pattern is causal or coincidental (perturbation that breaks a coincidence doesn't break a causal relationship). The Generative depth level requires stating WHY, not just THAT.
 
+### 8. Paradigm Projection
+
+Assuming the artifact's quality is measurable because Comprehend's own quality IS measurable. Comprehend builds models through prediction testing and measurement — when it encounters an artifact whose quality involves meaning, significance, or judgment (not just mechanism), it projects its measurement paradigm onto it. The model is internally consistent but evaluates the wrong thing.
+
+This is a specific form of Assimilation Error (FM#3) that occurs when comprehending measurement systems, assessment frameworks, or quality criteria for meaning-producing processes (sensemaking, innovation). The model captures HOW the mechanism works but never questions WHETHER it measures what it claims to measure.
+
+**How to recognize:** The comprehension produces confident predictions about a measurement system without ever questioning the validity of what's being measured. "This trend detection catches regression" sounds right — but it assumed counts capture quality, which they don't for meaning-producing disciplines.
+
+**How to prevent:** When comprehending any artifact that measures, assesses, evaluates, or scores something, generate this frontier question explicitly: "Does this mechanism measure what it claims to measure, or does it measure a proxy? What would a valid measurement look like for the thing that actually matters?" This is a sensemaking question, not a comprehension question — flag it as such and direct to `/sense-making` if the answer matters for the comprehension's conclusions.
+
 ---
 
 ## Summary
@@ -410,6 +420,6 @@ A model that works for all tested cases but is based on a coincidence or superfi
 | **Comprehension versions** | CV1 (structural) → CV2 (behavioral) → CV3 (causal) → CV4 (hardened) → CV5 (generative) | 5 progressive versions |
 | **Testing hierarchy** | Execution-based (strongest) → Scenario-based (moderate) → Reasoning-based (valid but weakest) | 3 tiers |
 | **Coverage** | Prediction accuracy at target depth + adversarial stability + artifact coverage | 3 convergence criteria |
-| **Failure modes** | Surface fluency, premature closure, assimilation error, trace without model, wrong abstraction, intent-mechanism confusion, fragile model | 7 identified |
+| **Failure modes** | Surface fluency, premature closure, assimilation error, trace without model, wrong abstraction, intent-mechanism confusion, fragile model, paradigm projection | 8 identified |
 
 This thinking discipline is domain-agnostic. It works for comprehending codebases, mathematical proofs, legal contracts, business systems, mechanical systems, organizational structures, or any artifact that is observable but not yet understood. It does not prescribe WHAT to comprehend — it provides the structural tools for HOW to build, test, and transfer understanding with measurable depth and falsifiable verification.
