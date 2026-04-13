@@ -50,3 +50,8 @@ think about this from the "what causes the most cascading friction" perspective 
 
 sensemaking  + innnovation + critiq + feasible loop = sicf
 to iterate and unlock the solution space in roguie way. bruteforce way. 
+
+
+
+
+ Wayfinding should be used after Comprehend for better performance. 

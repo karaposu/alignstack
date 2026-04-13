@@ -421,4 +421,21 @@ Only the most comfortable or familiar novel outputs survive testing. Truly disru
 
 The framework is domain-agnostic. It works for business strategy, software architecture, product design, research, or any field where novel ideas are needed. It does not prescribe WHAT to innovate — it provides the structural tools for HOW to innovate systematically.
 
+---
 
+## Mechanism Coverage (Telemetry)
+
+After producing all outputs, assess the quality of this innovation run:
+
+* **Mechanism coverage** — How many generators applied? How many framers? (Minimum: 1G + 1F. Full: all 7.)
+* **Convergence signal** — Did 3+ mechanisms point to the same core innovation? If yes: high confidence. If no: either the seed is genuinely divergent or coverage was insufficient.
+* **Test completion** — Were surviving outputs tested for novelty, scrutiny survival, fertility, actionability, and mechanism independence? Any untested survivors should be flagged.
+* **Failure mode check** — Did any of the 6 failure modes visibly occur? (Premature evaluation, single-mechanism trap, early frame lock, innovation without grounding, mechanism exhaustion, survival bias)
+
+Report:
+* Generators applied: [count] / 4
+* Framers applied: [count] / 3
+* Convergence: [YES — N mechanisms converge on X / NO — outputs diverge]
+* Survivors tested: [count tested] / [count total]
+* Failure modes observed: [none / list]
+* **Overall: PROCEED** (sufficient coverage + convergence + tested survivors) / **FLAG** (coverage gaps or untested survivors) / **RE-RUN** (minimum coverage not met or failure mode detected)

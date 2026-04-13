@@ -118,32 +118,6 @@ Structural Sensemaking proceeds through five iterative phases:
 
 The process is iterative and recursive rather than strictly linear.
 
-**Accommodation trigger:** When new perspectives keep producing anchors that destabilize the current model — each perspective forces a revision, the model doesn't settle, you keep patching — the structural model itself may be wrong. Don't add exceptions. Drop back to Phase 2 and re-extract anchors using the destabilizing perspectives as primary sources.
-
----
-
-## Saturation Indicators (Telemetry)
-
-Four signals that sensemaking is approaching sufficiency (indicators, not gates):
-
-* **Perspective saturation** — new perspectives stop producing new TYPES of anchors
-* **Ambiguity resolution ratio** — remaining unresolved ambiguities should be explicitly flagged as OPEN, not silently dropped
-* **SV delta** — if SV6 is barely different from SV1, the sensemaking was superficial
-* **Anchor diversity** — anchors should come from multiple types and multiple perspectives
-
----
-
-## Failure Modes
-
-Patterns to recognize when they're happening — not checkpoints to execute at each phase:
-
-1. **Status Quo Bias** — defending an established structure because it's documented, not because evidence supports it. Ask: "Would I reach this conclusion if it were undocumented?"
-2. **Premature Stabilization** — clarity arriving early, fewer than 3 perspectives produced surprises. Check more angles.
-3. **Anchor Dominance** — one anchor does all the work, all ambiguities resolve toward it. "If I removed this anchor, would the model collapse?"
-4. **Perspective Blindness** — all perspectives agree, nothing produced discomfort. "Which perspective would be most uncomfortable? Check that one."
-5. **Clean Resolution Trap** — resolution is elegant but counter-argument not tested on structural grounds. Cite mechanism, not precedent.
-6. **Self-Reference Blindness** — evaluating something that shares assumptions with your own framework. Need external reference points.
-
 ---
 
 ## Standard Analysis Protocol
@@ -200,10 +174,6 @@ Analyze the input from multiple perspectives:
   If a weak anchor (observation, single data point) contradicts a 
   strong anchor (definition, tested principle), the weak anchor 
   must justify the override — not the other way around.
-  But also check the reverse: does the established definition 
-  contradict ITSELF? Does its stated purpose align with its actual 
-  mechanisms? If a definition's own components are in tension, the 
-  definition has an internal gap — don't protect it.
 
 
 Extract new anchors from each perspective.
@@ -234,12 +204,6 @@ Before collapsing any ambiguity, ask:
   Can I state it explicitly?
 - If I invert this resolution, does the opposite 
   survive better against the strong anchors?
-- WHY does the counter-interpretation fail? State the 
-  structural reason — which mechanism, component, or 
-  evidence disproves it. "The spec says X" is precedent, 
-  not structural evidence. If you can only dismiss the 
-  counter by citing precedent, the resolution is 
-  LOW CONFIDENCE.
 If the resolution survives only because it's elegant 
 but not because it's grounded — flag it as 
 LOW CONFIDENCE and do not treat it as irreversible.

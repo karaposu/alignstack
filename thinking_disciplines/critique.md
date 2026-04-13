@@ -1,6 +1,6 @@
 # Structural Critique — A Thinking Discipline
 
-A thinking discipline for evaluating ideas, plans, and outputs by constructing multi-dimensional fitness landscapes, positioning candidates on them, and producing verdicts through adversarial testing. Critique is not nitpicking — it's the contraction force that turns divergent thinking into convergent results.
+A thinking discipline for evaluating competing candidates — ideas, plans, and approaches — by constructing multi-dimensional fitness landscapes, positioning them through adversarial testing, and producing verdicts. Critique is not nitpicking — it's the contraction force that turns divergent thinking into convergent results.
 
 Rather than relying on gut-feel judgment, Structural Critique treats evaluation as a practiced methodology based on dimension construction, landscape mapping, adversarial collision, and coverage-aware convergence detection.
 
@@ -10,7 +10,7 @@ Rather than relying on gut-feel judgment, Structural Critique treats evaluation 
 
 ## What Critique Is
 
-**Critique is the process of taking a set of candidates — ideas, plans, approaches, outputs — and systematically determining which survive, which need refinement, and which die, across dimensions extracted from the understood problem, while tracking what has been evaluated and signaling when evaluation is sufficient.**
+**Critique is the process of taking a set of competing candidates — ideas, plans, approaches — and systematically determining which survive, which need refinement, and which die, across dimensions extracted from the understood problem, while tracking what has been evaluated and signaling when evaluation is sufficient.**
 
 Critique is not:
 - Nitpicking (nitpicking finds surface flaws without assessing whether they matter; critique evaluates across weighted dimensions with severity awareness)

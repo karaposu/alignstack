@@ -103,7 +103,7 @@ Meta-search integrates awareness across three temporal layers. Each layer is bot
 │  Temporal scope: recent trajectory (last 2-5 iterations)    │
 ├─────────────────────────────────────────────────────────────┤
 │  PRESENT LAYER                                              │
-│  Senses: position, heading                                  │
+│  Senses: position, heading, reachability                    │
 │  Drives: BROADEN, NARROW, SHIFT                             │
 │  Temporal scope: current iteration state                    │
 └─────────────────────────────────────────────────────────────┘
@@ -115,8 +115,17 @@ Meta-search integrates awareness across three temporal layers. Each layer is bot
 |---|---|---|
 | **Position** | Where on the fitness landscape are the current candidates? Which regions are explored, which are unexplored? | Coverage map — density of evaluated candidates per region |
 | **Heading** | Which dimension is the search currently focused on? Is the focus broad (many dimensions) or narrow (one dimension)? | Current iteration's dimension parameters vs previous iterations |
+| **Reachability** | What regions are accessible from the current position? What regions are blocked behind gates (prerequisites that must be met before the region becomes reachable)? | Dependency analysis — which regions require outputs, decisions, or conditions that don't yet exist |
 
-The present layer answers: given the current snapshot of the landscape, what spatial adjustment is needed?
+Reachability senses the **topology** of the landscape — not just where you are, but what you can reach from here. Some regions are gated: they become accessible only when a prerequisite is met. A gate has three parts:
+
+- **Blocked region** — what becomes reachable when this gate opens
+- **Condition** — what must be true for the gate to open
+- **Current state** — open (condition met) or closed (condition unmet)
+
+Without reachability, wayfinding can steer within the currently accessible landscape but cannot see that more productive regions exist behind gates. This leads to optimizing within a constrained space when the highest-impact action would be to unlock a gate.
+
+The present layer answers: given the current snapshot of the landscape — position, heading, and what's reachable vs. gated — what spatial adjustment is needed?
 
 #### Trend Layer — "Where are we heading?"
 
@@ -149,23 +158,23 @@ Meta-search produces six steering moves, each driven by a specific awareness lay
 
 **BROADEN** — explore new territory
 
-| Trigger | All candidates cluster in the same region of the landscape. The search is stuck in a local area. |
+| Trigger | All candidates cluster in the same region of the landscape. The search is stuck in a local area. OR: reachable space is exhausted but gated regions exist that would open productive territory. |
 |---|---|
-| **Directive** | Tell innovation to use different mechanisms, try new seeds, explore different dimensions. Tell sensemaking to check new perspectives. |
-| **What it prevents** | Local optima — finding the best idea in one region while missing a better region entirely. |
+| **Directive** | Tell innovation to use different mechanisms, try new seeds, explore different dimensions. Tell sensemaking to check new perspectives. **If a gate blocks the most promising region:** identify the gate condition and direct the next action toward meeting it. |
+| **What it prevents** | Local optima — finding the best idea in one region while missing a better region entirely. Gate blindness — optimizing within reachable space when unlocking a gate would open a more productive region. |
 
 **NARROW** — refine what's promising
 
-| Trigger | One or more strong survivors exist but have weaknesses on specific dimensions. |
+| Trigger | One or more strong survivors exist but have weaknesses on specific dimensions. The refinement region is reachable (not gated). |
 |---|---|
 | **Directive** | Tell innovation to focus on strengthening the survivor's weak dimensions. Tell sensemaking to probe the specific constraints the survivor struggles with. |
 | **What it prevents** | Premature breadth — abandoning a promising candidate to explore when refinement would be more productive. |
 
 **SHIFT** — change dimension focus
 
-| Trigger | The current dimension focus isn't producing progress. Coverage map shows large unexplored regions on a different dimension. |
+| Trigger | The current dimension focus isn't producing progress. Coverage map shows large unexplored regions on a different dimension. OR: reachability analysis shows a gated region on a different dimension that would be more productive if unlocked. |
 |---|---|
-| **Directive** | Tell the next iteration to focus on a different evaluation dimension entirely. |
+| **Directive** | Tell the next iteration to focus on a different evaluation dimension entirely. **If shifting toward a gated region:** include the gate condition — what must be done to unlock the region before the dimension can be explored. |
 | **What it prevents** | Dimension lock — obsessing over one aspect while ignoring others. |
 
 #### Trend Layer Moves
@@ -294,19 +303,27 @@ The relevance threshold for RECONSIDER is too high (missing genuine unlocks) or 
 
 **How to prevent:** Track the reconsideration-to-resurrection ratio. If resurrections are rare (< 10% of reconsiderations), the threshold is too low. If the search stalls with no survivors and many conditioned kills, the threshold might be too high.
 
+### 7. Gate Blindness
+
+Wayfinding steers within the reachable landscape without noticing that more productive regions exist behind gates (prerequisites). The search optimizes locally when the highest-impact action would be unlocking a gate to open new territory.
+
+**How to recognize:** The search produces NARROW or SHIFT directives when the reachable landscape is nearly exhausted. Velocity is declining not because the search is converging, but because all reachable territory has been explored and the remaining territory is gated.
+
+**How to prevent:** Read reachability at every checkpoint. Before producing a move, check: are there gated regions that would be more productive than the current reachable space? If yes, the directive must include the gate condition.
+
 ---
 
 ## Summary
 
 | Component | What it is | How many |
 |-----------|-----------|----------|
-| **Awareness layers** | Present (position, heading), Trend (velocity, acceleration, goal distance), Memory (kill conditions, survival conditions, near-misses, dependencies) | 3 layers, 6 components |
+| **Awareness layers** | Present (position, heading, reachability), Trend (velocity, acceleration, goal distance), Memory (kill conditions, survival conditions, near-misses, dependencies) | 3 layers, 7 components |
 | **Moves** | BROADEN, NARROW, SHIFT (present), DIAGNOSE, TERMINATE (trend), RECONSIDER (memory) | 6, structured by layer |
 | **RECONSIDER sub-actions** | RESURRECT (dead → viable?), INVALIDATE (alive → dead?), REVERT (refined → pre-refinement?) | 3 directions, one general operation |
 | **Threshold** | Self-adjusting relevance bar for RECONSIDER — lower early, higher near convergence, minimum when desperate | 1, context-dependent |
 | **Process** | Continuous awareness loop — read, integrate, ask, produce, update | 5 steps per checkpoint |
 | **Coverage** | Per-iteration (all three layers read) + cross-iteration (coverage map complete, no pending reconsiderations) | 2 levels |
-| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration | 6 identified |
+| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration, gate blindness | 7 identified |
 | **Core question** | "Given where we are, where we've been, how fast we're moving, and whether anything we previously decided might no longer hold — what is the one action that would change the landscape most?" | 1, asked at every checkpoint |
 
 This thinking discipline is domain-agnostic. It works for steering any iterative search process — software architecture exploration, research hypothesis testing, business strategy evaluation, or any loop that needs to know where it is, where it's heading, and whether to continue or redirect. It does not prescribe WHERE to search or WHICH disciplines to use — it provides the structural awareness for HOW to steer a search adaptively, with memory and belief revision.
@@ -322,6 +339,7 @@ For each layer, extract the current state from the input:
 **Present Layer:**
 - What is the current position on the fitness landscape? Which regions explored, which unexplored?
 - What is the current heading? Which dimension is the search focused on?
+- What is the current reachability? Which regions are accessible from here? Which are gated (blocked behind prerequisites)? For each gate: what is the blocked region, what is the condition, is it open or closed?
 
 **Trend Layer:**
 - What is the velocity? Are recent iterations producing more or less new information?

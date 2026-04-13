@@ -22,7 +22,7 @@ $ARGUMENTS
 
 # Structural Critique — A Thinking Discipline
 
-A thinking discipline for evaluating ideas, plans, and outputs by constructing multi-dimensional fitness landscapes, positioning candidates on them, and producing verdicts through adversarial testing. Critique is not nitpicking — it's the contraction force that turns divergent thinking into convergent results.
+A thinking discipline for evaluating competing candidates — ideas, plans, and approaches — by constructing multi-dimensional fitness landscapes, positioning them through adversarial testing, and producing verdicts. Critique is not nitpicking — it's the contraction force that turns divergent thinking into convergent results.
 
 Rather than relying on gut-feel judgment, Structural Critique treats evaluation as a practiced methodology based on dimension construction, landscape mapping, adversarial collision, and coverage-aware convergence detection.
 
@@ -32,7 +32,7 @@ Rather than relying on gut-feel judgment, Structural Critique treats evaluation 
 
 ## What Critique Is
 
-**Critique is the process of taking a set of candidates — ideas, plans, approaches, outputs — and systematically determining which survive, which need refinement, and which die, across dimensions extracted from the understood problem, while tracking what has been evaluated and signaling when evaluation is sufficient.**
+**Critique is the process of taking a set of competing candidates — ideas, plans, approaches — and systematically determining which survive, which need refinement, and which die, across dimensions extracted from the understood problem, while tracking what has been evaluated and signaling when evaluation is sufficient.**
 
 Critique is not:
 - Nitpicking (nitpicking finds surface flaws without assessing whether they matter; critique evaluates across weighted dimensions with severity awareness)
@@ -384,3 +384,23 @@ Present the complete critique output as:
 3. **Candidate Verdicts** — each candidate with its adversarial test results and verdict
 4. **Coverage Map** — what's been evaluated, what hasn't
 5. **Signal** — ITERATE (with direction) or TERMINATE (with ranked survivors)
+
+---
+
+### Convergence Telemetry
+
+After producing the critique output, assess the quality of this critique run:
+
+* **Dimension coverage** — Were all critical-weight dimensions evaluated for every candidate? Any dimensions skipped or applied superficially?
+* **Adversarial strength** — For each candidate: was prosecution genuinely the STRONGEST possible case against? Would the candidate's strongest advocate pause at the prosecution argument?
+* **Landscape stability** — Did this critique pass change the landscape significantly, or confirm the existing shape? (Significant change = more iterations needed. Confirmation = approaching convergence.)
+* **Clean SURVIVE existence** — Does at least one candidate have a SURVIVE verdict with no caveats on critical dimensions?
+* **Failure mode check** — Did any of the 7 failure modes visibly occur? (Wrong dimensions, rubber-stamping, nitpicking, dimension blindness, false convergence, evaluation drift, self-reference collapse)
+
+Report:
+* Dimensions evaluated: [count] / [total], all critical covered: [YES/NO]
+* Adversarial strength: [STRONG — prosecution would give advocates pause / WEAK — prosecution was surface-level]
+* Landscape stability: [CHANGED — new regions discovered / STABLE — confirmed existing shape]
+* Clean SURVIVE: [YES — candidate X / NO — all survivors have caveats]
+* Failure modes observed: [none / list]
+* **Overall: PROCEED** (dimensions covered + adversarial strong + at least one clean SURVIVE) / **FLAG** (weak prosecution or missing dimensions) / **RE-RUN** (failure mode detected or no candidates evaluated)

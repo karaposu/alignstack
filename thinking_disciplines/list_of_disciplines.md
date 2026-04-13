@@ -75,9 +75,35 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
+### 6. Structural Exploration
+
+**Transform:** Unknown territory → Mapped understanding with confidence levels
+
+**What it is:** The cognitive operation of engaging with the unknown — systematically discovering what exists in unfamiliar territory, where it is, what's absent, and how confident we are about each region. Two modes: artifact exploration (find concrete things) and possibility exploration (enumerate what could exist). Not understanding — finding what exists so that understanding can follow.
+
+**Components:** Scan (breadth-first inventory), signal detection (density, novelty, relevance, tension, absence), probe (depth pass on signals), resolution management (zoom in/out decisions), frontier tracking (advancing/stable/closed), confidence mapping (confirmed/scanned/inferred/unknown/confirmed absent), 7-step iterative cycle, 3 convergence criteria (frontier stability + declining discovery + bounded gaps), 6 failure modes.
+
+**Command:** `/explore`
+**Files:** `thinking_disciplines/exploration.md`
+
+---
+
+### 7. Structural Comprehension
+
+**Transform:** Observable-but-opaque → Internal working model with predictive power
+
+**What it is:** The cognitive operation of building an internal model of something that is visible but not understood — constructing a representation that can predict behavior, explain design rationale, and identify what would break if conditions changed. Two primary aspects: mechanistic ("how does it work?") and intent ("why was it built this way?"). Unique contribution: understanding advances through falsifiable prediction testing — depth is demonstrated, not declared.
+
+**Components:** Model construction (structural mapping, behavioral tracing, causal discovery), perturbation testing (execution-based → scenario-based → reasoning-based), prediction testing (explicit falsifiable predictions generated before checking), adversarial self-challenge (3+ cases targeting the model's weakest points), design rationale extraction (tradeoff mapping, constraint identification, counterfactual testing), accommodation trigger (systematic failures → rebuild, don't patch). Depth hierarchy: Descriptive → Structural → Causal → Predictive → Generative (5 levels with mandatory tests). 5-phase process: Static → Dynamic → Differential → Adversarial → Stabilization. Frontier questions as output at every CV level. 7 failure modes.
+
+**Command:** `/comprehend`
+**Files:** `thinking_disciplines/comprehend.md`
+
+---
+
 ## Planned
 
-### 6. Diagnosis
+### Diagnosis
 
 **Transform:** Failure → Root cause localization
 
@@ -96,26 +122,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 7. Exploration
-
-**Transform:** Unknown territory → Mapped understanding
-
-**What it is:** A framework for systematically mapping unfamiliar territory — codebases, domains, problem spaces. Different from Sensemaking (which clarifies what's ambiguous) — Exploration maps what's unknown. You don't know what you don't know; the framework gives you a method for discovering it.
-
-**Components to define:**
-- Breadth-first scan (what exists at the surface level?)
-- Depth probes (where should we go deeper?)
-- Boundary detection (where does this territory end?)
-- Knowledge gap identification (what do we NOT know after scanning?)
-- Confidence mapping (what are we sure about, what is partially known , what's uncertain, what's unknown?)
-- What are the failure modes? (exploring too deep before scanning breadth, mistaking surface understanding for deep understanding, stopping exploration when it feels "enough" rather than when gaps are closed)
-
-**Existing commands:** `/arch-small-summary`, `/arch-intro`, `/arch-traces`, `/arch-traces-2`
-**Priority:** Medium — the archaeology commands work well, but a framework would make them more principled
-
----
-
-### 8. Reflection
+### Reflection
 
 **Transform:** Completed work → Extracted patterns and insights
 
@@ -133,7 +140,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 9. Recovery
+### Recovery
 
 **Transform:** Broken state → Restored function
 
@@ -152,7 +159,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ---
 
-### 10. Evaluation
+### Evaluation
 
 **Transform:** Output → Intent comparison
 
@@ -178,7 +185,7 @@ Each thinking discipline has: a philosophy/definition, structural components, a 
 
 ## Discipline Relationships
 
-### The Complete Built System (5 Disciplines + Inquiry)
+### The Complete Built System (7 Disciplines + Inquiry)
 
 `/inquiry` is the loop manager — it classifies problems, designs pipelines (CONFIGURE), manages state, and tells you which command to run next. Wayfinding is the search steering discipline — it runs between iterations and tells the loop where to go next. Together they replace what was previously a single overloaded "meta-search."
 
@@ -219,6 +226,9 @@ Inquiry CONFIGUREs the right disciplines for the problem. Wayfinding's six moves
                         │                   │
                    Wayfinding          Exploration
                    (steer)             (map)
+                        │                   │
+                   Comprehend
+                   (understand)
                                   │
                     ┌─────────────┼─────────────┐
                     ▼             ▼             ▼
@@ -230,7 +240,7 @@ Inquiry CONFIGUREs the right disciplines for the problem. Wayfinding's six moves
                              (planned)
 ```
 
-6 built: Sensemaking, Innovation, Critique, Wayfinding, Decomposition, Exploration
+7 built: Sensemaking, Innovation, Critique, Wayfinding, Decomposition, Exploration, Comprehend
 4 planned: Diagnosis, Reflection, Recovery, Evaluation
 Meta-Plan: absorbed into Inquiry (CONFIGURE) + Wayfinding (steering)
 
