@@ -19,6 +19,79 @@ $ARGUMENTS
    - **If the input was a file path** — save in the same folder as the input file or relevant files.
    - **Otherwise** — save under `devdocs/critique/<suitable-name>.md` (create the directory if needed).
 
+---
+
+---- NOW SOLID INSTRUCTIONS START ----
+
+## Execute the Full Critique Process
+
+### Phase 0 — Dimension Construction
+
+1. Read the problem context (sensemaking output or equivalent)
+2. Extract and list evaluation dimensions with weights
+3. Validate: are these the right dimensions for this problem?
+4. Define success criteria per dimension
+
+### Phases 1-3 — For Each Candidate
+
+For each candidate, produce:
+
+1. **Landscape position preview** — where is this candidate likely to land based on initial assessment?
+2. **Prosecution** — the strongest possible case against. The killer objection. The weakest dimension.
+3. **Defense** — the strongest possible case for. The core strength. The strongest dimension.
+4. **Collision** — prosecution vs defense. What survives?
+5. **Verdict** — SURVIVE / REFINE / KILL with:
+   - SURVIVE: which dimensions passed, any caveats
+   - REFINE: which dimensions failed, what "right" looks like on those dimensions
+   - KILL: which dimension killed it, seed extracted from failure
+
+### Phase 4 — Coverage + Convergence
+
+1. **Accumulator update** — log all verdicts
+2. **Coverage assessment** — what regions of the solution space have been evaluated? What gaps remain?
+3. **Convergence signal** — ITERATE or TERMINATE, with reasoning
+
+### Final Deliverable
+
+Present the complete critique output as:
+
+1. **Dimensions** — the evaluation framework used, with weights
+2. **Fitness Landscape** — viable regions, dead regions, boundary regions, unexplored regions
+3. **Candidate Verdicts** — each candidate with its adversarial test results and verdict
+4. **Coverage Map** — what's been evaluated, what hasn't
+5. **Signal** — ITERATE (with direction) or TERMINATE (with ranked survivors)
+
+---
+
+### Convergence Telemetry
+
+After producing the critique output, assess the quality of this critique run:
+
+* **Dimension coverage** — Were all critical-weight dimensions evaluated for every candidate? Any dimensions skipped or applied superficially?
+* **Adversarial strength** — For each candidate: was prosecution genuinely the STRONGEST possible case against? Would the candidate's strongest advocate pause at the prosecution argument?
+* **Landscape stability** — Did this critique pass change the landscape significantly, or confirm the existing shape? (Significant change = more iterations needed. Confirmation = approaching convergence.)
+* **Clean SURVIVE existence** — Does at least one candidate have a SURVIVE verdict with no caveats on critical dimensions?
+* **Failure mode check** — Did any of the 7 failure modes visibly occur? (Wrong dimensions, rubber-stamping, nitpicking, dimension blindness, false convergence, evaluation drift, self-reference collapse)
+
+Report:
+* Dimensions evaluated: [count] / [total], all critical covered: [YES/NO]
+* Adversarial strength: [STRONG — prosecution would give advocates pause / WEAK — prosecution was surface-level]
+* Landscape stability: [CHANGED — new regions discovered / STABLE — confirmed existing shape]
+* Clean SURVIVE: [YES — candidate X / NO — all survivors have caveats]
+* Failure modes observed: [none / list]
+* **Overall: PROCEED** (dimensions covered + adversarial strong + at least one clean SURVIVE) / **FLAG** (weak prosecution or missing dimensions) / **RE-RUN** (failure mode detected or no candidates evaluated)
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Structural Critique — A Thinking Discipline
 
@@ -57,6 +130,30 @@ Both together = the full critique process.
 | **Source** | Sensemaking output (anchors, constraints, principles) | Innovation output (ideas, plans, approaches) |
 | **Produces** | Evaluation dimensions + success criteria | Fitness landscape + positioned candidates + verdicts |
 | **When it fails** | Wrong dimensions → entire evaluation is misleading | Weak adversarial testing → false survivors |
+
+---
+
+## Critique's Role in the SIC Loop
+
+Critique exists at the intersection of sensemaking and innovation. It reads backward to sensemaking (what was understood about the problem?) and evaluates forward from innovation (which proposed solutions actually match?).
+
+```
+Sensemaking                    Innovation                     Critique
+"What IS the problem?"    →    "What COULD solve it?"    →    "Which solutions MATCH the problem?"
+                                                               │
+Produces: stable understanding  Produces: novel ideas          │ Extracts criteria from sensemaking
+  (anchors, constraints,          (mechanisms, seeds,          │ Evaluates ideas from innovation
+   principles, meaning-nodes)      tested outputs)             │ Produces: landscape + verdicts
+                                                               │
+                                                               ├→ SURVIVE → develop further
+                                                               ├→ REFINE → back to innovation with direction
+                                                               ├→ KILL → extract seed, back to sensemaking
+                                                               └→ ITERATE or TERMINATE (coverage signal)
+```
+
+Sensemaking is expansion (ambiguity → structured understanding). Innovation is expansion (seed → multiple novel ideas). Critique is **contraction** (many candidates → fewer, better-positioned survivors). Without critique, expansion compounds without bound.
+
+Critique does not generate new ideas. It does not clarify ambiguity. It measures the distance between what was understood (sensemaking) and what was proposed (innovation), and renders verdicts based on that distance.
 
 ---
 
@@ -133,7 +230,7 @@ Every candidate receives a verdict. Verdicts are not binary (pass/fail) — they
 
 ### The Accumulator
 
-The accumulator is critique's persistent memory across iterations. Without it, each critique pass starts fresh — amnesic, unable to detect convergence, unable to avoid re-evaluating what was already evaluated.
+The accumulator is critique's persistent memory across iterations of the SIC loop. Without it, each critique pass starts fresh — amnesic, unable to detect convergence, unable to avoid re-evaluating what was already evaluated.
 
 **The accumulator tracks:**
 
@@ -226,7 +323,7 @@ After all candidates in this iteration are evaluated, assess the loop state:
    - Has the landscape stabilized — are new iterations changing the landscape or just confirming it?
 
 4. **Signal:**
-   - **ITERATE** — coverage is insufficient, or new candidates are still producing new information. Feed surviving and refined candidates back. Run the loop again.
+   - **ITERATE** — coverage is insufficient, or new candidates are still producing new information. Feed surviving and refined candidates back to sensemaking. Feed extracted seeds to innovation. Run the SIC loop again.
    - **TERMINATE** — coverage is sufficient AND convergence is reached AND at least one candidate has a SURVIVE verdict. The loop is done. Output the survivors ranked by fitness landscape position.
 
 **Convergence criteria (all must be met):**
@@ -339,68 +436,12 @@ When critique is used to evaluate critique itself (self-improvement, discipline 
 | **Adversarial structure** | Prosecution (strongest case against) + Defense (strongest case for) + Collision (what survives?) | 3 roles per candidate |
 | **Verdicts** | SURVIVE / REFINE / KILL — positional, with constructive output | 3 types |
 | **Process** | Phase 0 (dimensions) → Phase 1 (landscape) → Phase 2 (adversarial) → Phase 3 (verdict) → Phase 4 (coverage + convergence) | 5 phases |
-| **Accumulator** | Persistent memory across iterations — evaluations, verdicts, coverage, convergence trend | 1, grows over iterations |
+| **Accumulator** | Persistent memory across SIC loop iterations — evaluations, verdicts, coverage, convergence trend | 1, grows over iterations |
 | **Coverage** | Per-candidate (all critical dimensions tested) + Per-solution-space (landscape sufficiently mapped) | 2 levels |
 | **Failure modes** | Wrong dimensions, rubber-stamping, nitpicking, dimension blindness, false convergence, evaluation drift, self-reference collapse | 7 identified |
 
 This thinking discipline is domain-agnostic. It works for evaluating business strategies, software architectures, research hypotheses, design proposals, or any set of candidates that need systematic evaluation. It does not prescribe WHAT to evaluate — it provides the structural tools for HOW to evaluate systematically, with coverage awareness and convergence detection.
 
----- NOW SOLID INSTRUCTIONS START ----
 
-## Execute the Full Critique Process
 
-### Phase 0 — Dimension Construction
 
-1. Read the problem context (sensemaking output or equivalent)
-2. Extract and list evaluation dimensions with weights
-3. Validate: are these the right dimensions for this problem?
-4. Define success criteria per dimension
-
-### Phases 1-3 — For Each Candidate
-
-For each candidate, produce:
-
-1. **Landscape position preview** — where is this candidate likely to land based on initial assessment?
-2. **Prosecution** — the strongest possible case against. The killer objection. The weakest dimension.
-3. **Defense** — the strongest possible case for. The core strength. The strongest dimension.
-4. **Collision** — prosecution vs defense. What survives?
-5. **Verdict** — SURVIVE / REFINE / KILL with:
-   - SURVIVE: which dimensions passed, any caveats
-   - REFINE: which dimensions failed, what "right" looks like on those dimensions
-   - KILL: which dimension killed it, seed extracted from failure
-
-### Phase 4 — Coverage + Convergence
-
-1. **Accumulator update** — log all verdicts
-2. **Coverage assessment** — what regions of the solution space have been evaluated? What gaps remain?
-3. **Convergence signal** — ITERATE or TERMINATE, with reasoning
-
-### Final Deliverable
-
-Present the complete critique output as:
-
-1. **Dimensions** — the evaluation framework used, with weights
-2. **Fitness Landscape** — viable regions, dead regions, boundary regions, unexplored regions
-3. **Candidate Verdicts** — each candidate with its adversarial test results and verdict
-4. **Coverage Map** — what's been evaluated, what hasn't
-5. **Signal** — ITERATE (with direction) or TERMINATE (with ranked survivors)
-
----
-
-### Convergence Telemetry
-
-After producing the critique output, assess the quality of this critique run:
-
-* **Dimension coverage** — Were all critical-weight dimensions evaluated for every candidate? Any dimensions skipped or applied superficially?
-* **Adversarial strength** — For each candidate: was prosecution genuinely the STRONGEST possible case against? Would the candidate's strongest advocate pause at the prosecution argument?
-* **Landscape stability** — Did this critique pass change the landscape significantly, or confirm the existing shape? (Significant change = more iterations needed. Confirmation = approaching convergence.)
-* **Clean SURVIVE existence** — Does at least one candidate have a SURVIVE verdict with no caveats on critical dimensions?
-* **Failure mode check** — Did any of the 7 failure modes visibly occur? (Wrong dimensions, rubber-stamping, nitpicking, dimension blindness, false convergence, evaluation drift, self-reference collapse)
-
-Report:
-* Dimensions evaluated: [count] / [total], all critical covered: [YES/NO]
-* Adversarial strength: [STRONG — prosecution would give advocates pause / WEAK — prosecution was surface-level]
-* Landscape stability: [CHANGED — new regions discovered / STABLE — confirmed existing shape]
-* Clean SURVIVE: [YES — candidate X / NO — all survivors have caveats]
-* Failure modes observed: [none / list]
-* **Overall: PROCEED** (dimensions covered + adversarial strong + at least one clean SURVIVE) / **FLAG** (weak prosecution or missing dimensions) / **RE-RUN** (failure mode detected or no candidates evaluated)
