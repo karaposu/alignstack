@@ -4,6 +4,12 @@ The goal of everything we are building — disciplines, protocols, telemetry, fr
 
 Not a perfect loop. Not a fully automated loop. A **tinder fire** — small enough to start with what exists today, self-sustaining enough that each cycle feeds the next, and incrementally improving so that each pass is slightly better than the last.
 
+And it is not a simple agentic loop. It is a looped system where i can throw problems, and it tries to do them, while doing it, it generates useful data for it's own understanding and and that can be used again with the loop in seperate discipline training run to uncover where out methodology failed and improve the disciplines. 
+
+The hyptothesis is the current modern LLM models are already smart enough  proto-intelligence (refers to LLM call produces one intelligence only). Rigiriously training them using GPUs to make them more smart is one appraoch, but the other approach is to make them adapt correct cognitiveness and we can reach to self improving loop more early and less smart models. 
+
+Humans are the same. Not all humans are super smart. Yet our cognitive loop makes us more "smart" than computers in generic way. 
+
 ---
 
 ## Why This Is the Goal

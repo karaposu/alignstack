@@ -80,4 +80,44 @@ to iterate and unlock the solution space in roguie way. bruteforce way.
   understanding. The agent loop executes efficiently. Neither alone is sufficient.  
 
 
-  the cognitive loop is self-modifying.                     
+  the cognitive loop is self-modifying.   
+
+
+
+   The system + human   
+  together can approximate what the system alone cannot.  This is important for bootstrapping.    
+
+
+
+
+
+
+
+
+  Not a measurement. A diagnostic pattern. Check after each discipline run:                                                          
+                                                                                                                                   
+  ┌─────────────────────┬────────────────────────────────────────┬───────────────────────────┬──────────────────────────────────┐    
+  │       Symptom       │                 Signal                 │        Alone means        │          Combined means          │
+  ├─────────────────────┼────────────────────────────────────────┼───────────────────────────┼──────────────────────────────────┤    
+  │ Thin frontier       │ Few or no frontier questions           │ Might be simple problem   │ + other symptoms = shallow run   │    
+  ├─────────────────────┼────────────────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
+  │ No surprise         │ Human wasn't surprised                 │ Might be confirmatory     │ + thin frontier = surface-level  │    
+  │                     │                                        │ task                      │                                  │  
+  ├─────────────────────┼────────────────────────────────────────┼───────────────────────────┼──────────────────────────────────┤
+  │ Downstream          │ Next discipline struggles with the     │ Input quality issue       │ Strong regression signal by      │    
+  │ rejection           │ input                                  │                           │ itself                           │    
+  ├─────────────────────┼────────────────────────────────────────┼───────────────────────────┼──────────────────────────────────┤    
+  │ Rapid completion    │ Unusually fast, no adversarial         │ Might be straightforward  │ + no surprise = skipped depth    │    
+  │                     │ challenge                              │                           │                                  │  
+  ├─────────────────────┼────────────────────────────────────────┼───────────────────────────┼──────────────────────────────────┤    
+  │ Prior-confirmation  │ Output perfectly matches expectations  │ Might be well-understood  │ + no surprise = assimilation     │  
+  │                     │                                        │                           │ error                            │    
+  └─────────────────────┴────────────────────────────────────────┴───────────────────────────┴──────────────────────────────────┘               
+
+
+
+
+
+
+  The disciplines aren't configurations of some abstract primitive hiding underneath SIC. They ARE SIC applied to different questions. The
+  specs are the accumulated wisdom about how to apply SIC well to each type of question.

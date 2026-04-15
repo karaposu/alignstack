@@ -16,7 +16,7 @@ Rather than relying on intuition to decide "where to look next," Structural Wayf
 **Wayfinding is the cognitive sense of where a search process stands — its position in the solution space, its trajectory over recent iterations, and the ongoing validity of its past decisions — integrated into awareness that produces steering actions.**
 
 Wayfinding is not:
-- Planning (planning sequences steps before execution; wayfinding adjusts direction during execution based on what's been found)
+- Full project planning (wayfinding does not create detailed project plans or timelines). But wayfinding DOES evaluate possible actions against the stated goal to select the highest-impact direction — this is goal-directed steering, not planning.
 - Orchestration (orchestration manages pipelines, state, and sequencing; wayfinding provides the search intelligence that orchestration consumes)
 - Decision rules (decision rules are mechanical — if X then Y; wayfinding is perceptual integration that produces awareness from which actions emerge)
 - Navigation (navigation finds a path through static terrain; wayfinding operates on terrain that changes as the search progresses and can revise past route decisions)
@@ -84,7 +84,7 @@ Wayfinding integrates awareness across three temporal layers. Each layer is both
 │  Temporal scope: recent trajectory (last 2-5 iterations)    │
 ├─────────────────────────────────────────────────────────────┤
 │  PRESENT LAYER                                              │
-│  Senses: position, heading, reachability                    │
+│  Senses: position, heading, reachability, goal              │
 │  Drives: BROADEN, NARROW, SHIFT                             │
 │  Temporal scope: current iteration state                    │
 └─────────────────────────────────────────────────────────────┘
@@ -97,6 +97,11 @@ Wayfinding integrates awareness across three temporal layers. Each layer is both
 | **Position** | Where on the fitness landscape are the current candidates? Which regions are explored, which are unexplored? | Coverage map — density of evaluated candidates per region |
 | **Heading** | Which dimension is the search currently focused on? Is the focus broad (many dimensions) or narrow (one dimension)? | Current iteration's dimension parameters vs previous iterations |
 | **Reachability** | What regions are accessible from the current position? What regions are blocked behind gates (prerequisites that must be met before the region becomes reachable)? | Dependency analysis — which regions require outputs, decisions, or conditions that don't yet exist |
+| **Goal** | What is the user trying to achieve? What does success look like? | Stated in the input, inherited from the inquiry's _branch.md, or asked if unclear. If no goal is stated, wayfinding proceeds with state-based steering. |
+
+Goal is what makes wayfinding's core question answerable. "What action would change the landscape MOST?" is meaningless without a direction — most toward WHAT? The goal provides the direction. Without it, wayfinding defaults to state-based signals (what's undone, what's unexplored) which can produce insignificant recommendations because "undone" doesn't mean "important."
+
+When the goal and the layers agree — both point the same direction — wayfinding proceeds normally with no overhead. When they conflict — the layers suggest one action but the goal would be better served by another — the conflict IS the signal. Wayfinding explains the conflict and chooses the action that advances the goal, unless the layers reveal a genuine obstacle (a real gate, not a plan ordering).
 
 Reachability senses the **topology** of the landscape — not just where you are, but what you can reach from here. Some regions of the solution space are gated: they become accessible only when a prerequisite is met. A gate has three parts:
 
@@ -234,15 +239,24 @@ At each checkpoint, wayfinding executes:
    - How is it moving? (trend)
    - Is anything from the past relevant to what's happening now? (memory)
 
-**3. Ask the core question:**
-   > "What is the one action that would change the landscape most?"
+**3. Check for traps** — before answering the core question, check:
+   - **TODO fixation:** Am I about to steer toward something because it's undone on a plan, or because it advances the goal?
+   - **Fake gate:** Am I treating a plan ordering as a real prerequisite? Would X actually fail without Y?
+   - **Insignificance:** Is there an action with much higher impact toward the goal that I'm not considering?
 
-**4. Produce output** — one of the six moves, with parameters:
+**4. Ask the core question:**
+   > "What is the one action that would change the landscape most **toward the stated goal**?"
+   
+   If the layers and the goal conflict — explain the conflict and choose the action that advances the goal, unless the layers reveal a genuine obstacle.
+
+**5. Produce output** — one of the six moves, with parameters:
    - **Steering directive**: BROADEN / NARROW / SHIFT (with dimension, direction, depth budget)
    - **Process directive**: DIAGNOSE (route to sensemaking with specific focus) / TERMINATE
    - **Reconsideration signal**: RECONSIDER(target, direction) — triggers critique to re-evaluate
 
-**5. Update** — log the wayfinding decision in the accumulator for future reference (wayfinding's own decisions are part of the search history).
+**6. Self-challenge** — after producing the move, name one action you are NOT recommending that could advance the goal. Compare its impact to the chosen move. If the alternative has clearly higher impact — switch and explain the override.
+
+**7. Update** — log the wayfinding decision in the accumulator for future reference (wayfinding's own decisions are part of the search history).
 
 ---
 
@@ -328,20 +342,44 @@ Wayfinding steers within the reachable landscape without noticing that more prod
 
 **How to prevent:** Read reachability at every checkpoint. Before producing a move, check: are there gated regions that would be more productive than the current reachable space? If yes, the directive must include the gate condition — "before doing X, unlock Y." Treat gated-but-promising regions with the same attention as unexplored-but-reachable regions.
 
+### 8. TODO Fixation
+
+Recommending actions because they're undone on a plan, not because they advance the goal. The plan becomes the landscape instead of the actual situation. Wayfinding reads "what's undone?" as the primary signal and defaults to "do the next undone thing" regardless of its significance.
+
+**How to recognize:** The recommended action is a low-impact item from a previous plan. A much higher-impact action exists but wasn't considered because it wasn't "on the list."
+
+**How to prevent:** The goal-directed evaluation step. Before producing a move, ask: "Am I recommending this because it's undone, or because it advances the goal?" The goal provides the reference for significance — without it, "undone" is the only signal.
+
+### 9. Fake Gates
+
+Treating plan ordering as real prerequisites. "Y was planned before X" becomes "X can't happen until Y is done" — even when X could happen independently. The reachability component constructs a gate that doesn't actually exist.
+
+**How to recognize:** The reachability analysis says X is blocked by Y, but removing Y from the plan wouldn't actually prevent X from succeeding. The gate is a plan artifact, not a real dependency.
+
+**How to prevent:** Gate validation: "Is this a REAL prerequisite (X literally fails without Y) or a plan ordering (Y was planned first but X works independently)?" Before treating any undone item as a gate, verify the dependency is structural, not just sequential.
+
+### 10. Insignificance
+
+Recommending an action that doesn't meaningfully advance the goal when a much higher-impact action is available. The recommendation is not wrong — it's just not significant enough to be the MOST impactful move. Wayfinding picks a small step when a big step was available.
+
+**How to recognize:** The self-challenge reveals an action with clearly higher impact that wasn't initially recommended. Or: the user reads the recommendation and feels it's trivial compared to what's obviously needed.
+
+**How to prevent:** The self-challenge step after producing the move. "Name one action you're NOT recommending. Compare its impact toward the goal. If higher — switch." This forces consideration of alternatives beyond the initial move.
+
 ---
 
 ## Summary
 
 | Component | What it is | How many |
 |-----------|-----------|----------|
-| **Awareness layers** | Present (position, heading, reachability), Trend (velocity, acceleration, goal distance), Memory (kill conditions, survival conditions, near-misses, dependencies) | 3 layers, 7 components |
+| **Awareness layers** | Present (position, heading, reachability, goal), Trend (velocity, acceleration, goal distance), Memory (kill conditions, survival conditions, near-misses, dependencies) | 3 layers, 8 components |
 | **Moves** | BROADEN, NARROW, SHIFT (present), DIAGNOSE, TERMINATE (trend), RECONSIDER (memory) | 6, structured by layer |
 | **RECONSIDER sub-actions** | RESURRECT (dead → viable?), INVALIDATE (alive → dead?), REVERT (refined → pre-refinement?) | 3 directions, one general operation |
 | **Threshold** | Self-adjusting relevance bar for RECONSIDER — lower early, higher near convergence, minimum when desperate | 1, context-dependent |
-| **Process** | Continuous awareness loop — read, integrate, ask, produce, update | 5 steps per checkpoint |
+| **Process** | Continuous awareness loop — read, integrate, check traps, ask (with goal), produce, self-challenge, update | 7 steps per checkpoint |
 | **Coverage** | Per-iteration (all three layers read) + cross-iteration (coverage map complete, no pending reconsiderations) | 2 levels |
-| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration, gate blindness | 7 identified |
-| **Core question** | "Given where we are, where we've been, how fast we're moving, and whether anything we previously decided might no longer hold — what is the one action that would change the landscape most?" | 1, asked at every checkpoint |
+| **Failure modes** | Steering too early, steering too late, false RECONSIDER, missed RECONSIDER, layer conflict paralysis, threshold miscalibration, gate blindness, TODO fixation, fake gates, insignificance | 10 identified |
+| **Core question** | "Given where we are, where we've been, how fast we're moving, and whether anything we previously decided might no longer hold — what is the one action that would change the landscape most **toward the stated goal**?" | 1, asked at every checkpoint |
 
 This thinking discipline is domain-agnostic. It works for steering any iterative search process — software architecture exploration, research hypothesis testing, business strategy evaluation, or any loop that needs to know where it is, where it's heading, and whether to continue or redirect. It does not prescribe WHERE to search or WHICH disciplines to use — it provides the structural awareness for HOW to steer a search adaptively, with memory and belief revision.
 
