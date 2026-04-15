@@ -159,6 +159,17 @@ Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addre
 **3. Does the answer advance the goal?**
 If the question IS answered but the answer doesn't advance the goal stated in `_branch.md` — note this. The answer might be technically correct but practically useless. Flag it for the user.
 
+**4. Observation (optional)**
+```
+Any observation about this run? (optional — skip if nothing comes to mind)
+```
+If the user provides one, append to `devdocs/improvement_observations.md`:
+```
+## [date] | [problem from _branch.md] | [iteration count]
+[the user's observation]
+```
+If the user skips, move on. No gate. No requirement. Observations accumulate over time. When patterns emerge across multiple observations, the user can run `/MVL "review improvement observations and propose spec changes"` — a SIC loop on the system's own feedback.
+
 ---
 
 ## Cross-Session Resume

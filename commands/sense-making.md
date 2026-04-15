@@ -25,6 +25,8 @@ $ARGUMENTS
 
 5. Print the output in the conversation as well.
 
+6. Record the user's input at the top of the output file: `## User Input` followed by the $ARGUMENTS that were passed to this command. This allows the Reflect step (R) to see what the human asked for alongside what the discipline produced.
+
 ---
 
 ## The Structural Sensemaking Framework

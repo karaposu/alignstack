@@ -23,6 +23,7 @@ $ARGUMENTS
    - **If the input was a file path** — save in the same folder as the input file or relevant files. 
    - **Otherwise** — save under `devdocs/innovation/<suitable-name>.md` (create the directory if needed).
 
+4. Record the user's input at the top of the output file: `## User Input` followed by the $ARGUMENTS that were passed to this command. This allows the Reflect step (R) to see what the human asked for alongside what the discipline produced.
 
 
 
