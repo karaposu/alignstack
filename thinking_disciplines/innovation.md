@@ -278,6 +278,8 @@ Each novel output must be tested. Innovation testing is not the same as validati
 
 Outputs that fail testing are not wasted — they become new seeds. "This didn't work because..." often contains the seed for what will work.
 
+**Assembly check:** After testing individual outputs, examine the survivors and refined candidates together. Ask: "What architecture emerges if I combine these survivors? Does the assembly produce emergent value that none of the individual pieces have?" Individual mechanisms generate components. The assembly check catches innovations that exist only at the intersection of those components — where the combination is more valuable than any piece alone.
+
 ### Iteration
 
 ```

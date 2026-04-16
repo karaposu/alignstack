@@ -211,6 +211,12 @@ For each positioned candidate, render a verdict with constructive output:
 - Extract a seed from the failure: "this approach died because of X. What if an approach existed that didn't have X? What conditions would avoid X entirely?"
 - Failed seeds feed back to sensemaking for re-examination or to innovation for new generation
 
+### Phase 3.5 — Assembly Check
+
+After all individual candidates are evaluated, examine the SURVIVE and REFINE candidates together. Ask: "Do any of these candidates combine into something emergent and possibly powerful that none of them are individually?" Individual candidates are components. Assemblies are architectures. The most valuable innovation often lives at the intersection of components, not in any single one.
+
+If an assembly emerges, evaluate it as a new candidate against the same dimensions from Phase 0. It gets its own prosecution, defense, collision, and verdict. An assembly that survives is ranked alongside (or above) individual survivors in the final output.
+
 ### Phase 4 — Coverage + Convergence Assessment
 
 After all candidates in this iteration are evaluated, assess the loop state:

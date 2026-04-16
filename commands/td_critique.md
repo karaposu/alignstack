@@ -47,6 +47,8 @@ For each candidate, produce:
    - REFINE: which dimensions failed, what "right" looks like on those dimensions
    - KILL: which dimension killed it, seed extracted from failure
 
+6. **Assembly check** — After all individual verdicts, examine SURVIVE and REFINE candidates together. Ask: "Do any of these candidates combine into something emergent and possibly powerful that none of them are individually?" If yes, evaluate the assembly as a new candidate against the same dimensions.
+
 ### Phase 4 — Coverage + Convergence
 
 1. **Accumulator update** — log all verdicts
@@ -307,6 +309,12 @@ For each positioned candidate, render a verdict with constructive output:
 - Document the specific dimension that killed this candidate and why defense could not overcome prosecution
 - Extract a seed from the failure: "this approach died because of X. What if an approach existed that didn't have X? What conditions would avoid X entirely?"
 - Failed seeds feed back to sensemaking for re-examination or to innovation for new generation
+
+### Phase 3.5 — Assembly Check
+
+After all individual candidates are evaluated, examine the SURVIVE and REFINE candidates together. Ask: "Do any of these candidates combine into something emergent and possibly powerful that none of them are individually?" Individual candidates are components. Assemblies are architectures. The most valuable innovation often lives at the intersection of components, not in any single one.
+
+If an assembly emerges, evaluate it as a new candidate against the same dimensions from Phase 0. It gets its own prosecution, defense, collision, and verdict. An assembly that survives is ranked alongside (or above) individual survivors in the final output.
 
 ### Phase 4 — Coverage + Convergence Assessment
 
