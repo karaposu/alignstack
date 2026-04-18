@@ -260,12 +260,22 @@ Apply the Structural Comprehension thinking discipline. Builds internal working 
 
 ---
 
-### `/wayfinding`
+### `/navigation`
 
-Apply the Structural Wayfinding thinking discipline. The second-order search awareness that steers cognitive search processes. Reads where the search stands across three layers (present: position + heading, trend: velocity + acceleration + goal distance, memory: past verdicts + kill conditions + near-misses), then produces a steering move: BROADEN, NARROW, SHIFT, DIAGNOSE, TERMINATE, or RECONSIDER. Pure search intelligence — does not manage state or pipelines.
+Apply the Structural Navigation thinking discipline. A boundary discipline that maps the full space of possible next directions after a SIC cycle completes. Reads C's verdicts (survivors, refinements, kill seeds), frontier questions, telemetry, and optionally R's observations — then produces a navigation map: every possible direction typed from a 15-type taxonomy across 3 categories (content-directed, process-directed, context-directed). Each direction has its own WHY, and 3-6 independently reasoned guidelines (each with its own WHY). Includes confidence levels (■ HIGH / ○ MEDIUM / · LOW) and an excluded section for types considered and rejected. Navigation enumerates WITHOUT selecting — the full space, not a filtered top N.
 
-**Input**: Current state of an iterative process (inquiry folder, discipline outputs, accumulator)
-**Output**: Steering directive saved as markdown
+Navigation replaces wayfinding (superset — 15 types vs 6 moves, full enumeration vs single direction).
+
+**Input**: Inquiry folder with SIC outputs, raw text describing current state, or file path
+**Output**: Navigation map saved as `navigation_N.md` (numbered per iteration)
+
+[View full command](../commands/navigation.md)
+
+---
+
+### `/wayfinding` *(superseded by `/navigation`)*
+
+Apply the Structural Wayfinding thinking discipline. Produces a single steering move from six options (BROADEN, NARROW, SHIFT, DIAGNOSE, TERMINATE, RECONSIDER). Navigation (`/navigation`) is the recommended replacement — it produces the full possibility space instead of a single direction.
 
 [View full command](../commands/wayfinding.md)
 
@@ -459,7 +469,8 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/decompose` | Structural decomposition (coupling map + question tree) | Markdown file(s) |
 | `/explore` | Structural exploration (scan-signal-probe + confidence map) | Markdown file(s) |
 | `/comprehend` | Structural comprehension (model construction + prediction testing + frontier questions) | Markdown file(s) |
-| `/wayfinding` | Search steering (3-layer awareness + 6 moves) | Steering directive as markdown |
+| `/navigation` | Full possibility map (15 types × 3 categories, directions + guidelines) | `navigation_N.md` per iteration |
+| `/wayfinding` | Search steering — superseded by `/navigation` | Steering directive as markdown |
 | `/inquiry` | Loop runner (CONFIGURE + track + resume) | Inquiry folder + next command |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |

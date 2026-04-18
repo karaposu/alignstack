@@ -1,3 +1,17 @@
+## Discipline Tiers
+
+**Core disciplines** (the cognitive cycle): S → I → C
+Sensemaking, Innovation, Critique. Operate on one question to produce one answer. Understand, generate, evaluate. The cycle IS the thinking.
+
+**Boundary disciplines** (between cycles): R + N
+Reflection, Navigation. Operate at the edge between one cognitive cycle and the next.
+- R looks backward — how did the process perform?
+- N looks forward — what are all possible next directions?
+
+Core disciplines process. Boundary disciplines steer and learn.
+
+---
+
 1. self improvement competance 
 
 

@@ -159,12 +159,6 @@ Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addre
   Run: /sense-making devdocs/inquiries/[name]/_branch.md
   ```
 
-  If this iteration produced multiple survivors, frontier questions, or branching possibilities, suggest:
-  ```
-  Multiple directions emerged. For a full possibility map, run:
-  /navigate devdocs/inquiries/[name]/
-  ```
-
 **3. Does the answer advance the goal?**
 If the question IS answered but the answer doesn't advance the goal stated in `_branch.md` — note this. The answer might be technically correct but practically useless. Flag it for the user.
 
