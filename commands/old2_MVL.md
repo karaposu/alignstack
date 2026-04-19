@@ -112,54 +112,22 @@ List the surviving ideas/approaches from critique's verdicts. What was killed? W
 Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addresses the question and meets the goal? Be honest — a partial answer is not a full answer.
 
 - **YES — the question is answered:**
-
-  Write `finding.md` in the inquiry folder. Read all four files (`_branch.md`, `sensemaking.md`, `innovation.md`, `critique.md`) and produce the finding as a single argumentative document.
-
-  Write for a reader who has NOT seen the SIC output — someone who just joined the project and needs to understand: what was the question, what's the answer, why this answer over the alternatives, and what's still open. Do not compress. Explain fully even if finding is long. The test: can someone read ONLY `finding.md` and understand the complete decision?
-
-  Use this structure:
-
-  ```markdown
-  ---
-  status: active
-  ---
-  # Finding: [inquiry name]
-
-  ## Question
-  [From _branch.md — the question and goal]
-
-  ## Finding
-  [The answer. Base on critique's "The Answer" or assembly
-   verdict. Enrich with innovation's Assembly design and
-   sensemaking's SV6 understanding. Must be complete,
-   self-contained, non-compact.]
-
-  ## Reasoning
-  [Why this finding over alternatives. Include:
-   - Every KILL from critique with prosecution reasoning
-   - Every KILL from innovation with rejection reasoning
-   - Every SURVIVE with why it held
-   Significant kills: full explanation of what was proposed
-   and why it was rejected. Trivial kills: brief mention.
-   Show the full field of what was considered.]
-
-  ## Open Questions
-  [Collect frontier questions from all three SIC files
-   where relevant. Include REFINE candidates from innovation
-   (deferred, not killed). Deduplicate.]
   ```
+  ## SIC Loop Complete — Iteration [N]
 
-  After writing, verify coverage:
-  - Every critique KILL is in Reasoning
-  - Every critique SURVIVE is reflected in Finding
-  - Open Questions draws from all three files where relevant
+  ### Answer
+  [Compile the survivors into a clear, direct answer to the original question.
+   Written for someone who wasn't in the loop.]
 
-  For multi-iteration inquiries: Finding reflects the FINAL iteration's answer. Prior iterations' lessons go in Reasoning as context.
+  ### What survived and why
+  [Brief summary of what critique selected and the key reasoning]
 
-  Then:
-  - Archive: move `sensemaking.md`, `innovation.md`, `critique.md` to `docarchive/` subfolder
-  - Update `_state.md`: Status → COMPLETE, append to History
-  - Print in conversation: brief summary (the question + one-sentence answer + file path). Not the full finding.
+  ### Frontier
+  [What questions did this SIC loop raise but not answer?
+   These are direction signals for the NEXT inquiry if the user wants to go deeper.]
+  ```
+  
+  Update `_state.md`: Status → COMPLETE. Append to History.
 
 - **NO — the question is not fully answered:**
   ```
