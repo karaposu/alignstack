@@ -292,6 +292,28 @@ The loop runner for chaining thinking disciplines. Not a thinking discipline its
 
 ---
 
+### `/MVL`
+
+The minimum viable loop — runs Sensemaking → Innovation → Critique (SIC) on any question. Always the full pipeline, no classification, no variable sequencing. For NEW questions: creates an inquiry folder with `_branch.md` (question + goal + scope check) and `_state.md` (progress tracking). For RESUME: reads state, detects which discipline to run next. When the iteration completes: writes `finding.md` (self-contained argumentative output: Question → Finding → Reasoning → Open Questions) and archives source files to `docarchive/`. If the question isn't answered, loops again with refined focus.
+
+**Input**: New question/description, or existing inquiry folder to resume
+**Output**: Inquiry folder (`devdocs/inquiries/<name>/`) with `_branch.md`, `_state.md`, SIC outputs, and eventually `finding.md`
+
+[View full command](../commands/MVL.md)
+
+---
+
+### `/MVL+`
+
+The extended cognitive loop — runs Exploration → Sensemaking → Decomposition → Innovation → Critique on any question. Adds two first-phase disciplines (E maps unknown territory, D partitions complexity) that `/MVL` classic lacks. Strictly sequential in the first phase. Coexists with classic `/MVL` — `_state.md` has a `flow-type: extended` field to distinguish. Use `/MVL+` as the default for new inquiries; use `/MVL` classic for simple well-defined problems when speed matters. When the iteration completes: writes `finding.md` from six sources (`_branch.md` + all five discipline outputs) and archives them to `docarchive/`.
+
+**Input**: New question/description, or existing extended inquiry folder to resume
+**Output**: Inquiry folder with 5-step progress tracking, all discipline outputs, and `finding.md`
+
+[View full command](../commands/MVL+.md)
+
+---
+
 ## Archaeology Commands
 
 These commands are for understanding existing codebases. They read code (not documentation) and produce honest assessments of what the project actually is and how it's built.
@@ -472,6 +494,8 @@ Scan all devdocs, compare each folder and file against the codebase and current 
 | `/navigation` | Full possibility map (15 types × 3 categories, directions + guidelines) | `navigation_N.md` per iteration |
 | `/wayfinding` | Search steering — superseded by `/navigation` | Steering directive as markdown |
 | `/inquiry` | Loop runner (CONFIGURE + track + resume) | Inquiry folder + next command |
+| `/MVL` | Minimum viable loop (S → I → C) | Inquiry folder + `finding.md` |
+| `/MVL+` | Extended cognitive loop (E → S → D → I → C) | Inquiry folder + `finding.md` |
 | `/arch-small-summary` | Non-technical project summary | `devdocs/archaeology/small_summary.md` + conversation |
 | `/arch-intro` | Architecture introduction | `devdocs/archaeology/intro2codebase.md` + conversation |
 | `/arch-traces` | End-to-end interaction traces | `devdocs/archaeology/traces/` |
