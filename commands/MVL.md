@@ -44,8 +44,15 @@ $ARGUMENTS
    - [ ] Critique
    ## Iteration
    1
+   ## Status
+   ACTIVE
    ## Next Command
    /sense-making devdocs/inquiries/[name]/_branch.md
+   ## Relationships
+   [Add if applicable. Omit section if standalone.
+   - CONTINUES FROM: folder_name (context)
+   - SUPERSEDED BY: folder_name (reason)
+   - RELATED: folder_name (connection)]
    ## History
    - [date]: Created. Question: [one-line summary]
    ```
@@ -160,6 +167,10 @@ Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addre
   - Archive: move `sensemaking.md`, `innovation.md`, `critique.md` to `docarchive/` subfolder
   - Update `_state.md`: Status → COMPLETE, append to History
   - Print in conversation: brief summary (the question + one-sentence answer + file path). Not the full finding.
+  - Check `_state.md` for `## Relationships` and print post-completion pointers:
+    - If CONTINUES FROM exists: `"This finding is ready for [parent_name] ([context]). Finding: [one-sentence answer]. Resume: /MVL devdocs/inquiries/[parent_name]/"`
+    - If RELATED exists: `"Related: [name] ([context]) — this finding may affect it."`
+    - If no relationships: nothing additional.
 
 - **NO — the question is not fully answered:**
   ```
