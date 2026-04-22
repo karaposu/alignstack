@@ -1,19 +1,5 @@
 ---
 status: active
-continued_by:
-  - regression_detection_design (superseded)
-  - importance_measurement_problem (superseded prior; introduced 2-layer L1+L2 architecture — corrected)
-  - thinking_space_dynamics (corrected: real-time value judgment IS possible via intuition; introduced 3-layer L1+L3+L2 architecture; L3 is the Baldwin cycle's real-time input)
-  - intuition_as_discipline (refined L3: promoted to first-class /intuit discipline grounded in CBR + SME; Z-transform analogy rescued via SME Projection; phased build A/B/C/D)
-  - thinking_space_primitives (audited the primitive set: 4-primitive model was internally contradictory; refined to typed 11-primitive set with four-criterion admission test; Primitive Cards + corpus audit + invocation trace)
-developments_since_original:
-  - "Regression Detection as 'immediate next buildable step' has been reshaped. It is no longer the immediate build target — it became a use case of the deeper work on thinking-space. The immediate buildable step is now /intuit Phase A (convergent mode + Primitive Cards for 8 Phase-A primitives + corpus-audit admission + evidence-linked invocation trace)."
-  - "The three-layer architecture (L1 structural + L3 real-time hunch + L2 retrospective-as-calibrator) is the substrate for the Baldwin cycle. Without L3, the autonomy ladder has no substrate for Level 3+. This inquiry's 'Baldwin cycle' mechanism now has a concrete implementation path."
-  - "Consciousness-gradient indicators (spontaneous attention, intrinsic valuation, real-time steering, discontinuity awareness, intrinsic curiosity, current-position indicator) now have hypothesis-level compositions in terms of typed primitives. Example: spontaneous attention = Salience + Metacognition; intrinsic valuation = Evaluation + Motivation; real-time steering = Metacognition + Inhibition. These are falsifiable hypotheses — if an indicator appears without the composed primitives, the composition is wrong."
-  - "The primitive set is typed (operations / buffers / drivers / modulators). Completeness is checked per type, not by counting. If ANY Tier A primitive were missing, the corresponding autonomy indicator would be unreachable — the primitive set and the end goal check each other."
-  - "Substrate ceiling made honest: some primitives (embodied cognition, felt affective quality, dream-state consolidation) are structurally inaccessible to the LLM substrate. Named-but-unoperationalized rather than silently dropped. Predictive processing is an alternative architecture (not addition), noted as research frontier."
-  - "Z-space / custom-intuition-space generation identified as Level 3 capability beyond current brute-force transfer at Level 2. Named as deferred future capability on the autonomy ladder."
-current_state_file: enes/desc.md
 ---
 # Finding: Autonomous Consciousness Goal
 
