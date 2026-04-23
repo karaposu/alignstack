@@ -130,34 +130,16 @@ The signature claim — "geometrical similarities between shapes even if they ar
 
 ### 4. The three-layer architecture
 
-Regression detection has a fundamental temporal structure. The correct architecture is three layers with different cadences:
+The system's quality awareness is structured as three layers — Primitive Regression Checker (immediate, deterministic), Predictive Regression Checker (immediate, probabilistic), and Retrospective (delayed, empirical). The full explanation of what these layers are, how they interact, and the trajectory from human-provided to system-provided quality awareness is in `enes/evolving_quality_assetment_component.md`.
 
-```
-L1 — Structural (T0, immediate, deterministic)
-     Format, contradictions, missing sections, removed safeguards
-     Source: git diff, text scan
-     Signal type: BINARY / DEFINITIVE
+In shorthand throughout this document: **Primitive RC = L1, Predictive RC = L3, Retrospective = L2.** The L-numbering reflects temporal structure (L1 at T0 deterministic, L3 at T0 probabilistic, L2 at T2+ empirical).
 
-L3 — Real-time hunch (T0, immediate, probabilistic)
-     Geometric / analogical match to prior work via thinking-space
-     Implementation: /intuit discipline (see below)
-     Signal type: PROBABILISTIC, must be calibrated
+The Predictive RC (L3) predicts at T0; the Retrospective (L2) confirms or contradicts at T2+; the delta is calibration data. Over time L3 hunches become more reliable as the calibration loop runs. **This closed loop IS the Baldwin cycle** — the system's primary mechanism for self-improvement.
 
-L2 — Retrospective value (T0+ → T4, delayed, empirical)
-     Downstream consumption, citation, supersession, implementation
-     Source: existing telemetry, _state.md relationships, SUPERSEDED BY density
-     Signal type: EMPIRICAL GROUND TRUTH over time
-     Role: CALIBRATION source for L3 (in addition to its own signal role)
-```
+**Primitive-to-layer placement.** Most of the 11 admitted primitives live primarily in L3 (the Predictive RC / real-time cognitive layer). Two span layers:
 
-L3 predicts at T0; L2 confirms or contradicts at T2+; the delta is calibration data. Over time L3 hunches become more reliable as the calibration loop runs. **This closed loop IS the Baldwin cycle** — the system's primary mechanism for self-improvement. L2 is not discarded; its role is expanded to include calibrator-of-L3.
-
-**Primitive-to-layer placement.** Most of the 11 admitted primitives live primarily in L3 (the real-time cognitive layer). Two span layers:
-
-- **Metacognition** operates at L3 in-call (the "I'm stuck" signal, INSUFFICIENT_INTUITION outputs) AND at L2 system-level (observing calibration curves over time, signaling when a primitive needs refinement). The calibration mechanism has always required *something* to watch calibration and generate refinement signals; that's Metacognition at L2.
+- **Metacognition** operates at L3 in-call (the "I'm stuck" signal, INSUFFICIENT_INTUITION outputs) AND at L2 system-level (observing calibration curves over time, signaling when a primitive needs refinement).
 - **Working Memory** operates at L3 ephemerally (the in-call buffer; LLM context scope) AND at L2 when a persistent `thinking_space.md` artifact ships (Phase δ of the primitive build, gated on Baldwin cycle requiring cross-call continuity).
-
-This is a clarification of "primitives live in L3," not an override. The L3/L2 boundary (real-time-probabilistic vs delayed-empirical) is unchanged; two primitives simply operate at both scopes.
 
 ### 5. The L3 mechanism: the /intuit discipline
 

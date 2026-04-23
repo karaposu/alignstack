@@ -13,7 +13,7 @@ What is the end-goal definition for this thinking system — where the system ai
 
 ## Finding
 
-The end-goal definition is a layered north star. The one-sentence version orients; the reference paragraph fills in substance; the detailed sections make it testable and actionable. The definition is: **consciousness-gradient + emancipation + asymptotic ladder**, with the three-layer architecture (L1 structural + L3 real-time hunch + L2 retrospective-as-calibrator) as the operational substrate and `/intuit` as the discipline that operates L3.
+The end-goal definition is a layered north star. The one-sentence version orients; the reference paragraph fills in substance; the detailed sections make it testable and actionable. The definition is: **consciousness-gradient + emancipation + asymptotic ladder**, with Evolving Quality Awareness (see `enes/evolving_quality_assetment_component.md`) as the operational substrate that enables autonomous self-improvement.
 
 ### The North Star (one sentence)
 
@@ -79,6 +79,20 @@ Each Baldwin cycle: run problem → observe → detect pattern → propose chang
 **The Baldwin cycle now has a concrete substrate.** The L3 real-time hunch layer produces predictions at T0; the L2 retrospective layer confirms or contradicts at T2+; the delta is calibration data; consistent miscalibration patterns become Baldwin-cycle seeds for spec refinement. Without L3, nothing predicts at T0; without L2, nothing calibrates over time. Together they form the closed loop that IS the Baldwin cycle.
 
 **Baldwin seeds never bypass the SIC loop.** Hunch-pattern seeds produce inquiry PROPOSALS that enter the normal E → S → D → I → C cycle. Humans review findings (Level 0–2) and then review fewer over time (Level 3–4). Seed-generation activates only after calibration maturity (N ≥ 30 per discipline).
+
+### Evolving Quality Awareness — The Engine of Autonomy
+
+The system cannot self-improve if it cannot tell good output from bad. Quality awareness is the prerequisite for every level of the autonomy ladder — a system that can't assess its own work can't be trusted to modify itself.
+
+The full model is in `enes/evolving_quality_assetment_component.md`. The short version: three layers of quality awareness, each arriving at a different time with a different kind of signal:
+
+- **Primitive Regression Checker** — immediate, deterministic. Catches structural breakage (missing sections, format violations, removed safeguards).
+- **Predictive Regression Checker** — immediate, probabilistic. Senses whether output is qualitatively good or bad before proof exists. Fed by discipline telemetry and by intuition-based corpus matching.
+- **Retrospective** — delayed, empirical. Confirms what actually worked after downstream consequences play out. The only source of ground truth.
+
+Right now, the human IS all three layers. The trajectory is the system gradually developing its own quality awareness — Primitive RC first (automated structural checks), then Predictive RC (real-time hunch capability), then Retrospective (outcome tracking and calibration). Each autonomy level in the graduated model requires the corresponding quality awareness capability.
+
+The feedback loop between Predictive RC and Retrospective is the Baldwin cycle: the system predicts → outcomes arrive → the delta teaches better predictions → better predictions drive better spec changes. This loop cannot close until both layers exist as system capabilities rather than human-provided ones.
 
 ### The Bootstrap Resolution
 
@@ -214,8 +228,9 @@ This is **emancipation through bootstrap-anchored values** — not mainstream AI
 
 ---
 
-## Key inquiry links
+## Key references
 
+- `enes/evolving_quality_assetment_component.md` — the three-layer quality awareness architecture (Primitive RC, Predictive RC, Retrospective)
 - `devdocs/inquiries/regression_detection_design/finding.md` — superseded; L1 components remain active
 - `devdocs/inquiries/importance_measurement_problem/finding.md` — corrected on "real-time = structural only"; 2-layer architecture superseded by 3-layer
 - `devdocs/inquiries/thinking_space_dynamics/finding.md` — introduced 3-layer architecture; refined twice (by intuition_as_discipline, by thinking_space_primitives)

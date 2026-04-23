@@ -1,3 +1,11 @@
+abstractions designed from one data point ossify around that data point's accidents. The second target reveals which joints are real.
+
+
+
+
+
+
+
 Six steering moves (BROADEN, NARROW, SHIFT, DIAGNOSE, TERMINATE, RECONSIDER)
 
 Reachability analysis  
