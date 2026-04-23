@@ -1,15 +1,15 @@
 #!/bin/bash
 # Install AlignStack skills into OpenAI Codex format
-# Transforms commands/*.md → .agents/skills/<name>/SKILL.md
+# Transforms commands/*.md → .codex/skills/<name>/SKILL.md
 #
 # Usage:
 #   bash install_codex.sh              # local repo-level (default when in repo)
-#   bash install_codex.sh --user       # user-level (~/.agents/skills/)
-#   bash install_codex.sh --repo       # repo-level (.agents/skills/)
+#   bash install_codex.sh --user       # user-level (~/.codex/skills/)
+#   bash install_codex.sh --repo       # repo-level (.codex/skills/)
 #
 # Remote (curl):
 #   curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_codex.sh | bash
-#   curl -sL ... | bash -s -- --repo   # install to current directory's .agents/skills/
+#   curl -sL ... | bash -s -- --repo   # install to current directory's .codex/skills/
 
 set -euo pipefail
 
@@ -45,18 +45,18 @@ else
 fi
 
 case "$MODE" in
-  --user)   TARGET="$HOME/.agents/skills" ;;
+  --user)   TARGET="$HOME/.codex/skills" ;;
   --repo)
     if $REMOTE; then
-      TARGET="$(pwd)/.agents/skills"
+      TARGET="$(pwd)/.codex/skills"
     else
-      TARGET="$SCRIPT_DIR/.agents/skills"
+      TARGET="$SCRIPT_DIR/.codex/skills"
     fi
     ;;
   --help|-h)
     echo "Usage: bash install_codex.sh [--repo | --user]"
-    echo "  --repo  Install to .agents/skills/ in project root (or cwd for remote)"
-    echo "  --user  Install to ~/.agents/skills/ (available in all repos)"
+    echo "  --repo  Install to .codex/skills/ in project root (or cwd for remote)"
+    echo "  --user  Install to ~/.codex/skills/ (available in all repos)"
     exit 0
     ;;
   *)
