@@ -1,89 +1,50 @@
-# What This Project Is
+# Project Summary — Non-Technical
 
-AlignStack (also called "Vibe-Driven Development") is a book and methodology for how to work effectively with AI coding assistants. It's published as an online book, distributed as a set of reusable commands for AI tools, and designed around an ambitious vision for autonomous AI development agents.
+## What this project is
 
----
+This project is a **book plus a companion toolkit** for people who use AI coding assistants (like Claude or Cursor) and want a more disciplined way to work with them. The book's name is **AlignStack**, and the whole thing is published online at `karaposu.github.io/alignstack/`. The folder on disk is still called `vibe-driven-development` — the earlier name — but everything inside has been rebranded to AlignStack.
 
-## What It Currently Does
+There is almost no traditional "code" here. What looks like a software project is really three kinds of writing sitting side by side:
 
-### 1. An Online Book
+1. **A book** — chapters in plain text (markdown) that explain a methodology for working with AI on software projects.
+2. **A set of ~35 "slash commands"** — small prompt files you can install into Claude Code or Cursor so the AI will follow specific procedures when you type things like `/critic`, `/explore`, or `/sense-making`.
+3. **An active research notebook** — the author's ongoing notes where he's still working out the ideas, many written this month.
 
-The core of the project is a book written in Markdown and built with mdBook (a tool that turns Markdown files into a website). The book is deployed to GitHub Pages and covers:
+The only real executable code is a 90-line install script (downloads the commands to your machine) and a 60-line hook (auto-stamps a little metadata header onto new documentation files).
 
-- Why traditional software development methods don't work well when you're building with AI
-- A framework called "the Alignment Chain" — a structured way to make sure you and the AI are on the same page before, during, and after building something
-- A collection of practical patterns (DevDocs, Fuzzy Architecture, Anchor, Archaeology, Offload, Probe Tests, Vibe Testing) that help prevent common problems like AI forgetting what you said earlier, building the wrong thing confidently, or quietly breaking features it already built
+## What it currently does
 
-The book is organized into 12+ chapters across four parts, plus appendices with ready-to-use prompts and workflows. It reads as a practitioner's field guide, not an academic paper.
+The things that are actually working and usable today:
 
-### 2. A Library of AI Commands (Slash Commands)
+- **The book reads end-to-end.** Twelve chapters covering the methodology, plus nine appendices of ready-to-copy prompts. It's built as a static website using a tool called mdBook (a book-building tool), with a config file pointing at a live GitHub Pages site.
+- **The slash commands install.** Running `bash install.sh` copies ~35 command files into your local Claude config directory so you can use them from the terminal. Cursor users can copy them over too.
+- **The commands themselves are self-contained instructions** that tell the AI, step by step, how to perform a specific thinking task: critique a plan, explore a codebase, write a project summary, decompose a problem, and so on. Each command is a detailed recipe — some are 10 lines, others are 800+ lines with full methodology baked in.
+- **The metadata hook works.** If you wire it up in your Claude settings, every file the AI writes under a `devdocs/` folder automatically gets a date / git-branch / author header at the top.
 
-The project includes 30+ command files (stored in the `commands/` folder) that can be installed into Claude Code, Cursor, or similar AI coding tools. These commands package the book's methodology into reusable prompts:
+## What it appears to be trying to do
 
-- **Core workflow**: `/elaborate` (clarify what you want), `/task-desc` (document the task), `/task-plan` (plan the steps), `/critic` (find risks and errors)
-- **Codebase understanding**: `/arch-small-summary`, `/arch-intro`, `/arch-traces` (the "archaeology" commands that help AI understand an existing codebase)
-- **Thinking disciplines**: `/sense-making`, `/innovate`, `/comprehend`, `/decompose`, `/explore`, `/wayfinding` — structured prompts for specific types of thinking (making sense of confusion, generating ideas, understanding complex systems, etc.)
-- **Maintenance**: `/dead-code-index`, `/dead-code-concepts`, `/overview-report`, `/roadmap`
-- **Alignment checking**: `/align`, `/align-modes`, `/critic-d` (dynamic critic that adapts to context)
+Several things are clearly still in motion:
 
-There's an install script that downloads all commands to the user's system with a single `curl` command. A hook script is also included that auto-injects metadata headers into documentation files.
+- **A deeper "thinking disciplines" framework is being built underneath the book.** Folders like `thinking_disciplines/` and `enes/` contain essays arguing that operations like *sensemaking*, *innovation*, *critique*, and *exploration* are formal cognitive disciplines with definable components, processes, and failure modes — independent of software. The slash commands are being reworked to implement these disciplines. This layer feels newer and more ambitious than the book, and the book hasn't fully caught up to it yet.
+- **A "SIC loop" (Sensemaking → Innovation → Critique) is being established as a primitive.** The `/MVL` and `/MVL+` commands chain these three together, creating inquiry folders that track their own state across sessions. The author is using this on the project itself — there are 35 inquiry folders in `devdocs/inquiries/` where he's researched things like "what is intuition," "how does thinking-space work," "how to audit disciplines," each producing a `finding.md`.
+- **The "archaeology pattern" is being wired in.** The very command the user just invoked (`/arch-small-summary`) is part of a small family (`/arch-intro`, `/arch-traces`) meant to run on an unfamiliar codebase and produce orientation docs. The project's own `CLAUDE.md` tells any Claude agent working here to run these first if they're stale.
+- **Several commands are clearly mid-refactor.** You can see files like `old_MVL.md`, `old2_MVL.md`, `old_comprehend copy.md` sitting next to their replacements — the author keeps old versions around while the new ones settle.
 
-### 3. A Set of "Thinking Disciplines"
+## What looks half-built or abandoned
 
-Beyond the coding-specific patterns, the project has developed a layer of domain-independent thinking methodologies stored in `thinking_disciplines/`. Seven are fully built:
+- **The published book is out of date.** The built HTML in `book/` was generated months ago and doesn't reflect the newer ideas in `thinking_disciplines/` or `enes/`. Someone reading the website right now is getting an older version of the thinking.
+- **Chapter 7 has leftover files** (`probe_tests_fixed copy.md` alongside `probe_tests_fixed.md`) — the kind of clutter that suggests in-progress editing.
+- **The `agent/` folder contains only a README** — placeholder for something not yet built.
+- **A few scattered notes** (`a.md`, `b.md`, `note.md`, `debug.md`, `issue.md`, `points.md`, `sensemaking.md` at the root) look like scratch pads rather than finished content.
+- **The name mismatch** — folder says "vibe-driven-development," everything inside says "AlignStack" — hints the rebrand isn't fully finished.
 
-- **Sensemaking** — turning confusion into stable understanding
-- **Innovation** — generating novel ideas systematically
-- **Critique** — evaluating ideas through adversarial testing
-- **Wayfinding** — steering an ongoing search or thought process
-- **Decomposition** — breaking complexity into manageable pieces
-- **Exploration** — mapping unknown territory
-- **Comprehension** — building predictive mental models of how things work
+## Who would use this and why
 
-Four more are planned (Diagnosis, Reflection, Recovery, Evaluation). These are described at a high level of abstraction — they're meant to work for any domain, not just software.
+Two audiences, really:
 
----
+- **Developers who feel AI coding assistants are powerful but unreliable** — who want a structured way to keep the AI from drifting, losing context, or building the wrong thing. They'd read the book for the mental model and install the slash commands to get help running the methodology day-to-day.
+- **People interested in AI collaboration as a practice** — not just coders, but anyone thinking about how humans and AI should share work. The "thinking disciplines" material pushes past software into general questions about how structured thinking can be made repeatable when the thinker is partly a machine.
 
-## What It's Trying To Do (In Progress)
+## The general shape
 
-### The AlignStack Agent
-
-The most ambitious part of the project is a planned multi-agent AI system described in `agent/README.md`. The idea: six AI agents, one for each layer of the Alignment Chain, working together autonomously on long development tasks. Each agent would monitor its alignment dimension, switch between seven operational "modes" (Exploration, Alignment, Innovation, Diagnostic, Maintenance, Recovery, Reflection), and communicate with other agents to self-correct.
-
-This is currently a detailed design document — there's no code implementing it yet. It describes the architecture, agent roles, mode transitions, communication patterns, and how it would use the existing slash commands as its toolkit. The design is runtime-agnostic (it could run on Claude Code, Google ADK, or other frameworks).
-
-### AI Task Automation System
-
-There's a long sensemaking document (`sensemaking.md`) exploring a system that would sit between Jira and a codebase, using AI to automatically analyze tasks, generate documentation, and create implementation plans before developers start coding. This appears to be in the thinking/planning stage.
-
-### Community Building
-
-The `BuilderLoop.md` file contains a transcript about ideas for building a developer community through AI-assisted Reddit outreach and Telegram groups. This is tangential to the core project — a brainstorm about community growth.
-
----
-
-## Who Would Use This and Why
-
-- **Developers who use AI coding assistants** (Claude Code, Cursor, GitHub Copilot, etc.) and want a structured approach instead of ad-hoc prompting. The slash commands give them ready-to-use workflows.
-- **Team leads and tech leads** who want to establish consistent practices for AI-assisted development across their teams.
-- **Anyone building long or complex features with AI** who's noticed that AI assistants tend to lose context, drift from the plan, or break things they already built.
-- **People interested in structured thinking** who want frameworks for sensemaking, innovation, and critique that work beyond just software.
-
----
-
-## The General Shape
-
-This is a **methodology project** — primarily written content (a book, command definitions, thinking discipline specs, and an agent architecture document) with minimal code. The only executable code is a bash install script and a GitHub Actions workflow for deploying the book website. Everything else is Markdown.
-
-It's structured as a mdBook project with additional folders for commands, thinking disciplines, development documentation, and agent design. The project doubles as both the book's source and a living example of the methodology it describes (using devdocs, archaeology, and the patterns it teaches).
-
----
-
-## Honest Assessment of State
-
-- **The book** is substantially complete with 12+ chapters and multiple appendices. Some chapters are marked "not finished yet" (Vibe Testing). The writing quality varies — some chapters are polished, others have typos and rough formatting.
-- **The slash commands** are the most practically useful part — they're ready to install and use today.
-- **The thinking disciplines** are thoroughly defined (7 of 11 built) with clear structures, but they're dense and abstract — hard to approach without prior context.
-- **The agent system** is a pure design document. It's detailed and ambitious but entirely unimplemented.
-- **The devdocs folder** contains working notes, explorations, and sensemaking documents that represent active thinking-in-progress rather than finished artifacts.
-- **Several generated images** (logos, cover art) are stored in the root directory, suggesting branding work happened alongside content development.
+This is **a book plus a Claude Code / Cursor plugin**, distributed as a single GitHub repository. If you had to put it in one sentence: it's a writer-and-researcher's workshop, where the product you can use today (the book, the commands) sits next to the author's live notes on what he thinks the product should become next.

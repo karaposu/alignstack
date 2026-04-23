@@ -50,8 +50,8 @@ $ARGUMENTS
    1
    ## Status
    ACTIVE
-   ## Next Discipline
-   Exploration
+   ## Next Command
+   /explore devdocs/inquiries/[name]/_branch.md
    ## Relationships
    [Add if applicable. Omit section if standalone.
    - CONTINUES FROM: folder_name (context)
@@ -61,15 +61,18 @@ $ARGUMENTS
    - [date]: Created. Question: [one-line summary]
    ```
 
-5. Present briefly:
+5. Present:
    ```
    Extended loop created: devdocs/inquiries/[name]/
    Pipeline: E → S → D → I → C
    Question: [restated clearly]
    Goal: [what a good answer looks like]
+
+   Next, run:
+   /explore devdocs/inquiries/[name]/_branch.md
    ```
 
-6. **Immediately begin the pipeline** — proceed to EXECUTE PIPELINE below. Do not wait for user input.
+**Done. Wait for user to run the exploration command.**
 
 ---
 
@@ -79,48 +82,52 @@ $ARGUMENTS
 
 2. Verify `flow-type: extended` in `_state.md`. If the field is `classic` or absent, this inquiry belongs to `/mvl`, not `/mvl+` — flag to the user and stop.
 
-3. Determine where the pipeline left off by checking which files exist. Proceed to EXECUTE PIPELINE below, starting from the first incomplete discipline.
+3. Check what exists and determine the next step. The flow is strictly sequential: E → S → D → I → C.
 
----
-
-### EXECUTE PIPELINE
-
-Run disciplines sequentially: E → S → D → I → C. For each discipline that hasn't produced its output file yet, execute it using the Discipline Transition Protocol below. Continue through all remaining disciplines without pausing — do not wait for user input between disciplines. The user can interrupt at any time to redirect.
-
-**For each discipline in sequence:**
-
-1. **Display checkpoint** (except before the first discipline of the session):
+   **a. No `exploration.md`** → Exploration hasn't run yet.
    ```
-   ── Checkpoint ──────────────────────────────────
-   [Previous discipline] complete.
-     [2-3 key telemetry metrics from the output just saved]
-   Proceeding to [Next discipline]...
-   ────────────────────────────────────────────────
+   Next, run:
+   /explore devdocs/inquiries/[name]/_branch.md
    ```
 
-2. **Load the discipline spec via Skill tool:**
-   - Invoke `Skill(skill: "<discipline-skill-name>", args: "devdocs/inquiries/[name]/_branch.md")`
-   - If the Skill tool fails → fall back to `Read` on the discipline's command file, then execute
-   - If Read also fails → HALT and tell the user: "Could not load spec for [discipline]. Run manually: /[discipline] devdocs/inquiries/[name]/_branch.md"
-   - **Never execute a discipline from memory alone.**
+   **b. `exploration.md` exists, no `sensemaking.md`** → Exploration is done.
+   Read the exploration output. Check the telemetry section (Saturation Indicators). If anything looks thin or concerning — flag it to the user with a specific note. Otherwise:
+   ```
+   Exploration complete.
+   Next, run:
+   /sense-making devdocs/inquiries/[name]/_branch.md
+   ```
 
-3. **Execute the loaded spec** at full depth. The discipline saves its output to the inquiry folder.
+   **c. `exploration.md` + `sensemaking.md` exist, no `decomposition.md`** → Sensemaking is done.
+   Read the sensemaking output. Check telemetry. Flag concerns. Otherwise:
+   ```
+   Sensemaking complete.
+   Next, run:
+   /decompose devdocs/inquiries/[name]/_branch.md
+   ```
 
-4. **Update `_state.md`:** check off the completed discipline, set next discipline.
+   **d. `exploration.md` + `sensemaking.md` + `decomposition.md` exist, no `innovation.md`** → Decomposition is done.
+   Read the decomposition output. Check telemetry. Flag concerns. Otherwise:
+   ```
+   Decomposition complete.
+   Next, run:
+   /innovate devdocs/inquiries/[name]/
+   ```
+   (Note: `/innovate` reads all three first-phase outputs — exploration.md, sensemaking.md, decomposition.md — when invoked on an extended inquiry folder.)
 
-5. **Continue immediately** to the next discipline in E → S → D → I → C.
+   **e. `innovation.md` exists, no `critique.md`** → Innovation is done.
+   Read the innovation output. Check the telemetry section (Mechanism Coverage). If coverage looks thin — flag it. Otherwise:
+   ```
+   Innovation complete.
+   Next, run:
+   /td-critique devdocs/inquiries/[name]/
+   ```
 
-**Skill-to-command mapping:**
+   **f. All five exist** → Iteration complete. Go to ITERATION COMPLETE below.
 
-| Discipline | Skill name | Output file |
-|---|---|---|
-| Exploration | `explore` | `exploration.md` |
-| Sensemaking | `sense-making` | `sensemaking.md` |
-| Decomposition | `decompose` | `decomposition.md` |
-| Innovation | `innovate` | `innovation.md` |
-| Critique | `td_critique` | `critique.md` |
+4. Update `_state.md`: check off completed steps, set next command.
 
-**When all five are complete** → proceed to ITERATION COMPLETE below.
+**Done. Wait for user to run the next discipline command.**
 
 ---
 
@@ -264,17 +271,16 @@ Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addre
   Update `_state.md`:
   - Increment iteration
   - Reset progress checkboxes (all 5)
-  - Set next discipline: Exploration
+  - Set next command: `/explore devdocs/inquiries/[name]/_branch.md` (with the refined focus noted in history)
   - Append to History: what happened this iteration, what the gap is, what the next focus is
 
-  Print briefly:
   ```
   Iteration [N] complete. Question not fully answered.
   Gap: [what's missing]
-  Next iteration focus: [refined question]
+  
+  Next iteration will focus on: [refined question]
+  Run: /explore devdocs/inquiries/[name]/_branch.md
   ```
-
-  Then immediately begin the next iteration — proceed to EXECUTE PIPELINE with the refined focus.
 
   If this iteration produced multiple survivors, frontier questions, or branching possibilities, suggest:
   ```
@@ -304,11 +310,10 @@ If the user skips, move on. No gate. No requirement. Observations accumulate ove
 /MVL+ devdocs/inquiries/[name]/
   → Reads _state.md (verifies flow-type: extended)
   → Sees where you left off
-  → Loads the next discipline's spec via Skill tool
-  → Continues the pipeline from where it stopped
+  → Tells you what to run next
 ```
 
-`_state.md` has everything needed to resume. Any session, any AI. The Skill tool invocation ensures the discipline spec is freshly loaded even in a cold session.
+`_state.md` has everything needed to resume. Any session, any AI.
 
 ---
 
@@ -318,6 +323,6 @@ If the user skips, move on. No gate. No requirement. Observations accumulate ove
 2. **Each step saves to the inquiry folder.** Point discipline commands at files in the folder — output saves alongside with the discipline's canonical name (`exploration.md`, `sensemaking.md`, `decomposition.md`, `innovation.md`, `critique.md`).
 3. **`_state.md` is the source of truth.** Progress, iteration count, history, next command, flow-type.
 4. **If the question isn't answered, loop again.** Each iteration narrows the focus based on what the previous iteration revealed.
-5. **The human can redirect at any point.** The pipeline runs continuously without pausing. The human can interrupt mid-response to redirect, re-run, or override. Checkpoints display telemetry between disciplines for visibility — they are informational, not gates.
+5. **The human reviews between every step.** The human can redirect, re-run, or override at any point. The loop suggests — the human decides.
 6. **Failures are data.** If the loop produces a bad answer, the WHERE and WHY of the failure is valuable — it reveals what needs to improve in the discipline configurations (the specs).
 7. **Classic `/mvl` is UNCHANGED.** This command (`/mvl+`) is separate and coexists with classic. Existing classic inquiries resume with `/mvl`, not `/mvl+`. The `flow-type` field in `_state.md` distinguishes them.

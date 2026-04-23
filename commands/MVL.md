@@ -46,8 +46,8 @@ $ARGUMENTS
    1
    ## Status
    ACTIVE
-   ## Next Command
-   /sense-making devdocs/inquiries/[name]/_branch.md
+   ## Next Discipline
+   Sensemaking
    ## Relationships
    [Add if applicable. Omit section if standalone.
    - CONTINUES FROM: folder_name (context)
@@ -57,18 +57,15 @@ $ARGUMENTS
    - [date]: Created. Question: [one-line summary]
    ```
 
-5. Present:
+5. Present briefly:
    ```
    SIC loop created: devdocs/inquiries/[name]/
    Pipeline: S → I → C
    Question: [restated clearly]
    Goal: [what a good answer looks like]
-
-   Next, run:
-   /sense-making devdocs/inquiries/[name]/_branch.md
    ```
 
-**Done. Wait for user to run the sensemaking command.**
+6. **Immediately begin the pipeline** — proceed to EXECUTE PIPELINE below. Do not wait for user input.
 
 ---
 
@@ -76,35 +73,46 @@ $ARGUMENTS
 
 1. Read `_state.md` and `_branch.md` from the folder.
 
-2. Check what exists and determine the next step:
+2. Determine where the pipeline left off by checking which files exist. Proceed to EXECUTE PIPELINE below, starting from the first incomplete discipline.
 
-   **a. No `sensemaking.md`** → Sensemaking hasn't run yet.
-   ```
-   Next, run:
-   /sense-making devdocs/inquiries/[name]/_branch.md
-   ```
+---
 
-   **b. `sensemaking.md` exists, no `innovation.md`** → Sensemaking is done.
-   Read the sensemaking output. Check the telemetry section (Saturation Indicators). If anything looks thin or concerning — flag it to the user with a specific note (e.g., "only 2 perspectives produced new anchors — consider re-running with more angles"). Otherwise:
-   ```
-   Sensemaking complete.
-   Next, run:
-   /innovate devdocs/inquiries/[name]/sensemaking.md
-   ```
+### EXECUTE PIPELINE
 
-   **c. `innovation.md` exists, no `critique.md`** → Innovation is done.
-   Read the innovation output. Check the telemetry section (Mechanism Coverage). If coverage looks thin — flag it. Otherwise:
+Run disciplines sequentially: S → I → C. For each discipline that hasn't produced its output file yet, execute it using the Discipline Transition Protocol below. Continue through all remaining disciplines without pausing — do not wait for user input between disciplines. The user can interrupt at any time to redirect.
+
+**For each discipline in sequence:**
+
+1. **Display checkpoint** (except before the first discipline of the session):
    ```
-   Innovation complete.
-   Next, run:
-   /td-critique devdocs/inquiries/[name]/
+   ── Checkpoint ──────────────────────────────────
+   [Previous discipline] complete.
+     [2-3 key telemetry metrics from the output just saved]
+   Proceeding to [Next discipline]...
+   ────────────────────────────────────────────────
    ```
 
-   **d. All three exist** → Iteration complete. Go to ITERATION COMPLETE below.
+2. **Load the discipline spec via Skill tool:**
+   - Invoke `Skill(skill: "<discipline-skill-name>", args: "devdocs/inquiries/[name]/_branch.md")`
+   - If the Skill tool fails → fall back to `Read` on the discipline's command file, then execute
+   - If Read also fails → HALT and tell the user: "Could not load spec for [discipline]. Run manually: /[discipline] devdocs/inquiries/[name]/_branch.md"
+   - **Never execute a discipline from memory alone.**
 
-3. Update `_state.md`: check off completed steps, set next command.
+3. **Execute the loaded spec** at full depth. The discipline saves its output to the inquiry folder.
 
-**Done. Wait for user to run the next discipline command.**
+4. **Update `_state.md`:** check off the completed discipline, set next discipline.
+
+5. **Continue immediately** to the next discipline in S → I → C.
+
+**Skill-to-command mapping:**
+
+| Discipline | Skill name | Output file |
+|---|---|---|
+| Sensemaking | `sense-making` | `sensemaking.md` |
+| Innovation | `innovate` | `innovation.md` |
+| Critique | `td_critique` | `critique.md` |
+
+**When all three are complete** → proceed to ITERATION COMPLETE below.
 
 ---
 
@@ -245,16 +253,17 @@ Re-read `_branch.md`'s question and goal. Does a clear survivor exist that addre
   Update `_state.md`:
   - Increment iteration
   - Reset progress checkboxes
-  - Set next command: `/sense-making devdocs/inquiries/[name]/_branch.md` (with the refined focus noted in history)
+  - Set next discipline: Sensemaking
   - Append to History: what happened this iteration, what the gap is, what the next focus is
 
+  Print briefly:
   ```
   Iteration [N] complete. Question not fully answered.
   Gap: [what's missing]
-  
-  Next iteration will focus on: [refined question]
-  Run: /sense-making devdocs/inquiries/[name]/_branch.md
+  Next iteration focus: [refined question]
   ```
+
+  Then immediately begin the next iteration — proceed to EXECUTE PIPELINE with the refined focus.
 
   If this iteration produced multiple survivors, frontier questions, or branching possibilities, suggest:
   ```
@@ -284,10 +293,11 @@ If the user skips, move on. No gate. No requirement. Observations accumulate ove
 /MVL devdocs/inquiries/[name]/
   → Reads _state.md
   → Sees where you left off
-  → Tells you what to run next
+  → Loads the next discipline's spec via Skill tool
+  → Continues the pipeline from where it stopped
 ```
 
-`_state.md` has everything needed to resume. Any session, any AI.
+`_state.md` has everything needed to resume. Any session, any AI. The Skill tool invocation ensures the discipline spec is freshly loaded even in a cold session.
 
 ---
 
@@ -297,5 +307,5 @@ If the user skips, move on. No gate. No requirement. Observations accumulate ove
 2. **Each step saves to the inquiry folder.** Point discipline commands at files in the folder — output saves alongside.
 3. **`_state.md` is the source of truth.** Progress, iteration count, history, next command.
 4. **If the question isn't answered, loop again.** Each iteration narrows the focus based on what the previous iteration revealed.
-5. **The human reviews between every step.** The human can redirect, re-run, or override at any point. The MVL suggests — the human decides.
+5. **The human can redirect at any point.** The pipeline runs continuously without pausing. The human can interrupt mid-response to redirect, re-run, or override. Checkpoints display telemetry between disciplines for visibility — they are informational, not gates.
 6. **Failures are data.** If the SIC loop produces a bad answer, the WHERE and WHY of the failure is valuable — it reveals what needs to improve in the discipline configurations (the specs).
