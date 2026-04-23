@@ -15,7 +15,11 @@ Slash commands live as `.md` files in a `commands/` directory:
 Install all AlignStack slash commands globally with one line:
 
 ```bash
+#For CLAUDE
 curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/commands/install.sh | bash
+
+#For CODEX
+curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_codex.sh | bash
 ```
 
 This downloads all slash commands and hooks into `~/.claude/` so they're available in every project you open with Claude Code.

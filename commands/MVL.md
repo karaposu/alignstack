@@ -88,9 +88,11 @@ Run disciplines sequentially: S → I → C. For each discipline that hasn't pro
    ── Checkpoint ──────────────────────────────────
    [Previous discipline] complete.
      [2-3 key telemetry metrics from the output just saved]
+     Structural: N/M checks passed
    Proceeding to [Next discipline]...
    ────────────────────────────────────────────────
    ```
+   If any structural checks failed, list them: `[FAIL: label1, label2]`
 
 2. **Load the discipline spec via Skill tool:**
    - Invoke `Skill(skill: "<discipline-skill-name>", args: "devdocs/inquiries/[name]/_branch.md")`
@@ -100,9 +102,16 @@ Run disciplines sequentially: S → I → C. For each discipline that hasn't pro
 
 3. **Execute the loaded spec** at full depth. The discipline saves its output to the inquiry folder.
 
-4. **Update `_state.md`:** check off the completed discipline, set next discipline.
+4. **Run structural check** on the saved output:
+   ```
+   bash tools/structural_check.sh devdocs/inquiries/[name]/[output_file] [discipline_name]
+   ```
+   Discipline-to-name mapping: `sensemaking.md → sensemaking`, `innovation.md → innovation`, `critique.md → critique`.
+   If any `[FAIL]` lines appear, fix the missing sections in the output and re-save. Re-run the check to confirm. Include the results in the next checkpoint display.
 
-5. **Continue immediately** to the next discipline in S → I → C.
+5. **Update `_state.md`:** check off the completed discipline, set next discipline.
+
+6. **Continue immediately** to the next discipline in S → I → C.
 
 **Skill-to-command mapping:**
 
