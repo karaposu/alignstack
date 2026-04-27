@@ -1,21 +1,18 @@
 #!/bin/bash
 # Install AlignStack skills into OpenAI Codex format
-# Transforms commands/*.md → ~/.agents/skills/<name>/SKILL.md
+# Downloads skills/*.md → transforms → ~/.agents/skills/<name>/SKILL.md
 #
 # Usage:
 #   bash install_codex.sh
-#
-# Remote (curl):
 #   curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_codex.sh | bash
 
 set -euo pipefail
 
 RAW_URL="https://raw.githubusercontent.com/karaposu/alignstack/main"
 TARGET="$HOME/.agents/skills"
-CLEANUP=""
 
-# Keep this list in sync with commands/install.sh
-REMOTE_COMMANDS=(
+# Keep this list in sync with skills/ directory
+REMOTE_SKILLS=(
   devdocs-foundation.md
   devdocs-foundation-concepts.md
   devdocs-foundation-simplified-concepts.md
@@ -26,21 +23,8 @@ REMOTE_COMMANDS=(
   task-plan.md
   critic.md
   critic-d.md
-  sense-making.md
-  innovate.md
-  td_critique.md
-  decompose.md
-  explore.md
-  wayfinding.md
-  inquiry.md
-  comprehend.md
-  MVL.md
-  MVL+.md
-  reflect.md
-  navigation.md
   arch-small-summary.md
   arch-intro.md
-  arch-traces.md
   arch-traces-2.md
   arch-top-improvements.md
   dead-code-index.md
@@ -52,29 +36,22 @@ REMOTE_COMMANDS=(
   devdocs-archivist.md
 )
 
-# Detect source: local repo or remote download
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd 2>/dev/null || pwd)"
-COMMANDS_DIR="$SCRIPT_DIR/commands"
+TMPDIR=$(mktemp -d)
+SKILLS_DIR="$TMPDIR/skills"
+mkdir -p "$SKILLS_DIR"
+trap 'rm -rf "$TMPDIR"' EXIT
 
-if [ ! -d "$COMMANDS_DIR" ]; then
-  echo "Downloading AlignStack commands..."
-  TMPDIR=$(mktemp -d)
-  CLEANUP="$TMPDIR"
-  COMMANDS_DIR="$TMPDIR/commands"
-  mkdir -p "$COMMANDS_DIR"
-  for cmd in "${REMOTE_COMMANDS[@]}"; do
-    echo "  downloading $cmd"
-    curl -fsSL "$RAW_URL/commands/$cmd" -o "$COMMANDS_DIR/$cmd"
-  done
-fi
-
-trap '[ -n "$CLEANUP" ] && rm -rf "$CLEANUP"' EXIT
+echo "Downloading AlignStack skills..."
+for cmd in "${REMOTE_SKILLS[@]}"; do
+  echo "  downloading $cmd"
+  curl -fsSL "$RAW_URL/skills/$cmd" -o "$SKILLS_DIR/$cmd"
+done
 
 SKIP_PATTERN="^old_|^old2_|^odl_|_old\."
 installed=0
 skipped=0
 
-for src in "$COMMANDS_DIR"/*.md; do
+for src in "$SKILLS_DIR"/*.md; do
   filename="$(basename "$src")"
 
   if echo "$filename" | grep -qiE "$SKIP_PATTERN"; then

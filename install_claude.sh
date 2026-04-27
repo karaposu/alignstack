@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install AlignStack slash commands and hooks for Claude Code
-# Usage: curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/commands/install.sh | bash
+# Usage: curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_claude.sh | bash
 
 set -e
 
@@ -42,7 +42,7 @@ commands=(
 
 for cmd in "${commands[@]}"; do
   echo "  downloading $cmd"
-  curl -sL "$REPO_URL/commands/$cmd" -o "$COMMANDS_DIR/$cmd"
+  curl -sL "$REPO_URL/skills/$cmd" -o "$COMMANDS_DIR/$cmd"
 done
 
 # --- Hooks ---
