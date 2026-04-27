@@ -16,7 +16,7 @@ Install all AlignStack slash commands globally with one line:
 
 ```bash
 #For CLAUDE
-curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/commands/install.sh | bash
+curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_claude.sh | bash
 
 #For CODEX
 curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_codex.sh | bash

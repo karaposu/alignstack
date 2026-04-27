@@ -1,19 +1,17 @@
 #!/bin/bash
 # Install AlignStack skills into OpenAI Codex format
-# Transforms commands/*.md → .codex/skills/<name>/SKILL.md
+# Transforms commands/*.md → ~/.agents/skills/<name>/SKILL.md
 #
 # Usage:
-#   bash install_codex.sh              # local repo-level (default when in repo)
-#   bash install_codex.sh --user       # user-level (~/.codex/skills/)
-#   bash install_codex.sh --repo       # repo-level (.codex/skills/)
+#   bash install_codex.sh
 #
 # Remote (curl):
 #   curl -sL https://raw.githubusercontent.com/karaposu/alignstack/main/install_codex.sh | bash
-#   curl -sL ... | bash -s -- --repo   # install to current directory's .codex/skills/
 
 set -euo pipefail
 
 RAW_URL="https://raw.githubusercontent.com/karaposu/alignstack/main"
+TARGET="$HOME/.agents/skills"
 CLEANUP=""
 
 # Keep this list in sync with commands/install.sh
@@ -68,45 +66,9 @@ if [ ! -d "$COMMANDS_DIR" ]; then
     echo "  downloading $cmd"
     curl -fsSL "$RAW_URL/commands/$cmd" -o "$COMMANDS_DIR/$cmd"
   done
-  REMOTE=true
-else
-  REMOTE=false
 fi
 
 trap '[ -n "$CLEANUP" ] && rm -rf "$CLEANUP"' EXIT
-
-# Default: --user for remote installs, --repo for local
-if [ -z "${1:-}" ]; then
-  if $REMOTE; then
-    MODE="--user"
-  else
-    MODE="--repo"
-  fi
-else
-  MODE="$1"
-fi
-
-case "$MODE" in
-  --user)   TARGET="$HOME/.codex/skills" ;;
-  --repo)
-    if $REMOTE; then
-      TARGET="$(pwd)/.codex/skills"
-    else
-      TARGET="$SCRIPT_DIR/.codex/skills"
-    fi
-    ;;
-  --help|-h)
-    echo "Usage: bash install_codex.sh [--repo | --user]"
-    echo "  --repo  Install to .codex/skills/ in project root (or cwd for remote)"
-    echo "  --user  Install to ~/.codex/skills/ (available in all repos)"
-    exit 0
-    ;;
-  *)
-    echo "Unknown option: $MODE"
-    echo "Usage: bash install_codex.sh [--repo | --user]"
-    exit 1
-    ;;
-esac
 
 SKIP_PATTERN="^old_|^old2_|^odl_|_old\."
 installed=0

@@ -26,18 +26,6 @@ commands=(
   task-plan.md
   critic.md
   critic-d.md
-  sense-making.md
-  innovate.md
-  td_critique.md
-  decompose.md
-  explore.md
-  wayfinding.md
-  inquiry.md
-  comprehend.md
-  MVL.md
-  MVL+.md
-  reflect.md
-  navigation.md
   arch-small-summary.md
   arch-intro.md
   arch-traces.md
@@ -84,9 +72,3 @@ echo "To activate the devdocs metadata hook, add this to .claude/settings.json:"
 echo ""
 echo '  {"hooks":{"PreToolUse":[{"matcher":"Write","hooks":[{"type":"command","command":"~/.claude/hooks/devdocs_metadata_appender.sh"}]}]}}'
 echo ""
-echo "Using Cursor? You can simply run:"
-echo ""
-echo "  mkdir -p ~/.cursor/commands && cp ~/.claude/commands/*.md ~/.cursor/commands/"
-echo ""
-echo "Or for project-specific:"
-echo "  mkdir -p .cursor/commands && cp ~/.claude/commands/*.md .cursor/commands/"
